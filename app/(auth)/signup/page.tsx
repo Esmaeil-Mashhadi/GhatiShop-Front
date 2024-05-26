@@ -1,9 +1,9 @@
-import Home from '@/components/templates/Home'
+import Register from '@/components/templates/Register'
 import React from 'react'
 
 function page() {
   return (
-    <Home />
+      <Register />
   )
 }
 

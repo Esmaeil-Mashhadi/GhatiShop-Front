@@ -1,0 +1,138 @@
+.container{
+    position: absolute;
+    top: 50%;
+    transition: .5s ease;
+    transform: translateY(-50%) var(--transfer);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.codeContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    transform: var(--transfer);
+    transition: .5s ease;
+}
+.inputContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.inputContainer input{
+    background: rgb(59, 60, 67);
+    width: 80%;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    outline: none;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+}
+
+.buttonContainer{
+display: flex;
+gap: 10px;
+}
+
+
+    
+.finalForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) var(--transfer);
+    transition: .5s ease;
+}
+
+.info{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.info label{
+    white-space: nowrap;
+}
+
+.info div{
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.info input{
+    border-radius: 5px;
+    padding: 5px;
+    border: none;
+    outline: none;
+    background: rgb(59, 60, 67);
+    font-weight: bold;
+    color: white;
+}
+
+
+
+@media screen and (max-width:800px) {
+    .finalForm {
+        width: 80%;
+    }
+    .finalForm input{
+        width: 100px;
+    }
+}
+@media screen and (max-width:600px) {
+
+    .codeContainer input{
+        padding: 10px;
+    }
+    .container button{
+        font-size: 20px;
+        width: 100px;
+    }
+    .codeContainer{
+        height: 400px;
+        gap: 50px;
+    }
+    .buttonContainer{
+        gap: 20px;
+    }
+    .finalForm{
+        width: 80% ;
+        height: 80%;
+    }
+    .finalForm input{
+        width: 150px;
+        padding: 10px;
+    }
+     .finalButtonContainer{
+        margin-top: 20px;
+    }
+}
+
+@media screen and (max-width:430px) {
+    .finalForm{
+        font-size: 15px;
+    }
+    .finalForm input{
+        width: 100px;
+    }
+    .container button{
+        font-size: 15px;
+    }
+}
