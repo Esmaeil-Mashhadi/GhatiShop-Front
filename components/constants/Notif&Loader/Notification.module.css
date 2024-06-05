@@ -1,0 +1,148 @@
+.container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 998;
+
+
+}
+.subContainer{
+    position: relative;
+    border-radius: 5px;
+    margin:30px;
+    width: fit-content;
+    height: fit-content;
+    padding: 10px;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    animation: lightUp .8s linear , lightDown 2s linear .8s ;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 999;
+}
+.animated{
+    position: relative;
+    border-radius: 5px;
+    margin:30px;
+    width: fit-content;
+    height: fit-content;
+    padding: 10px;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+     animation: lightUp2 .8s linear , lightDown2 2s linear .8s ;
+     opacity: 0;
+     pointer-events: none;
+    z-index: 999;
+}
+
+
+@keyframes lightUp {
+    0%{
+           background: var(--color);
+           opacity: 1;
+    }
+    25%{
+        background-color: transparent;
+    }
+
+    50%{
+        background-color: var(--color);
+        opacity: 1;
+    }
+    75%{
+        background-color: transparent;
+    }
+    100%{
+        background-color: var(--color);
+        opacity: 1;
+    }
+}
+
+@keyframes lightDown {
+    0%{
+        background-color: var(--color);
+        opacity: 1;
+    }
+    95%{
+        background-color: var(--color);
+        opacity: 1;
+    }
+    100%{
+        background-color: transparent;
+        opacity: 0;
+    }
+}
+@keyframes lightUp2 {
+    0%{
+           background: var(--color);
+           opacity: 1;
+    }
+    25%{
+        background-color: transparent;
+    }
+
+    50%{
+        background-color: var(--color);
+        opacity: 1;
+    }
+    75%{
+        background-color: transparent;
+    }
+    100%{
+        background-color: var(--color);
+        opacity: 1;
+    }
+}
+
+@keyframes lightDown2{
+    0%{
+        background-color: var(--color);
+        opacity: 1;
+    }
+    95%{
+        background-color: var(--color);
+        opacity: 1;
+    }
+    100%{
+        background-color: transparent;
+        opacity: 0;
+    }
+}
+
+
+.subContainer p{
+    z-index: 9;
+    color: white;
+}
+.animated p{
+    z-index: 9;
+    color: white;
+}
+
+.subContainer::after{
+    content: "";
+    position: absolute;
+    background: var(--primary);
+    inset: 3px;
+    border-radius: 5px;
+    z-index: 8;
+}
+.animated::after{
+    content: "";
+    position: absolute;
+    background: var(--primary);
+    inset: 3px;
+    border-radius: 5px;
+    z-index: 8;
+}

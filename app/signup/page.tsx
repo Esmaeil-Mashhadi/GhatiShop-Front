@@ -1,7 +1,7 @@
 import Register from '@/components/templates/Register'
 import React from 'react'
 
-function page() {
+async function page() {
   return (
       <Register />
   )

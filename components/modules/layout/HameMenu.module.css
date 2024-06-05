@@ -1,0 +1,131 @@
+.wholeHamContainer{
+    display: flex;
+    align-items: center;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    background: var(--primary);
+    position: absolute;
+    top: 68px;
+    height: 100vh;
+    width: 300px;
+    border-radius: 5px;
+    align-items: center;
+    transform: var(--transform);
+    transition: .2s ease;
+    overflow: hidden;
+    gap: 5px;
+}
+
+
+.dropDownContainer{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+}
+
+.dropDownContainer::before{
+    position: absolute;
+    content: '';
+    width: 50%;
+    left: var(--left);
+    transition: .2s;
+    bottom: 0px;
+    background: rgba(218, 165, 32, 0.238);
+    height: 100%;
+    border-bottom: solid;
+    border-color: goldenrod;
+    border-width: 2px;
+    box-sizing: border-box;
+}
+.dropDownContainer button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    border: none;
+    color: white;
+    font-weight: bold;
+    font-size: 17px;
+    text-align: center;
+    background: rgba(66, 65, 65, 0.452) !important;
+}
+
+.menu{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+    height: fit-content;
+}
+.menu a{
+    padding: 20px;
+    background: rgba(252, 251, 250, 0.116);
+    border-radius: 2px;
+}
+
+.hameLines {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding-right: 20px;
+    cursor: pointer;
+
+}
+
+
+.hameLines span{
+ background: goldenrod;
+ height: 4px;
+ border-radius: 5px;
+ width: 40px;
+ transition: .2s ease;
+ transform-origin: 7px;
+}
+
+.hameLines span:first-child{
+    transform: var(--transformFirst);
+}
+
+.hameLines span:nth-child(2){
+    transform: var(--transformCenter);
+    opacity: var(--centerOpacity);
+}
+
+.hameLines span:last-child{
+    transform: var(--transformLast);
+}
+
+.searchContainer{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+}
+.searchContainer input {
+    flex: 1;
+    border: none;
+    background: rgba(252, 251, 250, 0.116);
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    outline: none;
+}
+
+.searchContainer button{
+    min-width: 50px; 
+    border: none;
+    background: rgba(255, 255, 255, 0.5);
+}
+.searchContainer svg{
+    scale: 2;
+
+}

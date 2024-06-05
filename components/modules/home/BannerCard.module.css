@@ -1,0 +1,124 @@
+.container{
+    display: grid;
+    grid-template-columns: repeat(2 ,1fr);
+    gap: 20px;
+}
+
+.card{
+    border: solid;
+    border-radius: 5px;
+    width: 200px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-color: rgba(169, 169, 169, 0.311);
+    position: relative;
+    animation: showUp .5s linear forwards;
+    animation-delay: .2s;
+    transform: translateY(400%)
+}
+
+@keyframes showUp {
+    from{
+        transform: translateY(400%);
+    }
+    to{
+        transform: translateY(0%);
+    }
+}
+
+.card  img {
+    width: 80%;
+    height: 80%;
+    filter: invert(50%);
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+.card p{
+    position: absolute;
+    opacity: 0;
+    transition: .2s ease;
+
+}
+.border{
+    position: absolute;
+    border: solid;
+    width: 80%;
+    height: 80%;
+    border-color:rgba(169, 169, 169, 0.311);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: .2s ease;
+    border-radius: 5px;
+}
+
+.card:hover .border{
+    width: 70%;
+    height: 70%;
+}
+
+
+.card:hover  > p{
+    opacity: 1;
+    scale: 1;
+    user-select: none;
+    cursor: pointer;
+}
+
+.card:hover   img{
+    scale: 0;
+    opacity: 0;
+}
+
+@media screen and (max-width :1000px) {
+   .card{
+    height: 190px;
+    background: #000000ce;
+    border-color:rgba(169, 169, 169, 0.488);
+   }
+
+   .border{
+    border-color:rgba(169, 169, 169, 0.488);
+   }
+
+   .card img{
+    height: 80%;
+    padding-bottom: 25px;
+   }
+  .card p{
+    opacity: 1;
+    align-self: flex-end;
+    padding-bottom: 5px;
+  }
+
+  .card:hover img{
+    scale: 1;
+    opacity: 1;
+  }
+  .card:hover .border{
+    width: 80%;
+    height: 80%;
+}
+}
+
+@media screen and (max-width:500px ) {
+    .card{
+        width: 150px;
+        height: 150px;
+        font-size: 14px;
+    }
+
+    .card img{
+        width: 60% ;
+        height: 60%;
+    }
+}
+
+
+
+
+

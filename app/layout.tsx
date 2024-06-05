@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { yekan } from "@/utils/fonts";
+import ReactQueryProvider from "@/utils/providers/ReactQueryProvider";
+import Layout from "@/components/layout/Layout";
 
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,7 +18,13 @@ export default function RootLayout({
 }>) {
   return (
     <html dir="rtl" lang="fa">
-      <body className={yekan.className}>{children}</body>
+      <body className={yekan.className}>
+        <ReactQueryProvider>
+          <Layout>
+            {children}
+          </Layout>
+        </ReactQueryProvider>
+        </body>
     </html>
   );
 }

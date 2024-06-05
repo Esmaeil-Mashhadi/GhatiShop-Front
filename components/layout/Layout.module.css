@@ -1,0 +1,14 @@
+.container{
+    margin: auto;
+    max-width: 1920px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+
+}
+
+.children{
+    width: 95%;
+    margin: auto;
+}

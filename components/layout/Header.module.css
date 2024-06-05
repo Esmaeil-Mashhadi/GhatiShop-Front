@@ -1,0 +1,230 @@
+.container{
+    display: flex;
+    justify-content: space-between;
+    border-radius: 2px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    height: 50px;
+    background: rgba(0, 0, 0, 0.888);
+    margin-bottom: 50px;
+    padding: 10px 0px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.516);
+    position:fixed;
+    z-index: 998;
+    max-width: 1826px;
+    width: 95%;
+    right: 50%;
+    transform: translateX(50%);
+}
+
+.rightSide{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding-right: 20px;
+}
+.rightSide a{
+    position: relative;
+}
+
+.rightSide a::before{
+    content: "";
+    position: absolute;
+    width: 110%;
+    height: 2px;
+    transform: translate(5% , 25px);
+    transition: .2s ease;
+    z-index: -1;
+    border-radius: 5px;
+}
+
+.rightSide a:first-child:before{
+    background: rgb(246, 246, 246);
+}
+.rightSide a:nth-child(2):before{
+    background: goldenrod;
+}
+.rightSide a:nth-child(3):before{
+    background: rgb(33, 158, 24);
+}
+
+.categories{
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor:pointer;
+    border-bottom: solid;
+    margin-top: 3px;
+    border-color:rgb(110, 18, 124) ;
+}
+
+.categories:hover{
+    border-color: aquamarine;
+}
+
+
+
+.cateButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+.cateButton svg{
+    scale: 1.5;
+    transition: .2s ease;
+    color: rgb(225, 139, 238);
+}
+
+.categories:hover svg{
+ rotate: -180deg;
+ transform: translate(0);
+ color: aquamarine;
+}
+.categories:hover::before{
+    background: aquamarine;
+}
+
+
+
+
+.categoriesSection{
+    position: absolute;
+    height: 600px;
+    width: 700px;
+    background: rgba(0, 0, 0, 0.832);
+    top:28px;
+    right: 0px;
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: .2s ;
+    border-radius: 5px;
+    pointer-events: none;
+}
+
+
+.categories:hover > .categoriesSection,
+.categoriesSection:hover {
+    pointer-events: all;
+    transform: translateY(0%);
+    opacity: 1;
+}
+
+.rightSide a:hover {
+    color: black;
+}
+.rightSide a:hover::before{
+    transform: translate(5% , -2px);
+   height: 110%;
+}
+
+.leftSide{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-left: 20px;
+}
+.leftSide a{
+    position: relative;
+    white-space: nowrap;
+
+}
+
+.leftSide a:hover{
+    color: black;
+}
+.leftSide a::before{
+    content: "";
+    position: absolute;
+    width: 110%;
+    height: 2px;
+    transform: translate(5% , 25px);
+    transition: .2s ease;
+    z-index: -1;
+    border-radius: 5px;
+    background: rgb(238, 255, 0);
+}
+.leftSide a:hover::before{
+    transform: translate(5% , -2px);
+   height: 110%;
+}
+
+
+.leftSide img{
+    width: 100px;
+    height: 50px;
+    scale: 1.9;
+}
+
+.searchContainer{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 40px;
+    width: 250px;
+    justify-content: space-between;
+}
+
+.searchContainer input{
+    border-radius: 5px;
+    height: 100%;
+    max-width: 200px;
+    flex: 1;
+    font-size: 20px;
+    border: none;
+    background: rgb(44, 43, 43);
+    outline: none;
+    text-align: center;
+    font-weight: bold;
+    color:white;
+}
+
+.searchContainer button{
+    border-radius: 5px;
+    border: none;
+    width: 30px;
+    height: 40px;
+    padding: 10px 0px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: white;
+    background: rgb(44, 43, 43);
+
+}
+
+.searchContainer button svg{
+    scale: 1.4;
+}
+
+.hameMenu{
+    display: none;
+}
+
+@media screen and (max-width:1100px) {
+ .rightSide{
+    display: none;
+ }
+ .leftSide a{
+    display: none;
+ }
+
+ .hameMenu{
+    display: flex;
+ }
+}
+
+@media screen and (max-width:650px) {
+    .leftSide a{
+        display: none;
+    }
+}
+@media screen and (max-width:500px) {
+    .searchContainer{
+        display: none;
+    }
+}

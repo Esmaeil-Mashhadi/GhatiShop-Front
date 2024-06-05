@@ -64,6 +64,7 @@
         font-size: 20px;
         justify-content: center;
         align-items: center;
+        height: 400px;
     }
 
     .inputContainer{
@@ -73,7 +74,7 @@
     }
 
     .container{
-        background: url('../../public/registerBG.jpg');
+        background: url('../../public/homePage/registerBG.jpg');
         background-position: center;
         background-size: cover;
     }

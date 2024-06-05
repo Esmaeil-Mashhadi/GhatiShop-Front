@@ -1,0 +1,75 @@
+.container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    gap: 10px;
+    animation: borderColor 1s infinite linear;
+    padding: 5px;
+    direction: ltr;
+}
+
+.container span{
+    height: 30px;
+    width: 30px;
+    border-radius: 5px;
+    animation: firstProgress 1s infinite linear;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(1, 49, 38);
+    font-weight: bold;
+    padding-top: 5px;
+}
+
+
+.container span:first-child{
+    animation-delay: .1s;
+}
+
+@keyframes firstProgress {
+    0% {
+        background: rgb(1, 49, 38);
+
+    }
+    50% {
+        background: rgba(249, 249, 23, 0.503);
+
+    }
+    100% {
+        background: rgb(1, 49, 38);
+    }
+}
+.container span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.container span:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.container span:nth-child(4) {
+    animation-delay: .4s;
+}
+
+.container span:nth-child(5) {
+    animation-delay: .5s;
+}
+.container span:nth-child(6) {
+    animation-delay: .6s;
+}
+
+.container span:nth-child(7) {
+    animation-delay: .7s;
+}
+.container span:nth-child(8){
+    animation-delay: .8s;
+}
+
+
+

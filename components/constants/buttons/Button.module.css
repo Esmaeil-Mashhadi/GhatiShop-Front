@@ -3,7 +3,6 @@
     .cancelButton, 
     .neutralButton{
         padding: 5px;
-        margin: auto;
         width: 100px;
         height: 35px;
         font-size: 17px;
@@ -16,6 +15,10 @@
         border: none;
         border-radius: 5px;
         font-weight: bold;
+        opacity: var(--opacity);
+        pointer-events: var(--event);
+        user-select: var(--select);
+        transition: .2s ease;
     }
     
     .cancelButton{

@@ -1,0 +1,126 @@
+.container{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+    border-radius: 5px;
+    box-shadow: var(--boxShadow);
+    direction: ltr;
+    user-select: none;
+    scale: var(--scaleUp);
+    transition: .2s ease;
+    border: solid goldenrod;
+    overflow-y: hidden;
+    overflow-x: auto;
+    border-bottom: none;
+    border-top: none;
+    position: relative;
+    margin-bottom: 50px;
+
+}
+
+.container::-webkit-scrollbar{
+ display: none;
+}
+
+
+.card{
+    position: relative;
+    min-width: 300px;
+    height: 200px;
+    border-radius: 5px;
+    background: linear-gradient(45deg, black, black ,  rgba(65, 63, 68, 1));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 10px black;
+    cursor: pointer;
+}
+
+.card span{
+    position: absolute;
+    background: rgba(79, 74, 47, 0.905);
+    width: 80%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    transition: .2s ease;
+    scale: .8;
+    opacity: 0;
+    transform: translateY(50%);
+}
+.card:hover span{
+    scale: 1;
+    opacity: 1;
+    transform: translateY(0%);
+}
+
+
+.card img{
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.phoneSeeAll{
+    font-size: 20px;
+    min-width: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: .2s ease;
+}
+.phoneSeeAll:hover svg{
+    color: goldenrod;
+    scale: 2.2;
+}
+.phoneSeeAll:hover{
+    color: goldenrod;
+}
+
+.phoneSeeAll svg{
+    scale: 2;
+    transition: .2s ease;
+}
+
+
+@media screen and (max-width:1000px) {
+    .card{
+        min-width: 200px;
+
+    }
+}
+
+@media screen and (max-width:500px) {
+
+    .card {
+        min-width: 150px,
+    }
+    .seeAll {
+        display: none;
+    }
+
+    .phoneSeeAll{
+        height: 200px;
+        min-width: 100px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        font-size: 15px;
+
+    }
+    .phoneSeeAll svg{
+        scale: 2;
+    }
+
+}
