@@ -5,14 +5,18 @@ import styles from './Header.module.css';
 import { MdOutlineKeyboardDoubleArrowUp } from "react-icons/md";
 import { IoSearchSharp } from "react-icons/io5";
 import HameMenu from '../modules/layout/HameMenu';
-
-
+import { cookies } from 'next/headers';
+import { checkUserAccessiblity } from '@/utils/authentication/checkUserAccessiblity';
 
 async function Header() {
- 
+     const user = await checkUserAccessiblity(cookies().get('accessToken'))
+      
   return (
     <div className={styles.container}>
       <div className={styles.rightSide}>
+        <Link href="">
+          صفحه ی اصلی
+        </Link>
         <Link href="">
           فروشگاه
         </Link>
@@ -20,7 +24,7 @@ async function Header() {
           تخفیفات شگفت انگیز
         </Link>
         <Link href="">
-          محصولات جدید
+          درباره ی ما
         </Link>
         <div className={styles.categories}>
 
@@ -32,7 +36,7 @@ async function Header() {
         
       </div>
       <div className={styles.hameMenu}>
-           <HameMenu />
+           <HameMenu user ={user} />
       </div>
 
       <div className={styles.center}>
@@ -45,7 +49,7 @@ async function Header() {
           <input type='text' placeholder='  دنبال چیزی می گردی ؟'/>
         </div>
 
-        {false ? (
+        {user ? (
           <Link href="/">
             حساب کاربری
           </Link>

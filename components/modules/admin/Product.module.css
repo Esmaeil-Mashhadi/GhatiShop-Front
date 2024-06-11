@@ -1,0 +1,32 @@
+.container{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 50px 10px;
+    max-height:845px;
+    overflow-y: auto;
+}
+
+.container::-webkit-scrollbar{
+    width: 10px;
+}
+
+.container::-webkit-scrollbar-thumb{
+    background: darkcyan;
+    border-radius: 5px;
+}
+.container::-webkit-scrollbar-track{
+    background: gray;
+    border-radius: 5px;
+}
+.topSide{
+    height: 50%;
+}
+.infoSection{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+
+

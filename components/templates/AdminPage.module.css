@@ -1,0 +1,6 @@
+.container{
+    flex: 1;
+    height: 600px;
+    border: solid;
+    border-color: rgba(169, 169, 169, 0.16);
+}

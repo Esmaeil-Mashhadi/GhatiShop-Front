@@ -1,0 +1,33 @@
+.image{
+    display: flex;
+    gap: 100px;
+    border-bottom: dotted gray;
+    padding-bottom: 20px;
+    align-items: center;
+
+}
+.image div{
+        display: flex;
+        align-items: center;
+        gap: 5px;
+}
+    
+.mainImage {
+        scale: 1.5;
+}
+.mainImage:hover{
+        scale: 1.8 !important;
+}
+    
+.image img{
+        width: 100px;
+        cursor: pointer;
+        transition: .2s ease;
+        border-radius: 5px;
+        filter: invert(100%);
+}
+    
+.image img:hover{
+        scale: 1.2;
+ }
+    

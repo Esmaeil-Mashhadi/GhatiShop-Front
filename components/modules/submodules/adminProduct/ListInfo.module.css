@@ -1,0 +1,59 @@
+.container{
+    border-bottom: dotted gray;
+    padding-bottom: 20px;
+}
+
+.listContainer{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 90%;
+    margin: auto;
+}
+.listContainer input:first-child{
+ flex: .5;
+}
+.listContainer input:nth-child(2){
+    flex: 1;
+}
+
+.listContainer input{
+    border-radius: 5px;
+    padding: 5px;
+    background:var(--inputBG);
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 20px;
+    margin: 10px 0px;
+}
+
+.addMore{
+    border-radius: 5px;
+    padding: 10px;
+    background:var(--inputBG);
+    color: white;
+    font-weight: bold;
+    border: none;
+    width: 100%;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+
+.listContainer div:first-child{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.trashButton{
+    padding: 5px;
+    background: transparent;
+    border: none;
+}
+.trashButton svg{
+    color: rgb(232, 128, 128);
+    scale: 1.5;
+    cursor: pointer;
+}

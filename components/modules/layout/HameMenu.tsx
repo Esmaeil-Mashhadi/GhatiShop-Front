@@ -5,7 +5,11 @@ import styles from './HameMenu.module.css'
 import { IoSearchSharp } from "react-icons/io5";
 import { useEffect, useState, MouseEvent } from 'react';
 
-function HameMenu() {
+type hameMenuPropType ={
+    user:string |undefined
+}
+
+function HameMenu({user}:hameMenuPropType) {
     type stateType = {
         category?: boolean;
         menu?: boolean;
@@ -62,7 +66,7 @@ function HameMenu() {
 
                 {userChoice.menu ?
                     <div className={styles.menu}>
-                        {false ?
+                        {user ?
                             <Link href="">
                                 حساب کاربری
                             </Link> :

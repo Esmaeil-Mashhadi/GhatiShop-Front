@@ -1,0 +1,42 @@
+.titleContainer{
+    display: flex;
+    gap: 100px;
+    border-bottom: dotted gray;
+    padding-bottom: 20px;
+}
+
+.title{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.shortDesc{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.shortDesc textarea{
+    background: var(--inputBG);
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    resize: none;
+    height: 70px;
+    width: 300px;
+    font-size: 15px;
+    color: white;
+    padding: 5px;
+}
+
+.titleContainer input{
+    border-radius: 5px;
+    padding: 5px;
+    background: var(--inputBG);
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 20px;
+}
+

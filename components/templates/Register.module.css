@@ -2,16 +2,15 @@
     position: relative;
     display: flex;
     width: 100%;
-    height: 100vh;
+    height: calc(100vh - 213px);
     box-sizing: border-box;
-    z-index: 999;
     overflow: hidden;
 }
 
 
 .formContainer{
     position: absolute;
-    top: 50%;
+    top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 5px;

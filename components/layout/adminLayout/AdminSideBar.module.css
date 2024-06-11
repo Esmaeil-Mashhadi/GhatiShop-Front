@@ -1,0 +1,39 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    height: 950px;
+    width: 130px;
+    border-radius: 5px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    align-items: center;
+    gap: 80px;
+    background: rgba(0, 139, 139, 0.188);
+    justify-content: center;
+    overflow: hidden;
+}
+
+
+.shop{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    justify-content: center;
+}
+
+.shop svg{
+    margin-bottom: 5px;
+}
+
+.container a{
+    width: 100%;
+    text-align: center;
+    padding: 5px;
+    transition: .3s ease;
+    border-radius: 50px;
+
+}
+.container a:hover{
+    background: lightblue;
+    color: black;
+}
