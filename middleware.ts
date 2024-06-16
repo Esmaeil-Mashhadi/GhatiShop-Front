@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { checkUserAccessiblity } from "./utils/authentication/checkUserAccessiblity";
 
 export  async function middleware(req:NextRequest){
+    console.log('middleware');
         let response = NextResponse.next()
         const user = await checkUserAccessiblity(cookies().get('accessToken'))
         if(!user) {
@@ -12,7 +13,7 @@ export  async function middleware(req:NextRequest){
             })
             const result = await newTryResponse.json()
             if(result.data.accessToken){
-                const url = req.nextUrl.origin
+                const url = `${req.nextUrl.origin}${req.nextUrl.pathname}`
                 response = NextResponse.redirect(url)
                 
                 response.cookies.set('accessToken' , result.data.accessToken , {maxAge:60*60*24 , sameSite:'lax'})
@@ -24,5 +25,5 @@ export  async function middleware(req:NextRequest){
 }
 
 export const config = {
-    matcher: ['/' , '/signup']
+    matcher: ['/' , '/signup , /admin/(.*)']
 }

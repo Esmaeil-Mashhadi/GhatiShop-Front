@@ -5,7 +5,9 @@ import AdminDashboard from '@/components/modules/admin/Dashboard';
 import AdminProducts from '@/components/modules/admin/Product';
 
 function page({params}:any) {
+
     const renderComponent = ()=>{
+        
     switch (params.slug) {
         case 'products':
             return <AdminProducts  />

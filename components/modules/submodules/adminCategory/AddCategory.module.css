@@ -1,4 +1,5 @@
 .addSection{
+    position: relative;
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -16,11 +17,19 @@
     border-radius: 5px;
     border: none;
     padding: 5px;
-    background: rgba(173, 216, 230, 0.733);
+    background: rgba(21, 55, 67);
     font-weight: bold;
     font-size: 20px;
     cursor: pointer;
     width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    color: white;
+}
+.buttonContainer svg{
+    scale: 1.5;
 }
 
 .categorySection{
@@ -31,11 +40,11 @@
 
 }
 
-
 /*
 add layer is in addLayer component , in case 
 they have multiple same elements , i used the same css
 */
+
 .addLayer{
     width: 100%;
     display: flex;
@@ -45,7 +54,6 @@ they have multiple same elements , i used the same css
 .addLayer svg{
     color: rgb(244, 124, 144);
     scale: 2;
-    cursor: pointer;
     pointer-events: none;
     opacity: 0;
     transition: .2s ease;
@@ -59,17 +67,18 @@ they have multiple same elements , i used the same css
     border-radius: 5px;
     border: none;
     padding: 5px;
-    background: rgba(173, 216, 230, 0.733);
+    background: rgba(21, 55, 67);
     font-weight: bold;
     font-size: 20px;
     cursor: pointer;
     flex: 1;
+
 }
+
+
 /*
 layer section end
 */
-
-
 .inputSection{
     width: 100%;
     display: flex;
@@ -85,13 +94,13 @@ layer section end
     pointer-events: none;
     opacity: 0;
     transition: .2s ease;
-
 }
 
 .inputSection:hover svg{
     opacity: 1;
     pointer-events: all;
 }
+
 .categorySection input{
     width: 100%;
     padding: 10px;
@@ -102,3 +111,4 @@ layer section end
     border: none;
     outline: none;    
 }
+

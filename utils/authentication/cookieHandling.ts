@@ -1,4 +1,4 @@
-import { api } from "@/configs/axios"
+// import { api } from "@/configs/axios"
 
  const saveCookie = (accessToken:string , refreshToken?:string)=>{
     document.cookie = `accessToken=${accessToken};max-age=${60*60*24}`
@@ -19,16 +19,18 @@ const getClientCookie = ()=>{
 }
 
 
-const getNewToken = async()=>{
-   const {refreshToken} = getClientCookie()
-   if(!refreshToken) return null
-  const res= await api.post('/auth/newToken' , {refreshToken})
-  console.log(res);
-   return res
-}
+// const getNewToken = async()=>{
+//    const {refreshToken} = getClientCookie()
+//    if(!refreshToken) return null
+//   const res= await api.get('/auth/newToken' , {
+//    headers:{'authorization':`bearer ${refreshToken}`}
+//   })
+//   console.log(res);
+//    return res
+// }
 
 
 
 export {
-   saveCookie , getClientCookie  , getNewToken
+   saveCookie , getClientCookie  
 }
