@@ -1,12 +1,11 @@
-// import { getNewToken, saveCookie } from "@/utils/authentication/cookieHandling";
-// import axios, { AxiosError, AxiosResponse } from "axios";
+import axios from "axios";
 
-// export const api = axios.create({
-//     baseURL:'http://localhost:5000',
-//     headers:{'Content-Type' :'application/json' },
-//     withCredentials:true
+export const api = axios.create({
+    baseURL:'http://localhost:5000',
+    headers:{'Content-Type' :'application/json' },
+    withCredentials:true
     
-// })
+})
 
 // api.interceptors.response.use((res:AxiosResponse)=>{
 //     return res

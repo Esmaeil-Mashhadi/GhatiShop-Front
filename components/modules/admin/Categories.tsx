@@ -10,17 +10,22 @@ export interface CatFormType {
   name: string, 
   slug : string ,
   parent : string ,
-  layer: number
+  parentID?: string ,
+  layer?: number ,
+  _id:string
+}
+
+export interface AddCategoryFormType{
+   [key:string]  : CatFormType[]
 }
 
 function AdminCategories() {
   const [catLayers, setCatLayers] = useState<(ReactElement|string)[]>([]);
-  const [addCategoryForm , setAddCategoryForm] = useState<any>({})
+  const [addCategoryForm , setAddCategoryForm] = useState<AddCategoryFormType>({})
 
   const addLayerHandler = () => {
     setCatLayers([...catLayers, '']); 
   }; 
-
 
   const deleteLayerHandler = (index:number)=>{
      const cateList = [...catLayers]
@@ -50,35 +55,23 @@ function AdminCategories() {
         toast.error(result.data.message)
       }
     }    
-   
-
        
-   const addCatHandler = (layerKey:any )=>{
-    if(addCategoryForm[layerKey]){
+    const addCatHandler = (layerKey: string) => {
+      const emptyCategory = {
+        name: "",
+        slug: "",
+        parent: "",
+        parentID:"", 
+        _id:""
+      };
+    
       setAddCategoryForm({
         ...addCategoryForm,
-        [layerKey] :[
-          ...addCategoryForm[layerKey] , 
-          {
-             name:"" , 
-             slug:"",
-             parent:"", 
-            }
-        ]
-      })
-    }else{
-      setAddCategoryForm({
-        ...addCategoryForm,
-        [layerKey] :[
-          {
-             name:"" , 
-             slug:"",
-             parent:"", 
-            }
-        ]
-      })
-    }
-  }
+        [layerKey]: addCategoryForm[layerKey] ? [...addCategoryForm[layerKey], emptyCategory] : [emptyCategory],
+      });
+    };
+
+
 
   useEffect(()=>{
     const getData = async()=>{

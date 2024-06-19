@@ -43,6 +43,7 @@
     border-width: 2px;
     box-sizing: border-box;
 }
+
 .dropDownContainer button{
     display: flex;
     align-items: center;
@@ -64,6 +65,7 @@
     width: 100%;
     height: fit-content;
 }
+
 .menu a{
     padding: 20px;
     background: rgba(252, 251, 250, 0.116);

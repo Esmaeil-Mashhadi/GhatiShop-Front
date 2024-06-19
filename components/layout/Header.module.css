@@ -56,7 +56,6 @@
     display: flex;
     align-items: center;
     gap: 5px;
-    cursor:pointer;
     border-bottom: solid;
     margin-top: 3px;
     border-color:rgb(110, 18, 124) ;

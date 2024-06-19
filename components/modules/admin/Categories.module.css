@@ -4,9 +4,17 @@
     padding: 50px 10px;
     max-height:845px;
     overflow-y: auto;
-
+    animation: showUp .5s forwards linear ;
 }
 
+@keyframes showUp {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
 .addCategory{
     width: 90%;
     display: flex;
@@ -18,7 +26,10 @@
 .main{
     display: flex;
     gap: 20px;
+    width: 98%;
 }
+
+
 
 .layerContainer{
     display: flex;
@@ -37,7 +48,7 @@
 .submitButton{
     border-radius: 5px;
     padding: 5px;
-    background: rgba(33, 83, 58);
+    background: rgba(33, 83, 58, 0.577);
     border: none;
     color: white;
     font-weight: bold;
@@ -54,7 +65,5 @@
 
 
 .submitButton:hover{
-    background: #51bd71;
-    color: black;
-
+    background: rgba(33, 83, 58);
 }

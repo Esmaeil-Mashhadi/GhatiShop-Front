@@ -21,7 +21,7 @@ function Mobile({send , setSend , notifObject , setNotifObject , mobile , setMob
   const [error , setError] = useState<{error:string}|null>({error:'empty'})
   const [isLoading , setIsloading] = useState(false)
 
-    const transferStyle:any = {
+    const transferStyle:Record<string , string | number> = {
         '--transfer' : send ? 'translateX(-150%)':'translateX(0%)',
     }
 

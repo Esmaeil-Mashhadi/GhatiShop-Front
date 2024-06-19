@@ -7,6 +7,7 @@ import { IoSearchSharp } from "react-icons/io5";
 import HameMenu from '../modules/layout/HameMenu';
 import { cookies } from 'next/headers';
 import { checkUserAccessiblity } from '@/utils/authentication/checkUserAccessiblity';
+import CategorySection from '../modules/layout/CategorySection';
 
 async function Header() {
      const user = await checkUserAccessiblity(cookies().get('accessToken'))
@@ -30,7 +31,7 @@ async function Header() {
 
           <div className={styles.cateButton}> دسته بندی ها <MdOutlineKeyboardDoubleArrowUp /></div>
           <div className={styles.categoriesSection}>
-
+              <CategorySection />
           </div>
         </div>
         

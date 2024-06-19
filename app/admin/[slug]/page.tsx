@@ -4,7 +4,12 @@ import AdminCategories from '@/components/modules/admin/Categories';
 import AdminDashboard from '@/components/modules/admin/Dashboard';
 import AdminProducts from '@/components/modules/admin/Product';
 
-function page({params}:any) {
+type AdminSlugType = 'products' | 'dashboard'| 'categories'
+interface AdminPageProps  {
+    params : {slug:AdminSlugType}
+}
+
+function page({params}:AdminPageProps) {
 
     const renderComponent = ()=>{
         

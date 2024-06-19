@@ -1,38 +1,32 @@
-import { ChangeEvent, Dispatch, ReactElement, SetStateAction, useEffect, useState } from 'react'
+import { ChangeEvent, Dispatch, SetStateAction, useState } from 'react'
 import styles from './AddCategory.module.css'
 import { TbTrash } from 'react-icons/tb'
 import Select from './Select'
 import {  MdOutlinePlaylistAdd } from "react-icons/md";
 import { MdOutlineLibraryAdd } from "react-icons/md";
-
-
+import { AddCategoryFormType } from '../../admin/Categories';
 
 
 type AddCategoryPropType ={
-  handler?:Dispatch<SetStateAction<any>>
-  addCatHandler :Dispatch<SetStateAction<any>>
+  handler?:() => void
+  addCatHandler : (layerKey: string) => void
   layerNumber:number
-  addCategoryForm:any
-  setAddCategoryForm:any
+  addCategoryForm:AddCategoryFormType
+  setAddCategoryForm:Dispatch<SetStateAction<AddCategoryFormType>>
 }
 
 
-interface LayerFormType {
-  categoryName: string, 
-  categorySlug : string ,
-  parent : string ,
-  layer: number
-}
+
 
 function AddCategory({handler , layerNumber  , addCatHandler , addCategoryForm , setAddCategoryForm}:AddCategoryPropType) {
-  const layerKey= `layer${layerNumber}`
+      const layerKey= `layer${layerNumber}`
 
        const deleteHandler = (index:number)=>{
         const inputLists = {...addCategoryForm}
         inputLists[layerKey].splice(index , 1)
          setAddCategoryForm(inputLists)
        }  
- 
+
 
        const changeHandler = (index :number , e:ChangeEvent<HTMLInputElement> , layerKey:string)=>{
         const name = e.target.name
@@ -74,7 +68,7 @@ function AddCategory({handler , layerNumber  , addCatHandler , addCategoryForm ,
       </div>
 
     <div className={styles.categorySection}>
-        {addCategoryForm[layerKey]?.map((item:any, index:any)=>(
+        {addCategoryForm[layerKey]?.map((item, index:number)=>(
                         <div className={styles.inputSection}>
                                           <input value={addCategoryForm[layerKey][index].name} onChange={(e)=>changeHandler(index ,e , layerKey)} name='name' placeholder= 'نام دسته بندی'/>
                                           <input value={addCategoryForm[layerKey][index].slug} onChange={(e)=>changeHandler(index ,e  , layerKey)} name='slug' placeholder='نامک (به انگلیسی)'  />
