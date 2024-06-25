@@ -3,7 +3,6 @@ import { NextRequest, NextResponse } from "next/server";
 import { checkUserAccessiblity } from "./utils/authentication/checkUserAccessiblity";
 
 export  async function middleware(req:NextRequest){
-    console.log('middleware');
         let response = NextResponse.next()
         const user = await checkUserAccessiblity(cookies().get('accessToken'))
         if(!user) {
@@ -26,4 +25,4 @@ export  async function middleware(req:NextRequest){
 
 export const config = {
     matcher: ['/' , '/signup , /admin']
-}
+} 

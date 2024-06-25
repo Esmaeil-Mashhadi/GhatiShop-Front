@@ -1,6 +1,6 @@
 import { Editor } from '@tinymce/tinymce-react';
 import { useContext } from 'react';
-import { AdminProductContext } from '../../admin/Product';
+import { AdminProductContext } from './CreateProduct';
 
 const RichTextEditor = () => {
 
@@ -19,6 +19,7 @@ const RichTextEditor = () => {
       init={{
         height: 500,
         menubar: false,
+        directionality:'rtl',
         plugins: [ 
           'link'
         ],
@@ -30,6 +31,7 @@ const RichTextEditor = () => {
       }}
       onEditorChange={handleEditorChange}  
     />
+
 
   );
 };

@@ -36,7 +36,6 @@ function AddCategory({handler , layerNumber  , addCatHandler , addCategoryForm ,
         inputList[index] ={
           ...inputList[index],
           [name] :value,
-          parent:"",
           layer:layerNumber
         }
         setAddCategoryForm({

@@ -11,6 +11,7 @@ interface AdminPageProps  {
 
 function page({params}:AdminPageProps) {
 
+
     const renderComponent = ()=>{
         
     switch (params.slug) {

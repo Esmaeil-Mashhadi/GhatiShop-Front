@@ -9,8 +9,8 @@ import { MdAddTask } from 'react-icons/md';
 export interface CatFormType {
   name: string, 
   slug : string ,
-  parent : string ,
-  parentID?: string ,
+  parent?: string ,
+  parentSlug?: string ,
   layer?: number ,
   _id:string
 }
@@ -55,14 +55,15 @@ function AdminCategories() {
         toast.error(result.data.message)
       }
     }    
+
        
     const addCatHandler = (layerKey: string) => {
       const emptyCategory = {
         name: "",
-        slug: "",
+        slug: "", 
         parent: "",
-        parentID:"", 
-        _id:""
+        parentSlug:"", 
+        _id:"" 
       };
     
       setAddCategoryForm({
@@ -70,7 +71,6 @@ function AdminCategories() {
         [layerKey]: addCategoryForm[layerKey] ? [...addCategoryForm[layerKey], emptyCategory] : [emptyCategory],
       });
     };
-
 
 
   useEffect(()=>{
@@ -89,6 +89,7 @@ function AdminCategories() {
     }
     getData()
   },[]) 
+
 
 
   return (

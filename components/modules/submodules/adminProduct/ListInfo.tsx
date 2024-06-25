@@ -1,7 +1,7 @@
 import { ChangeEvent, useContext, useState } from 'react';
 import styles from './ListInfo.module.css'
 import { FaTrashArrowUp } from "react-icons/fa6";
-import { AdminProductContext } from '../../admin/Product';
+import { AdminProductContext } from './CreateProduct';
 
 function ListInfo() {
     const contextData = useContext(AdminProductContext)

@@ -1,0 +1,96 @@
+.container{
+    position: fixed;
+    right: 20px;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    bottom: 25%;
+    z-index: 990;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    box-shadow: 5px 5px 5px black;
+    background: linear-gradient(45deg , goldenrod  , darkcyan );
+}
+
+.chatButton{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: dashed;
+    border: none;
+    transition: .2s ease;
+}
+
+.chatButton:active{
+    scale: 1.5;
+    rotate: -60deg;
+}
+
+.chatButton svg{
+    scale: 3;
+}
+
+.optionContainer{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    right: 110%;
+    gap: 20px;
+    transition: .2s ease;
+
+}
+
+.optionContainer button{
+    display: flex;
+    align-items: center;
+    padding: 7px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0px 0px 10px black;
+    gap: 10px;
+    font-size: 15px;
+    font-weight:800;
+    width: 130px;
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+.optionContainer button:first-child{
+    background: linear-gradient(45deg , rgb(219, 64, 219) ,goldenrod);
+    transform: translate(35px , 35px);
+    transform-origin: 150px;
+    opacity: 0;
+    pointer-events: none;
+
+
+}
+.optionContainer button:nth-child(2){
+    background: linear-gradient(45deg , chartreuse ,goldenrod);
+    transition-delay: .1s;
+    transform: translate(35px);
+    transform-origin: 150px;
+    opacity: 0;
+    pointer-events: none;
+
+
+}
+.optionContainer button:nth-child(3){
+    background: linear-gradient(45deg , white ,goldenrod);
+    transition-delay: .2s ;
+    transform: translate(35px , -35px);
+    transform-origin: 150px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+
+.optionContainer button svg{
+    scale: 1.5;
+}

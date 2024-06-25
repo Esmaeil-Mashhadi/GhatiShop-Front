@@ -1,9 +1,9 @@
 import { ChangeEvent, useContext } from 'react'
 import styles from './PriceAndCategorySection.module.css'
-import { AdminProductContext } from '../../admin/Product'
+import { AdminProductContext } from './CreateProduct'
 
 function PriceAndCategory() {
-  const {setProductData , productData} = useContext(AdminProductContext) || {}
+  const {setProductData , productData} = useContext(AdminProductContext) 
 
   const changeHandler = (e:ChangeEvent<HTMLInputElement>)=>{
     const{name , value} = e.target

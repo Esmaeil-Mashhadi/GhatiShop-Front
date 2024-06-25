@@ -7,6 +7,20 @@
     animation: showUp .5s forwards linear ;
 }
 
+.container::-webkit-scrollbar{
+    width: 10px;
+}
+
+.container::-webkit-scrollbar-thumb{
+    background: darkcyan;
+    border-radius: 5px;
+}
+.container::-webkit-scrollbar-track{
+    background: gray;
+    border-radius: 5px;
+}
+
+
 @keyframes showUp {
     from{
         opacity: 0;

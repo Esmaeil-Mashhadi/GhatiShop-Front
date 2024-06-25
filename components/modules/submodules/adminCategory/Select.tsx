@@ -7,27 +7,29 @@ type SelectPropType ={
   addCategoryForm:AddCategoryFormType 
   index:number
   layerNumber : number
-  parent:string ,
+  parent?:string ,
 }
 function Select({layerkey , setAddCategoryForm , addCategoryForm , index , layerNumber , parent  }:SelectPropType) {
+
   const [selectOption , setSelectOption] = useState('')
-  const [parents , setParents] = useState([{name:'انتخاب والد' ,_id:""}])
+  const [parents , setParents] = useState([{name:'انتخاب والد' ,_id:"" , slug:""}])
+
 
   const changeHandler = (e:ChangeEvent<HTMLSelectElement>)=>{
     const updatedForm = {...addCategoryForm}
     const selectedParent = parents.find((item)=>item.name == e.target.value)
     updatedForm[layerkey][index].parent = e.target.value 
      if(selectedParent){
-       updatedForm[layerkey][index].parentID = selectedParent._id 
+       updatedForm[layerkey][index].parentSlug = selectedParent.slug 
      }
-
+ 
     setAddCategoryForm({...updatedForm})
     setSelectOption(e.target.value)
     }
 
     useEffect(()=>{
       const currentParents = [...addCategoryForm[`layer${layerNumber - 1}`]]
-      currentParents.unshift({name:'انتخاب والد' , parent:"" , slug:"" , _id:"" })
+      currentParents.unshift({name:'انتخاب والد' , parent:undefined , slug:"" , _id:"" })
       setParents(currentParents)
     },[])  
 
@@ -38,7 +40,6 @@ function Select({layerkey , setAddCategoryForm , addCategoryForm , index , layer
                 <option  value ={index == 0 ? '' :undefined} key={index}>
                  {item.name}
                 </option>
-                
               ))}
          </select>
     </div>

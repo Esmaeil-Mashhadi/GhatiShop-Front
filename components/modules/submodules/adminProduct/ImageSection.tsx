@@ -1,6 +1,7 @@
 import {  ChangeEvent, useContext, useState } from 'react'
 import styles from './ImageSection.module.css'
-import { AdminProductContext } from '../../admin/Product'
+import toast from 'react-hot-toast'
+import { AdminProductContext } from './CreateProduct'
 
 interface ImageSrcType {
   mainImage:string |ArrayBuffer
@@ -8,15 +9,13 @@ interface ImageSrcType {
 }
 function ImageSection() {
 
-  const {setProductData , productData} = useContext(AdminProductContext) || {}
+  const {setProductData , productData} = useContext(AdminProductContext) 
 
   const [imageSrc , setImageSrc] = useState<ImageSrcType>({
     mainImage:'' , otherImages :[""]
   })
 
 const uploadHandler = ( index?: number) => {
-
- 
     const input = document.createElement('input');
     input.type = 'file';
   
@@ -26,6 +25,12 @@ const uploadHandler = ( index?: number) => {
       if (!files) return;
       
       const file = files[0];
+      const type = file.type.split('/')[1]
+      const allowedTypes = ['png' , 'jpg' , 'jpeg' , 'webp']
+      if(!allowedTypes.includes(type)) {
+        return toast.error('پسوند فایل نا معتبر است')
+      }
+
       const reader = new FileReader();
   
       reader.onload = (e) => {

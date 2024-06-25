@@ -1,0 +1,128 @@
+.container{
+    width: 100%;
+    display: flex;
+    height: fit-content;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.logo{
+    position: absolute;
+    border-radius:50%;
+    top: 0px;
+    display: flex;
+    align-items: center;
+    width: 100px;
+    background: black;
+    z-index: 9;
+    left: 50%;
+    transform: translateX(-20%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.logo img{
+   width: 100%;
+   scale: 1;
+   z-index: -1;
+   border-radius: 50%;
+}
+
+
+.categoryContainer{
+    position: absolute;
+    width: 90%;
+    height: 50px;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 20px;
+    top: 60px;
+    background: #1818188d;
+    z-index: 8;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.listContainer{
+    position: relative;
+    gap: 10px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.childrenContainer{
+    position: absolute;
+    top: 50px;
+    width: 100%;
+    transform: translateY(-35px);
+    opacity: 0;
+    pointer-events: none;
+    transition: .2s ease;
+    background: rgba(0, 0, 0, 0.948);
+    padding: 10px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+
+
+}
+
+.children{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+    transition: .2s ease;
+}
+.mainLink{
+    z-index: 9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: .2s ease;
+    height: 100%;
+    width: 100%;
+}
+.mainLink svg{
+    transition: .2s ease;
+    scale: 1.5;
+    transform: translateY(-2px);
+}
+
+
+
+.mainLink:hover svg {
+ transform: rotate(180deg);
+}
+
+.listContainer:hover  .mainLink svg{
+    transform: rotate(180deg);
+    color: gold;
+}
+
+.listContainer:hover > .mainLink{
+    color: gold;
+}
+
+
+.mainLink:hover + .childrenContainer , 
+.childrenContainer:hover{
+    opacity: 1;
+    pointer-events: all;
+    transform: translateY(0px);
+}
+.children a {
+    transition: .2s ease;
+    padding: 0px 5px;
+}
+
+.children a:hover {
+ background: darkgoldenrod;
+ border-radius: 5px;
+ color: black;
+}

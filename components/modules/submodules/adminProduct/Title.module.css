@@ -5,17 +5,26 @@
     padding-bottom: 20px;
 }
 
+.rightSide{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
 .title{
     display: flex;
     align-items: center;
     gap: 10px;
+    justify-content: space-between;
 }
+
 .shortDesc{
     display: flex;
     align-items: center;
     gap: 10px;
+    height: 100%;
 }
-
 
 .shortDesc textarea{
     background: var(--inputBG);
@@ -23,7 +32,7 @@
     border: none;
     outline: none;
     resize: none;
-    height: 70px;
+    height: 100%;
     width: 300px;
     font-size: 15px;
     color: white;
@@ -33,6 +42,7 @@
 .titleContainer input{
     border-radius: 5px;
     padding: 5px;
+    width: 300px;
     background: var(--inputBG);
     border: none;
     outline: none;
@@ -40,3 +50,39 @@
     font-size: 20px;
 }
 
+.leftSide{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+.categorySide{
+    max-height: 150px;
+    padding-left: 50px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background: var(--inputBG);
+    border-radius: 5px;
+}
+.categorySide ul{
+    list-style: none;
+}
+
+.categorySide li{
+    white-space: nowrap;
+}
+
+.categorySide input{
+    width: 30px;
+    cursor: pointer;
+    scale: 1.5;
+}
+.categorySide::-webkit-scrollbar{
+    width: 10px;
+    background: darkgray;
+    border-radius: 5px;
+}
+
+.categorySide::-webkit-scrollbar-thumb{
+    background: darkcyan;
+    border-radius: 5px;
+}
