@@ -1,7 +1,9 @@
 :root{
     --primary :rgb(11, 14, 21);
     --inputBG: rgba(43, 51, 56);
-
+    --primaryRed: rgb(107, 26, 41);
+    --primaryBlue:rgb(5, 77, 121);
+    --primaryGreen:rgb(21, 75, 2);
 }
 
 body{

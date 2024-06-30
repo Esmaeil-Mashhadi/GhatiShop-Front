@@ -1,21 +1,22 @@
 import { ChangeEvent, ChangeEventHandler, useContext, useEffect, useState } from 'react'
 import styles from './Title.module.css'
 import { CategoriesObject } from '../../layout/CategorySection'
-import { AdminProductContext } from './CreateProduct'
+import { AdminProductContext, ProductType } from './CreateProduct'
 
 interface ShowCatPropHandler {
   children : CategoriesObject[] , 
   handler : ChangeEventHandler<HTMLInputElement>
+  productData : ProductType
 }
 
-function ShowCat({children , handler }:ShowCatPropHandler){
+function ShowCat({children , handler , productData }:ShowCatPropHandler){
   return(
     <ul>
       {children.map((cat:CategoriesObject , index:number)=>(
         <li key={index}>
-            <input type='checkbox' onChange={handler} value={cat.slug} />{cat.name}  
+            <input checked={productData.categories.find(item => item == cat.slug) == cat.slug} type='checkbox' onChange={handler} value={cat.slug} />{cat.name}  
            {cat.children ? 
-           <ShowCat  handler={handler} children = {cat.children} />  :null
+           <ShowCat  productData={productData} handler={handler} children = {cat.children} />  :null
           } 
         </li>
       ))}
@@ -69,14 +70,15 @@ function TitleAndDescSection() {
 
     <div className={styles.rightSide}>
       <div className={styles.title}>
-        <label> عنوان :  </label>
-        <input name='title' onChange={changeHandler} type='text' />
+        <label> عنوان :</label>
+        <input name='title' value={productData.title ?? ""} onChange={changeHandler} type='text' />
       </div>
 
       <div className={styles.shortDesc}>
           <label>توضیح کوتاه محصول: </label>
-          <textarea name='shortDesc' onChange={changeHandler} />
+          <textarea value={productData.shortDesc ?? ""} name='shortDesc' onChange={changeHandler} />
       </div>
+
     </div>
 
     <div className={styles.leftSide}>
@@ -86,9 +88,9 @@ function TitleAndDescSection() {
             <div>
                 {cateList.flat().map((cat:CategoriesObject , index:number)=>(
                   <ul key={index}>
-                    <li> <input type='checkbox' onChange={changeInputHandler} value={cat.slug} />{cat.name}  </li>
+                    <li> <input checked={productData.categories.find(item => item == cat.slug) == cat.slug} type='checkbox' onChange={changeInputHandler} value={ cat.slug} />{cat.name}  </li>
                     {cat.children.length > 0 ?
-                    <ShowCat handler = {changeInputHandler} children = {cat.children} /> :null
+                    <ShowCat productData={productData} handler = {changeInputHandler} children = {cat.children} /> :null
                     }
                   </ul>
                 ))}

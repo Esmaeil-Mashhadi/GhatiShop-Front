@@ -3,10 +3,11 @@ import styles from './CreateProduct.module.css'
 import { MdOutlineLibraryAddCheck } from "react-icons/md";
 import toast, { Toaster } from 'react-hot-toast'
 import TitleAndDescSection from './TitleAndDescSection';
-import PriceAndCategory from './PriceAndCategorySection';
+import PriceAndCategory from './PriceSection';
 import ImageSection from './ImageSection';
 import ListInfo from './ListInfo';
 import Desc from '../../submodules/adminProduct/Desc'
+import PriceSection from './PriceSection';
 
 
 
@@ -15,12 +16,12 @@ export interface ImageType {
       otherImages: (File |string )[] 
 }
 
-interface ProductType {
+export interface ProductType {
       title: string;
       shortDesc: string;
       price: string;
       specialPrice: string;
-      images: ImageType;
+      images: ImageType ;
       description: string;
       features: {name:"", description:""}[];
       categories:(string)[]
@@ -41,24 +42,33 @@ export const AdminProductContext = createContext<ProductContextType>({
       } , 
       setProductData:()=>{}
 })
+type createProductType ={
+      edit?: boolean
+      productDataForEdit?: ProductType
+}
 
-function CreateProduct() {
-      const [productData , setProductData] = useState<ProductType>({
-            title:"" , shortDesc:"" , price:"" , specialPrice:"" ,
-            images:{mainImage:"", otherImages:[""]} , 
-            description:"" , 
-            features : [] , 
-            categories:[]
+function CreateProduct({edit , productDataForEdit}:createProductType) {
+      const [productData , setProductData] = useState<ProductType>(()=>{
+            if(edit && productDataForEdit){
+                 return  productDataForEdit
+            }else{
+                  return {
+                        title:"" , shortDesc:"" , price:"" , specialPrice:"" ,
+                        images:{mainImage:"", otherImages:[""]} , 
+                        description:"" , 
+                        features : [] , 
+                        categories:[]
+                  }
+            }
       })
 
-
       const submitHandler = async()=>{
-
         const checkIfEmpty = [!!productData.categories.length ,!!productData.title.trim() , !!productData.price.trim()]
         if(checkIfEmpty.includes(false)){
              toast.error('چک کنید که فیلد عنوان ، قیمت و دسته بندی مشخص شده باشند')
                   return
         }
+
         const {images , ...dataWithoutImages} = productData
         const {mainImage , otherImages} = images
         const form = new FormData()
@@ -68,30 +78,34 @@ function CreateProduct() {
          })
 
          Object.entries(dataWithoutImages).forEach(([key , value])=>{
+               const needStringify = ['features' , 'categories']
+               if(needStringify.includes(key)){
                   form.append(key , JSON.stringify(value))
+               }else if(typeof value == 'string'){
+                     form.append(key ,value)
+               }
          })
          
-        const res = await fetch('http://localhost:5000/product/create' , {
-            method:"POST" , credentials:'include',
+        const res = await fetch(`http://localhost:5000/product/${edit ? 'update':'create'}` , {
+            method:`${edit ? 'PATCH': "POST"}` , credentials:'include',
             body:form ,
         })
         const result = await res.json()
         if(result.status ==201){
             toast.success('محصول با موفقیت اضافه شد')
         }
-        console.log(result);
       }
-
-
-
-
+ 
   return (
     <div  className={styles.container} >
+      {edit && 
+        <h2>{`ادیت محصول${1}`}</h2>
+      }
           <div className={styles.addProductContainer}>
             <AdminProductContext.Provider value={{productData , setProductData}}>
                 <div className={styles.infoSection}>
                       <TitleAndDescSection />
-                      <PriceAndCategory />
+                      <PriceSection />
                       <ImageSection />
                       <ListInfo />
                       <Desc />

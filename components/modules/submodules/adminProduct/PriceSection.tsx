@@ -1,8 +1,8 @@
 import { ChangeEvent, useContext } from 'react'
-import styles from './PriceAndCategorySection.module.css'
+import styles from './PriceSection.module.css'
 import { AdminProductContext } from './CreateProduct'
 
-function PriceAndCategory() {
+function PriceSection() {
   const {setProductData , productData} = useContext(AdminProductContext) 
 
   const changeHandler = (e:ChangeEvent<HTMLInputElement>)=>{
@@ -16,15 +16,15 @@ function PriceAndCategory() {
 
     <div className={styles.title}>
       <label> قیمت به تومان :  </label>
-      <input name='price' onChange={changeHandler} type='number' />
+      <input value={productData.price} name='price' onChange={changeHandler} type='number' />
     </div>
 
     <div className={styles.title}>
       <label> قیمت ویژه  :  </label>
-      <input name='specialPrice' onChange={changeHandler} type='number' />
+      <input value={productData.specialPrice} name='specialPrice' onChange={changeHandler} type='number' />
     </div>
 </div>
   )
 }
 
-export default PriceAndCategory
+export default PriceSection

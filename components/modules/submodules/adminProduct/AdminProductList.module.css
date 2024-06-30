@@ -1,0 +1,126 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+.topSide{
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 10px;
+    position: relative;
+}
+
+.topSide a svg{
+    scale: 2;
+    color: rgb(240, 54, 240);
+    position: absolute;
+    top: 20px;
+}
+
+.selectContainer{
+    display: flex;
+    align-items: center;
+}
+
+.selectContainer label input{
+    margin-bottom: 5px;
+}
+.bulkOperation{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.bulkContainer{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.bulkButtons{
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(2 ,1fr);
+}
+.bulkButtons button{
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0px 0px 5px darkgray;
+    font-weight: bold;
+    width: 120px;
+    cursor: pointer;
+    transition: .2s ease;
+    color: white;
+    letter-spacing: 1px;
+}
+
+.bulkButtons button:hover{
+    scale: 1.05;
+}
+
+.bulkButtons button:first-child{
+    background: var(--primaryRed);
+}
+.bulkButtons button:nth-child(2){
+    background:var(--primaryBlue);
+}
+.bulkButtons button:nth-child(3){
+    background: var(--primaryGreen);
+}
+.bulkButtons button:nth-child(4){
+    background: rgb(55, 55, 53);
+}
+
+
+
+.search{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.search svg{
+    border: solid;
+    padding: 5px;
+    border-radius: 5px;
+    scale: 1.2;
+    border-width: 1px;
+    cursor: pointer;
+    transition: .2s ease;
+}
+.search svg:hover{
+    scale: 1.4;
+    background: rgba(255, 255, 255, 0.589);
+    color: black;
+}
+
+.search input{
+    border-radius: 5px;
+    padding: 7px;
+    outline: none;
+    border: none;
+    background: var(--inputBG);
+    color: white;
+    font-size: 20px;
+}
+
+
+.checkProduct{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    border: dashed 1px gray;
+    font-size: 13px;
+    white-space: nowrap;
+    justify-content: space-between;
+    padding: 0px 10px;
+}
+
+.checkProduct input{
+    scale: 1.2;
+    border: solid;
+    padding: 5px;
+}
+

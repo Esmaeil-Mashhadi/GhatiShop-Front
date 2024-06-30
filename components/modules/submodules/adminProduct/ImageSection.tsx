@@ -82,13 +82,17 @@ const uploadHandler = ( index?: number) => {
   }
 
 
+  const imageData =Object.values(productData.images) || []
   return (
     <div className={styles.image}>
 
     <div className={styles.imageContainer}>
         <label>تصویر اصلی: </label>
         <div>
-          <img onClick={()=>uploadHandler()} className={styles.mainImage} src= {imageSrc.mainImage as string || '/products/noImage.png'} />
+          <img
+           onClick={()=>uploadHandler()} 
+           className={styles.mainImage} 
+           src= {imageSrc.mainImage as string || imageData[0] || '/products/noImage.png'} />
           {imageSrc.mainImage &&  <span onClick={()=>removeImage()} className={styles.remove}>حذف تصویر</span>}
         </div>
     </div>
@@ -97,7 +101,10 @@ const uploadHandler = ( index?: number) => {
         <label>دیگر تصاویر:</label>
         {[...Array(3)].map((img , index) =>(
           <div  key={index}>
-            <img onClick={()=>uploadHandler( index)}  className={styles.images} key={index} src={imageSrc.otherImages[index] as string || '/products/noImage.png'} />
+            <img 
+            onClick={()=>uploadHandler( index)} 
+             className={styles.images} key={index} 
+             src={imageSrc.otherImages[index] as string || imageData[index] || '/products/noImage.png'} />
             {imageSrc.otherImages[index] &&  <span onClick={()=>removeImage(index)} className={styles.remove}>حذف تصویر</span>}
           </div>
           ))}

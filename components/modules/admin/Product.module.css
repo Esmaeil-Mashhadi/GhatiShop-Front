@@ -6,6 +6,7 @@
     max-height:925px;
     overflow-y: auto;
     animation: showUp .5s forwards linear ;
+    scroll-behavior: smooth;
 }
 
 @keyframes showUp {

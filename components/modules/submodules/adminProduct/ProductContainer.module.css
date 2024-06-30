@@ -1,0 +1,106 @@
+
+.productContainer{
+    display: flex;
+    border-radius: 5px;
+    box-shadow: inset 0px 0px 5px darkcyan;
+    padding: 5px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+.rightSide {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    height: 100%;
+}
+
+
+.rightSide img{
+    width: 250px;
+    border-radius: 5px;
+    height: 100%;
+}
+.infoContainer{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.infoContainer p{
+    border-bottom: solid;
+    border-width: 1px;
+    border-color: rgba(128, 128, 128, 0.415);
+}
+
+.priceSection{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.category{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.leftSide{
+    display: grid;
+    grid-template-columns: repeat(2 ,1fr);
+    gap: 10px;
+    margin-left: 50px;
+}
+
+.leftSide button{
+    padding: 10px;
+    border: none;
+    height: 50px;
+    font-weight: bold;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 120px;
+    cursor: pointer;
+    transition: .2s;
+    color: white;
+}
+.leftSide button:hover{
+    scale: 1.05;
+}
+
+.leftSide button svg{
+    width: 20px;
+    height: 20px;
+}
+
+.leftSide button:nth-child(2){
+    background: var(--primaryRed);
+}
+.leftSide button:first-child{
+    background: var(--primaryBlue);
+}
+.leftSide button:nth-child(3){
+    background: rgb(47, 45, 45);
+}
+
+.checkProduct{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    border: dashed 1px gray;
+    font-size: 13px;
+    white-space: nowrap;
+    justify-content: space-between;
+    padding: 0px 10px;
+
+}
+.checkProduct input{
+    scale: 1.5;
+    cursor: pointer;
+}
+

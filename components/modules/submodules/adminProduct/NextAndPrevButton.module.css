@@ -1,0 +1,45 @@
+.nextandPrevButtons{
+    display: flex;
+    margin: auto;
+    gap: 10px;
+    align-items: center;
+    position: relative;
+
+}
+
+.nextandPrevButtons p{
+    border: solid;
+    border-radius: 50%;
+    border-style: dashed;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    border-width: 2px;
+    padding: 5px;
+    font-size: 25px;
+}
+.nextandPrevButtons button{
+    width: 30px;
+    height: 30px;
+    font-weight: bold;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.nextandPrevButtons span{
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    letter-spacing: 2px;
+    color: gray;
+}
+.nextandPrevButtons button:first-child{
+    background: pink;
+}
+.nextandPrevButtons button{
+    background: chartreuse;
+}
