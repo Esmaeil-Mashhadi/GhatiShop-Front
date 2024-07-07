@@ -2,7 +2,7 @@
     display: flex;
     flex: 1;
     padding: 50px 10px;
-    max-height:845px;
+    width: 100%;
     overflow-y: auto;
     animation: showUp .5s forwards linear ;
 }

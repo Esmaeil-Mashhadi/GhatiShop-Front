@@ -1,0 +1,31 @@
+.categorySide{
+    max-height: 150px;
+    padding-left: 50px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background: var(--inputBG);
+    border-radius: 5px;
+}
+.categorySide ul{
+    list-style: none;
+}
+
+.categorySide li{
+    white-space: nowrap;
+}
+
+.categorySide input{
+    width: 30px;
+    cursor: pointer;
+    scale: 1.5;
+}
+.categorySide::-webkit-scrollbar{
+    width: 10px;
+    background: darkgray;
+    border-radius: 5px;
+}
+
+.categorySide::-webkit-scrollbar-thumb{
+    background: darkcyan;
+    border-radius: 5px;
+}

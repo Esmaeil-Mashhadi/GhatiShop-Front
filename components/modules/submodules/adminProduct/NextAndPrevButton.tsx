@@ -37,7 +37,7 @@ function NextAndPrevButton({page , setPage , totalPages}:nextAndPrevPropType) {
       {">"}
     </button>
 
-    <span> {` ${page} از ${totalPages}  `}</span>
+    <span> {` ${page} از ${totalPages}`}</span>
  </div>
   )
 }

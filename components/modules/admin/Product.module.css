@@ -2,8 +2,7 @@
     display: flex;
     flex: 1;
     flex-direction: column;
-    padding:10px 20px;
-    max-height:925px;
+    height:100%;
     overflow-y: auto;
     animation: showUp .5s forwards linear ;
     scroll-behavior: smooth;
@@ -20,8 +19,8 @@
 
 .titleContainer{
     position: relative;
-    margin-bottom: 50px;
-    width: 100%;
+    width: 97%;
+    margin: 10px auto;
     display: flex;
     justify-content: space-between;
     align-items: center;

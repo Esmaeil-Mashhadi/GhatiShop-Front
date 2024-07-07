@@ -1,61 +1,60 @@
-.image{
+.imagesContainer{
     display: flex;
-    gap: 100px;
+    gap: 50px;
     border-bottom: dotted gray;
     padding-bottom: 20px;
     align-items: center;
-
-
-}
-.imageContainer{
-        display: flex;
-        align-items: center;
-        gap: 5px;
+    flex-wrap: wrap;
 }
 
-.imageContainer div{
+
+
+.imagecontainer label{
+        white-space: nowrap;
+        margin-left: 10px;
+}
+
+.imageSubContainer{
         position: relative;
         overflow: hidden;
-        height: 200px;
+        height: fit-content;
 }
-
-.imageLoopContainer{
-        display: flex;
-        align-items: center;
-        gap: 15px;
-        flex-wrap: wrap;
-}
-.imageLoopContainer div{
-        height: 150px;
-        overflow: hidden;
-        position: relative;
-
-
-}
-
+    
 .mainImage {
-        width: 200px;
-        height: 100%;
+        position: relative;
+        width: 220px;
+        height: 220px;
         transition: .2s ease;
         cursor: pointer;
         border-radius: 5px;
 }
 
-
-    
-.images {
+.otherImages {
         width: 150px;
-        height: 150px;
+        height: 100%;
         cursor: pointer;
         transition: .2s ease;
         border-radius: 5px;
 }
+
+.mainImageContainer{
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        overflow: hidden;
+}
+
+.mainImageContainer:hover > .remove{
+        transform: translateY(0px);
+}
+       
     
-.images:hover + .remove , 
-.remove:hover{
-        transform: translate(0px);
- }
- .remove{
+.imageSubContainer:hover > .remove{
+        transform: translateY(-10px);
+}
+
+.remove{
         position: absolute;
         left: 0px;
         bottom: 0px;
@@ -74,19 +73,15 @@
         color: black;
 }
 
-.mainImage:hover + .remove , 
-.remove:hover{
-        transform: translate(0px);
- }
+.mainImage, 
+.otherImages{
+border: dashed;
+border-color: var(--primary);
+}
 
- .image img{
-        box-sizing: border-box;
-        border-style: dashed;
-        border-width: 2px;
-        border-color: var(--primary);
- }
-
- .image img:hover{
+ .mainImage:hover ,
+  .otherImages:hover{
+        border: dashed;
         border-color: gray;
  }
 

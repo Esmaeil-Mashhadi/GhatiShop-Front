@@ -3,19 +3,15 @@ import styles from './ImageSection.module.css'
 import toast from 'react-hot-toast'
 import { AdminProductContext } from './CreateProduct'
 
-interface ImageSrcType {
-  mainImage:string |ArrayBuffer
-  otherImages:(string | ArrayBuffer)[]
-}
-function ImageSection() {
+
+function ImageSection({edit}:{edit?:boolean}) {
 
   const {setProductData , productData} = useContext(AdminProductContext) 
 
-  const [imageSrc , setImageSrc] = useState<ImageSrcType>({
-    mainImage:'' , otherImages :[""]
-  })
+  const initialImageSrcValue = edit? {mainImage:productData.mainImage  as (string | ArrayBuffer), otherImages:productData.otherImages as (string|ArrayBuffer)[]} : {mainImage:"" , otherImages:['']} // we know when edit is true we're getting image url or were uploading array buffer
+  const [imageSrc , setImageSrc] = useState(initialImageSrcValue)
 
-const uploadHandler = ( index?: number) => {
+const uploadHandler = ( index?: number) => { 
     const input = document.createElement('input');
     input.type = 'file';
   
@@ -36,79 +32,65 @@ const uploadHandler = ( index?: number) => {
       reader.onload = (e) => {
         const result = e.target?.result;
         if (!result) return;
-  
-        if (index !== undefined) {
-          updateOtherImage(result, index ,file);
-        } else {
-          updateMainImage(result, file);
-        }
+          updateImage(result, index  ,file);
       };
-  
       reader.readAsDataURL(file);
     });
   
     input.click();
   };
   
-  const updateOtherImage = (result: string | ArrayBuffer, index: number , file:File) => {
-    if(productData && setProductData){
-      const imagesUpdate = [...productData.images.otherImages]
+  const updateImage = (result: string | ArrayBuffer, index: number | undefined , file:File) => {
+    if(index == undefined){
+      setProductData({...productData , mainImage:file}) 
+      setImageSrc({...imageSrc , mainImage:result})
+    }else{ 
+      const imagesUpdate = [...productData.otherImages]
       imagesUpdate[index] = file
-      setProductData({...productData , images:{...productData.images , otherImages:imagesUpdate}})
+      setProductData({...productData , otherImages:imagesUpdate})
+      const imageSources = [...imageSrc.otherImages];
+      imageSources[index] = result;
+      setImageSrc({...imageSrc ,otherImages:imageSources});
     }
-    const otherImagesCopy = [...imageSrc.otherImages];
-    otherImagesCopy[index] = result;
-    setImageSrc({ ...imageSrc, otherImages: otherImagesCopy });
   };
   
-  const updateMainImage = (result: string | ArrayBuffer, file: File) => {
-    if (productData && setProductData) {
-      setProductData({
-        ...productData,
-        images: { ...productData.images, mainImage: file },
-      });
-    }
-    setImageSrc({ ...imageSrc, mainImage: result });
-  };
+
 
   const removeImage = (index?:number)=>{
-    if(index !=undefined){
-      const otherImagesCopy = [...imageSrc.otherImages]
-      otherImagesCopy[index] = ""
-      setImageSrc({...imageSrc ,otherImages:otherImagesCopy })
+    if(index == undefined){
+      setImageSrc({...imageSrc , mainImage:''})
     }else{
-      setImageSrc({...imageSrc , mainImage:""})
+      const imageSources = [...imageSrc.otherImages]
+      imageSources[index] = ""
+       productData.otherImages[index] ="" 
+      setImageSrc({...imageSrc , otherImages:[...imageSources]}) 
     }
   }
 
 
-  const imageData =Object.values(productData.images) || []
   return (
-    <div className={styles.image}>
+  <div className={styles.imagesContainer}>
 
-    <div className={styles.imageContainer}>
-        <label>تصویر اصلی: </label>
-        <div>
-          <img
-           onClick={()=>uploadHandler()} 
-           className={styles.mainImage} 
-           src= {imageSrc.mainImage as string || imageData[0] || '/products/noImage.png'} />
-          {imageSrc.mainImage &&  <span onClick={()=>removeImage()} className={styles.remove}>حذف تصویر</span>}
-        </div>
-    </div>
+        <label>تصویر اصلی</label>
+       <div className={styles.mainImageContainer}>
+        <img onClick={()=>uploadHandler()} className={styles.mainImage} src={imageSrc.mainImage as string || '/products/noImage.png'} />
+        {imageSrc.mainImage &&  <span onClick={()=>removeImage()} className={styles.remove}>حذف تصویر</span>}
+      </div>
 
-    <div className={styles.imageLoopContainer}>
-        <label>دیگر تصاویر:</label>
-        {[...Array(3)].map((img , index) =>(
-          <div  key={index}>
-            <img 
-            onClick={()=>uploadHandler( index)} 
-             className={styles.images} key={index} 
-             src={imageSrc.otherImages[index] as string || imageData[index] || '/products/noImage.png'} />
-            {imageSrc.otherImages[index] &&  <span onClick={()=>removeImage(index)} className={styles.remove}>حذف تصویر</span>}
-          </div>
-          ))}
-    </div>
+       <label>تصاویر دیگر</label>
+      {
+        [...Array(3)].map((_, index)=>(
+              <div className={styles.imageSubContainer} key={index}>
+                 <img
+                  className={ styles.otherImages}
+                  onClick={()=>uploadHandler(index)}
+                  src={imageSrc.otherImages[index] as string || '/products/noImage.png'}
+                 />
+                {imageSrc.otherImages[index] &&  <span onClick={()=>removeImage(index)} className={styles.remove}>حذف تصویر</span>}
+           </div>
+        ))
+      }
+  
   </div>
   )
 }

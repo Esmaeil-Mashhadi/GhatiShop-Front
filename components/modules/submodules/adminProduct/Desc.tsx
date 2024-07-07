@@ -5,6 +5,7 @@ import { AdminProductContext } from './CreateProduct';
 const RichTextEditor = () => {
 
   const contextData = useContext(AdminProductContext)
+
   const handleEditorChange = (content: string) => {
     contextData?.setProductData({
       ...contextData.productData , 
@@ -16,6 +17,7 @@ const RichTextEditor = () => {
   return (
     <Editor
       apiKey="uu80dgcw3vviznbfqg85u80tio9fi4ffwz2trt5fmajlteyd"
+      value={contextData.productData.description}
       init={{
         height: 500,
         menubar: false,

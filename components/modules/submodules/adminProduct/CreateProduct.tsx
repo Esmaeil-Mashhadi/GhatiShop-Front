@@ -3,7 +3,6 @@ import styles from './CreateProduct.module.css'
 import { MdOutlineLibraryAddCheck } from "react-icons/md";
 import toast, { Toaster } from 'react-hot-toast'
 import TitleAndDescSection from './TitleAndDescSection';
-import PriceAndCategory from './PriceSection';
 import ImageSection from './ImageSection';
 import ListInfo from './ListInfo';
 import Desc from '../../submodules/adminProduct/Desc'
@@ -11,17 +10,13 @@ import PriceSection from './PriceSection';
 
 
 
-export interface ImageType {
-      mainImage : File  |string 
-      otherImages: (File |string )[] 
-}
-
 export interface ProductType {
       title: string;
       shortDesc: string;
       price: string;
       specialPrice: string;
-      images: ImageType ;
+      otherImages: (string | File)[] ;
+      mainImage:(string |File ), 
       description: string;
       features: {name:"", description:""}[];
       categories:(string)[]
@@ -35,7 +30,8 @@ interface ProductContextType  {
 export const AdminProductContext = createContext<ProductContextType>({
       productData:{
             title:"" , shortDesc:"" , price:"" , specialPrice:"" ,
-            images:{mainImage:"", otherImages:[""]} , 
+            otherImages:[], 
+            mainImage:"",
             description:"" , 
             features : [] , 
             categories:[]
@@ -45,23 +41,28 @@ export const AdminProductContext = createContext<ProductContextType>({
 type createProductType ={
       edit?: boolean
       productDataForEdit?: ProductType
+      productID?: string
 }
 
-function CreateProduct({edit , productDataForEdit}:createProductType) {
+function CreateProduct({edit , productDataForEdit , productID}:createProductType) {
       const [productData , setProductData] = useState<ProductType>(()=>{
             if(edit && productDataForEdit){
                  return  productDataForEdit
             }else{
                   return {
                         title:"" , shortDesc:"" , price:"" , specialPrice:"" ,
-                        images:{mainImage:"", otherImages:[""]} , 
+                        otherImages:[] , 
+                        mainImage:'',
                         description:"" , 
                         features : [] , 
                         categories:[]
                   }
             }
-      })
+      }) 
 
+      
+
+  
       const submitHandler = async()=>{
         const checkIfEmpty = [!!productData.categories.length ,!!productData.title.trim() , !!productData.price.trim()]
         if(checkIfEmpty.includes(false)){
@@ -69,30 +70,35 @@ function CreateProduct({edit , productDataForEdit}:createProductType) {
                   return
         }
 
-        const {images , ...dataWithoutImages} = productData
-        const {mainImage , otherImages} = images
+        const {otherImages , mainImage, ...dataWithoutImages} = productData
         const form = new FormData()
-         form.append('images' , mainImage)
-         otherImages.forEach((image ,index)=>{
-            form.append('images' , image)
-         })
 
+        otherImages.forEach((image ,index)=>{
+            form.append('otherImages' , image)
+         })
+         form.append('mainImage' , mainImage)
+         
          Object.entries(dataWithoutImages).forEach(([key , value])=>{
                const needStringify = ['features' , 'categories']
                if(needStringify.includes(key)){
                   form.append(key , JSON.stringify(value))
                }else if(typeof value == 'string'){
-                     form.append(key ,value)
+                     form.append(key ,value) 
                }
          })
          
-        const res = await fetch(`http://localhost:5000/product/${edit ? 'update':'create'}` , {
+
+        const res = await fetch(`http://localhost:5000/product/${edit ? `update/${productID}`:'create'}` , {
             method:`${edit ? 'PATCH': "POST"}` , credentials:'include',
             body:form ,
         })
         const result = await res.json()
         if(result.status ==201){
             toast.success('محصول با موفقیت اضافه شد')
+        }else if(result.status == 200){
+            toast.success('محصول با موفقیت بروز رسانی شد')
+        }else{
+            toast.error(result.data.message || 'مشکلی درآپدیت محصول پیش آمد')
         }
       }
  
@@ -104,9 +110,9 @@ function CreateProduct({edit , productDataForEdit}:createProductType) {
           <div className={styles.addProductContainer}>
             <AdminProductContext.Provider value={{productData , setProductData}}>
                 <div className={styles.infoSection}>
-                      <TitleAndDescSection />
+                      <TitleAndDescSection bulkEdit={false} />
                       <PriceSection />
-                      <ImageSection />
+                      <ImageSection edit ={edit} />
                       <ListInfo />
                       <Desc />
                 </div>
@@ -114,7 +120,7 @@ function CreateProduct({edit , productDataForEdit}:createProductType) {
             <button
               className={styles.submitButton}
               onClick={submitHandler}>
-                         ثبت محصول  
+                      {edit ? 'بروز رسانی محصول' : "ثبت محصول"}
               <MdOutlineLibraryAddCheck />
             </button>
           </div> 

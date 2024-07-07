@@ -3,16 +3,6 @@ import styles from './CategorySection.module.css'
 import { MdOutlineKeyboardDoubleArrowUp } from "react-icons/md";
 
 
-//  type categroyType ={
-//   _id:  string,
-//   name: string,
-//   slug: string,
-//   layer: number,
-//   parentSlug: string,
-//   parent:string,
-// }
-
-
 export interface CategoriesObject  {
     _id:  string,
     name: string,

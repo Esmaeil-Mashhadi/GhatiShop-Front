@@ -28,7 +28,7 @@ function ProductContainer({products , selectedProducts , setSelectedProducts}:Pr
     {products.map((product:IncomingProductType , index)=>(
         <div className={styles.productContainer}>
            <div className={styles.rightSide}>
-                <img src ={product.images[0]} />
+                <img src ={product.mainImage ?? '/products/noImage.png'} />
                 <div className={styles.infoContainer}>
 
                   <p>عنوان محصول: {product.title}</p>

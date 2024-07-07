@@ -24,7 +24,6 @@ function DiscountSection() {
         setScrollStyle({
             '--scaleUp':'1.05',
             '--boxShadow':"inset 0px 0px 10px gold",
-            '--opacity':"0"
         })
         const walk = (e.pageX - startPosition)
         itemref.current ? itemref.current.scrollLeft = ((scrollLeft ?? 0) - walk) :null

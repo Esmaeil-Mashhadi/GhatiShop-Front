@@ -25,13 +25,12 @@ function page({params}:editPagePropType) {
     getProductInfo()
     },[])
 
-    console.log(productData);
 
   return (
     <>
     {productData ?
-    <CreateProduct productDataForEdit = {productData} edit ={true} />
-     : <h1 style={{margin:'auto'}}>loading ...</h1>
+    <CreateProduct productID = {params.productID} productDataForEdit = {productData} edit ={true} />
+     : <h1 style={{margin:'auto'}}>در حال آماده سازی ...</h1>
     }
     </>
   )

@@ -5,6 +5,7 @@
     padding:10px 20px;
     max-height:925px;
     overflow-y: auto;
+    margin: 10px;;
     animation: showUp .5s forwards linear ;
 }
 
