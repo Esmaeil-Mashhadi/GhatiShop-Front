@@ -59,6 +59,7 @@ const uploadHandler = ( index?: number) => {
   const removeImage = (index?:number)=>{
     if(index == undefined){
       setImageSrc({...imageSrc , mainImage:''})
+      setProductData({...productData , mainImage:''})
     }else{
       const imageSources = [...imageSrc.otherImages]
       imageSources[index] = ""

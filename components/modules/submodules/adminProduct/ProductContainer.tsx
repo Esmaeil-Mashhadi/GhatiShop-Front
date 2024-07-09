@@ -49,14 +49,13 @@ function ProductContainer({products , selectedProducts , setSelectedProducts ,up
       setShowModal({[id]:true})
   }
 
-  console.log(showModal);
 
   return (
         <>
     {products.map((product:IncomingProductType , index)=>(
         <div className={styles.productContainer}>
            <div className={styles.rightSide}>
-                <img src ={product.mainImage ?? '/products/noImage.png'} />
+                <img src ={product.mainImage || '/products/noImage.png'} />
                 <div className={styles.infoContainer}>
 
                   <p>عنوان محصول: {product.title}</p>

@@ -7,6 +7,7 @@ import ImageSection from './ImageSection';
 import ListInfo from './ListInfo';
 import Desc from '../../submodules/adminProduct/Desc'
 import PriceSection from './PriceSection';
+import { useRouter } from 'next/navigation';
 
 
 
@@ -58,18 +59,17 @@ function CreateProduct({edit , productDataForEdit , productID}:createProductType
                         categories:[]
                   }
             }
-      }) 
-
+      })
       
-
   
       const submitHandler = async()=>{
-        const checkIfEmpty = [!!productData.categories.length ,!!productData.title.trim() , !!productData.price.trim()]
+
+        const checkIfEmpty = [!!productData.categories.length ,!!productData.title.trim() , !!(String(productData.price).trim())]
+
         if(checkIfEmpty.includes(false)){
              toast.error('چک کنید که فیلد عنوان ، قیمت و دسته بندی مشخص شده باشند')
                   return
         }
-
         const {otherImages , mainImage, ...dataWithoutImages} = productData
         const form = new FormData()
 
@@ -97,11 +97,16 @@ function CreateProduct({edit , productDataForEdit , productID}:createProductType
             toast.success('محصول با موفقیت اضافه شد')
         }else if(result.status == 200){
             toast.success('محصول با موفقیت بروز رسانی شد')
+            setTimeout(() => {
+                  window.location.reload()
+            }, 1000);
+            
         }else{
             toast.error(result.data.message || 'مشکلی درآپدیت محصول پیش آمد')
         }
       }
  
+      console.log(productData);
   return (
     <div  className={styles.container} >
       {edit && 
