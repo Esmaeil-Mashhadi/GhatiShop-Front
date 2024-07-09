@@ -25,6 +25,7 @@ function TitleAndDescSection({bulkEdit}:TitleAndDescSectionProp) {
   }
 
   useEffect(()=>{
+
     const getData = async()=>{
     const res = await fetch('http://localhost:5000/category/list' ,{
       method:"GET" , 
@@ -38,8 +39,8 @@ function TitleAndDescSection({bulkEdit}:TitleAndDescSectionProp) {
      }
     }
     getData()
+    
   },[]) 
-
 
 
   const changeInputHandler = (e:ChangeEvent<HTMLInputElement>)=>{

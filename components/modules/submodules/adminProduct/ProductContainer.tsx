@@ -1,19 +1,26 @@
-import { Dispatch, SetStateAction } from 'react';
+import { Dispatch, SetStateAction, useState } from 'react';
 import { IncomingProductType } from './AdminProductList'
 import styles from './ProductContainer.module.css'
 import { CiEdit } from "react-icons/ci";
 import { CiSquareRemove } from "react-icons/ci";
 import { FaRegEye } from "react-icons/fa6";
 import { useRouter } from 'next/navigation';
+import toast from 'react-hot-toast';
+import { IoIosWarning } from "react-icons/io";
+
 
 type ProductContainerPropType ={
   products : IncomingProductType[]
   selectedProducts:string[]
   setSelectedProducts:Dispatch<SetStateAction<string[]>>
+  updated:boolean ,
+  setUpdated: Dispatch<SetStateAction<boolean>>
 }
-function ProductContainer({products , selectedProducts , setSelectedProducts}:ProductContainerPropType) {
+function ProductContainer({products , selectedProducts , setSelectedProducts ,updated, setUpdated}:ProductContainerPropType) {
 
   const router = useRouter()
+  const [showModal , setShowModal] = useState<Record<string ,boolean>>({})
+
   const handleCheckChange = (e:any , productID:string , index:number)=>{
     if(e.target.checked){
       setSelectedProducts([...selectedProducts, productID])
@@ -22,6 +29,27 @@ function ProductContainer({products , selectedProducts , setSelectedProducts}:Pr
       setSelectedProducts(upadtedSelectedProducts)
     } 
   }
+
+  const removeHandler = async(id:string)=>{
+    const res= await fetch(`http://localhost:5000/product/remove/${id}`, {
+      method:"DELETE" , credentials:'include'
+    })
+    const result =await res.json()
+    if(result.status == 200){
+      toast.success(result.data.message || 'محصول با موفقیت حذف شد')
+      setUpdated(!updated)
+      setShowModal({})
+    }else{
+      setShowModal({})
+      toast.error(result.data.message || "مشکلی در حذف محصول پیش آمد")
+    }
+  }
+
+  const handleModal = (id:string)=>{
+      setShowModal({[id]:true})
+  }
+
+  console.log(showModal);
 
   return (
         <>
@@ -56,7 +84,7 @@ function ProductContainer({products , selectedProducts , setSelectedProducts}:Pr
                 <CiEdit />
               </button>
 
-              <button >
+              <button onClick={()=>handleModal(product._id)} >
                 حذف محصول 
                 <CiSquareRemove/>
               </button>
@@ -71,8 +99,23 @@ function ProductContainer({products , selectedProducts , setSelectedProducts}:Pr
                    <input checked ={selectedProducts.includes(products[index]._id)} onChange={(e)=>handleCheckChange(e, product._id , index)} type='checkBox' id={`check${index}`} />       
               </label>
            </div>
+
+           <div style={showModal[product._id] ? {opacity:1 , pointerEvents:"all"}:{opacity:0,pointerEvents:'none'}} className={styles.deleteModal}>
+              <p>
+                {`محصول ${product.title} حذف شود ؟ `}
+                <IoIosWarning />
+              </p>
+              <div className={styles.deleteBtnContainer}>
+                <button onClick={()=>removeHandler(product._id)}>حذف</button>
+                <button onClick={()=>setShowModal({})}>لغو</button>
+              </div>
+           </div>
         </div>
+
+        
       ))}
+
+   
         </>
   )
 }

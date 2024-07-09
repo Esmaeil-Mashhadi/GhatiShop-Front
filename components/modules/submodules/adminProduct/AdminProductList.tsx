@@ -5,6 +5,8 @@ import { IoIosSearch } from "react-icons/io";
 import ProductContainer from './ProductContainer';
 import NextAndPrevButton from './NextAndPrevButton';
 import BulkOperation from './BulkOperation';
+import BulkEditComponent from './BulkEditComponent';
+import { Toaster } from 'react-hot-toast';
 
 
 export type IncomingProductType ={
@@ -20,15 +22,17 @@ export type IncomingProductType ={
   _id:string 
 }
 
+
 function AdminProductList() {
 
   const [products , setProducts] = useState<IncomingProductType[]>([])
   const [searchInput , setSearchInput] = useState('')
   const [page , setPage] = useState(1)
-  const [update , setUpdate] =useState(false)
+  const [bulkEdit , setBulkEdit] = useState(false)
   const[loading ,setLoading] = useState(true)
   const [totalPages , setTotalPages] = useState(loading ? "...":1)
   const [selectedProducts , setSelectedProducts] = useState<string[]>([])
+  const [updated , setUpdated] = useState(false)
 
 
   useEffect(()=>{
@@ -39,10 +43,13 @@ function AdminProductList() {
       setLoading(false)
       setProducts(products)
       setTotalPages(result.data.totalPages)
-      console.log('regetting');
     }
     getListOfProduct()
-  },[page , update])
+    if(selectedProducts.length <= 1){
+      setBulkEdit(false)
+    }
+  },[page , updated , selectedProducts ])
+
 
 
 
@@ -76,7 +83,6 @@ function AdminProductList() {
     }
   }
 
-
   return (
     <div className={styles.container}>    
       <div  className={styles.topSide}>
@@ -86,17 +92,25 @@ function AdminProductList() {
               <label >جست و جوی محصول : </label>
               <input onKeyDown={keyDownSearchHandler} value={searchInput} onChange={onSearchChange} />
               <IoIosSearch onClick={searchHandler}/>
-          </div>    
+          </div>  
+
             <NextAndPrevButton page={page} setPage={setPage}  totalPages={totalPages}/>
          </div>
-
-          <BulkOperation setUpdate={setUpdate} update={update} selectedProducts= {selectedProducts} handlebulkSelect={handlebulkSelect} />
+          <BulkOperation  selectedProducts ={selectedProducts} bulkEdit ={bulkEdit} setBulkEdit={setBulkEdit}  handlebulkSelect={handlebulkSelect} />
       </div>
 
-      {loading && <h1>در حال آماده سازی...</h1> }
-      <ProductContainer selectedProducts={selectedProducts} setSelectedProducts={setSelectedProducts} products={products}  />
-      <NextAndPrevButton page={page} setPage={setPage}  totalPages={totalPages}/>
+      {loading && <h1>در حال آماده سازی...</h1>}
 
+      <div className={styles.bulkEditContainer} style={bulkEdit ? {height:'300px' , opacity:1}: {height:0 , opacity:0 , pointerEvents:'none'}}>
+       
+        <BulkEditComponent setSelectedProducts ={setSelectedProducts} updated ={updated} setUpdated = {setUpdated} selectedProducts={selectedProducts} />
+        <button onClick={()=>setBulkEdit(false)} className={styles.closeBulkEdit}>
+             X
+        </button>
+      </div>
+      <ProductContainer updated={updated} setUpdated ={setUpdated} selectedProducts={selectedProducts} setSelectedProducts={setSelectedProducts} products={products}  />
+      <NextAndPrevButton page={page} setPage={setPage}  totalPages={totalPages}/>
+      <Toaster/>
     </div>
   )
 }
