@@ -126,3 +126,16 @@
  border-radius: 5px;
  color: black;
 }
+
+
+@media screen and (max-width:1224px) {
+  .categoryContainer{
+    display: none;
+  }
+}
+
+@media screen and (max-width:800px) {
+    .logo{
+        width: 50px;
+    }
+}

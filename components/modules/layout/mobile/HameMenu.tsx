@@ -3,10 +3,11 @@
 import Link from 'next/link'
 import styles from './HameMenu.module.css'
 import { IoSearchSharp } from "react-icons/io5";
-import { useEffect, useState, MouseEvent } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
+import MobileCategorySection from './MobileCategorySection';
 
 type hameMenuPropType ={
-    user:string |undefined
+    user:string |undefined ,
 }
 
 function HameMenu({user}:hameMenuPropType) {
@@ -29,7 +30,9 @@ function HameMenu({user}:hameMenuPropType) {
     };
 
     const transformMenu: Record<string, string | undefined> = {
-        '--transform': showMenu ? 'translateX(0%)' : 'translateX(110%)'
+        '--transform': showMenu ? 'translateX(0%)' : 'translateX(110%)',
+        '--pointerEvent': showMenu?  "all" : 'none',
+        '--opacity' : showMenu ? '1' : '0'
     };
 
     const selectMenuStyle: Record<string, string | undefined> = {
@@ -87,11 +90,8 @@ function HameMenu({user}:hameMenuPropType) {
                             درباره ی ما
                         </Link>
                     </div> :
-                    <div className={styles.categories}>
-                        <div className={styles.categoriesSection}>
-                        </div>
-                    </div>
-                }
+                            <MobileCategorySection />
+                        }
 
                 <div className={styles.categories}>
                 </div>

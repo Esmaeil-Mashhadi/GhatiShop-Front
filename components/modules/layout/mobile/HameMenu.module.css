@@ -15,8 +15,9 @@
     align-items: center;
     transform: var(--transform);
     transition: .2s ease;
-    overflow: hidden;
     gap: 5px;
+    pointer-events: var(--pointerEvent);
+    opacity: var(--opacity);
 }
 
 
@@ -36,12 +37,13 @@
     left: var(--left);
     transition: .2s;
     bottom: 0px;
-    background: rgba(218, 165, 32, 0.238);
+    background: rgb(1, 70, 70);
     height: 100%;
     border-bottom: solid;
-    border-color: goldenrod;
+    border-color: aquamarine;
     border-width: 2px;
     box-sizing: border-box;
+    z-index: -1;
 }
 
 .dropDownContainer button{
@@ -67,9 +69,13 @@
 }
 
 .menu a{
-    padding: 20px;
     background: rgba(252, 251, 250, 0.116);
     border-radius: 2px;
+    height: 60px;
+    padding: 0px 10px 0px 0px ;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
 }
 
 .hameLines {
@@ -111,9 +117,11 @@
     display: flex;
     justify-content: space-between;
     height: 50px;
+    border-radius: 5px;
+    overflow: hidden;
 }
 .searchContainer input {
-    flex: 1;
+    width: 100%;
     border: none;
     background: rgba(252, 251, 250, 0.116);
     color: white;

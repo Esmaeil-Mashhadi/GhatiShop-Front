@@ -5,12 +5,14 @@ import React, { ReactNode } from 'react'
 
 function layout({children}:{children:ReactNode}) {
   return (
-    <>
+    <div style={{margin:'0px 25px' , display:'flex', flexDirection:"column" , height:'100vh'}}>
         <Header />
         <Support />
-        {children}
+        <div style={{flex:1 , margin:'150px 0px'}}>
+            {children}
+        </div>
         <Footer/>
-    </>
+    </div>
   )
 }
 

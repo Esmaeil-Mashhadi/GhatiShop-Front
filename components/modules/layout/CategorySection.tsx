@@ -31,16 +31,16 @@ function ShowChildren({children}:{children : CategoriesObject[]}){
   )
 }
 
+
 async function CategorySection() {
 
     const res = await fetch(`http://localhost:5000/category/list` , {credentials:'include' , method:"GET" })
     const {data} = await res.json()
     const categories:CategoriesObject[][] = Object.values(data.categories)
+
   return (
         <div className={styles.container}> 
-          <div className={styles.logo}>
-              <img  src='/header/GhatiLogo.png' />
-          </div> 
+
           <div className={styles.categoryContainer}>
 
               {categories[0]?.map((main:CategoriesObject ,index:number)=>(

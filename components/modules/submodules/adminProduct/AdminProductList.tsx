@@ -94,7 +94,7 @@ function AdminProductList() {
               <IoIosSearch onClick={searchHandler}/>
           </div>  
 
-            <NextAndPrevButton page={page} setPage={setPage}  totalPages={totalPages}/>
+            {!!products.length && <NextAndPrevButton page={page} setPage={setPage}  totalPages={totalPages}/>}
          </div>
           <BulkOperation  selectedProducts ={selectedProducts} bulkEdit ={bulkEdit} setBulkEdit={setBulkEdit}  handlebulkSelect={handlebulkSelect} />
       </div>
@@ -109,7 +109,8 @@ function AdminProductList() {
         </button>
       </div>
       <ProductContainer updated={updated} setUpdated ={setUpdated} selectedProducts={selectedProducts} setSelectedProducts={setSelectedProducts} products={products}  />
-      <NextAndPrevButton page={page} setPage={setPage}  totalPages={totalPages}/>
+      {products.length == 0 ? <p>محصولی یافت نشد</p>:
+      <NextAndPrevButton page={page} setPage={setPage}  totalPages={totalPages}/>}
       <Toaster/>
     </div>
   )

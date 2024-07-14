@@ -1,0 +1,98 @@
+.container{
+    width: 100%;
+}
+
+.subContainer{
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+}
+
+.linkContainer{
+    display: flex;
+    flex-direction: column;
+    gap:5px;
+}
+
+.chlidLinkContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.hideCats{
+    transition: .2s ease;
+    transform: scale(0);
+    height: 0;
+    pointer-events: none;
+    color: transparent;
+    opacity: 0;
+}
+
+.showCats{
+    height: auto;
+    pointer-events: all;
+    transition: .2s ease;
+    transform: scale(1);
+}
+
+.subContainer a{
+    background: rgba(252, 251, 250, 0.116);
+    border-radius: 2px;
+    height: 60px;
+    padding: 0px 10px 0px 0px ;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: none;
+    color: white;
+    gap: 5px;
+}
+.linkContainer button svg{
+    scale: 2 ;
+    pointer-events: none;
+}
+
+.linkContainer button{
+    height: 100%;
+    width: 50px;
+    border: none;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    color: white;
+    cursor: pointer;
+ 
+}
+
+
+.unOpen{
+    background: rgb(31, 67, 67);
+}
+
+.opened{
+    background:rgba(218, 165, 32, 0.57);
+}
+
+
+.children{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: min-height 0.3s ease;
+    height: var(--height);
+    opacity: var(--opacity);
+    pointer-events: var(--pointer);
+    
+}
+
+.children a{
+    background: rgba(252, 251, 250, 0.200);
+}
+
+
+
+.upStyle{
+    border: solid;
+    color: red !important;
+    background: red;
+}
+

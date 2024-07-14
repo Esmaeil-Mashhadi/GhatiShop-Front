@@ -10,8 +10,8 @@
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.516);
     position:fixed;
     z-index: 998;
-    max-width: 1920px;
-    width: 100%;
+    max-width: calc(1920px - 50px);
+    width: calc(100% - 50px);
     right: 50%;
     transform: translateX(50%);
 }
@@ -230,6 +230,7 @@
     display: none;
  }
 
+
  .hameMenu{
     display: flex;
  }
@@ -240,8 +241,12 @@
         display: none;
     }
 }
-@media screen and (max-width:500px) {
+@media screen and (max-width:800px) {
     .searchContainer{
         display: none;
     }
+    .center{
+        left: 30px;
+    }
+    
 }
