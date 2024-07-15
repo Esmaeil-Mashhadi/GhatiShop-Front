@@ -15,11 +15,11 @@ async function ProductDetail({productID}:{productID:string}) {
          <CardInfo product = {product}  />
 
         <div className={styles.bottomSide}>
-                    
+{/*                     
                     <div className={styles.description}>
                             <div dangerouslySetInnerHTML={{__html: (product.description)}}>
                             </div>
-                    </div>
+                    </div> */}
         </div>
         
     </div>

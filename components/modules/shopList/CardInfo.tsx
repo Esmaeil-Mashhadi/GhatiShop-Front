@@ -4,6 +4,7 @@ import styles from './CardInfo.module.css'
 import { MdFavorite } from "react-icons/md";
 import { BsFillShareFill } from "react-icons/bs";
 import { FaCartPlus } from "react-icons/fa6";
+import { SubmitButton } from '@/components/constants/buttons/Button';
 
 
 
@@ -11,10 +12,12 @@ function CardInfo({product}:any) {
     
     const [discountCode , setDiscountCode] = useState('')
     const [counter , setCounter]= useState(1)
+    const off = Math.round((1-(product.specialPrice/product.price))*100)
 
     const handleDiscountChange = (e:ChangeEvent<HTMLInputElement>)=>{
         setDiscountCode(e.target.value)
     }
+
 
     const counterHandler= (e:any)=>{
         const { name} = e.target
@@ -36,20 +39,21 @@ function CardInfo({product}:any) {
 
     <div className={styles.infoSection}>
                 <h1>{product.title}</h1>
-                <p className={styles.shortDesc}>{product.shortDesc}</p>
 
                 <div className={styles.priceContainer}>
                      {product.specialPrice ? 
                      <div className={styles.discountPart}>
-                         قیمت : 
-                         <p style={{textDecoration:"line-through" , color:'pink'}}>{product.price}</p>    
-                         <p>{product.specialPrice}</p>
-                         تومان
+                         <div className={styles.offPart}>
+                                <p className={styles.discountedPrice}>{product.price}</p>    
+                                <span>{`${off}%`}</span>
+                         </div>
+                         <p>{product.specialPrice}  تومان</p>
                      </div>: 
                      <p>{product.price} تومان : </p>
                     }  
                      {product.specialPrice  &&
-                    <p className={styles.profit}> سود شما ازین خرید : <span> {`${product.price - product.specialPrice}`}</span> تومان  </p>}
+                    <p className={styles.profit}> 
+                    سود شما ازین خرید : <span> {`${product.price - product.specialPrice}`}</span> تومان  </p>}
                     
                      <div className={styles.discountCode}>
                         {discountCode.trim().length > 0 ?
@@ -58,22 +62,18 @@ function CardInfo({product}:any) {
                         }
                         <input value={discountCode} onChange={handleDiscountChange} type='text'  />
                     </div>
-
-      
                     
-  
+
                 </div>
       
-
-
+                <p className={styles.shortDesc}>{product.shortDesc}</p>
 
                 <div className={styles.buttonContainer}>
 
                     <div className={styles.counter}>
-                        <button>
-                            افزودن به سبد خرید
-                            <FaCartPlus />
-                        </button>
+                        <div className={styles.checkoutButton}>
+                            <SubmitButton text='افزودن به سبد خرید' handler={()=>{}}/>
+                        </div>
                         <label>تعداد : </label>
                         <div className={styles.counterButtons}>
                             <button name='inc' onClick={counterHandler}> + </button>

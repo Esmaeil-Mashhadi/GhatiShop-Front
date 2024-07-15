@@ -1,9 +1,8 @@
-
 .container{
     position: relative;
     display: flex;
     flex-direction: column;
-    background: var(--lgPrimary);
+    background:rgb(28, 33, 43);
     border-radius: 5px;
     height: 600px;
     margin-right: 150px;
@@ -15,30 +14,58 @@
     align-self: flex-end;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     gap: 10px;
     height: 85%;
-    padding: 0px 20px;
+    padding: 0px 30px;
 }
-
 
 .infoSection h1{
+    flex: 1;
     border-bottom: double ;
     border-color: rgba(253, 253, 253, 0.371);
-}
-
-.shortDesc{
-    border-bottom: double ;
-    border-color: rgba(253, 253, 253, 0.371);
-    margin: 0px;
+    display: flex;
+    align-items: center;
 }
 
 .priceContainer{
     display: flex;
+    flex: 1;
     border-bottom: double ;
     gap: 10px;
     align-items: center;
+    justify-content: space-between;
     border-color: rgba(253, 253, 253, 0.371);
+}
+
+.discountPart{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.discountPart p{
+    padding: 0px;
+    margin: 0px;
+    font-size: 20px;
+}
+
+.offPart{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    width: 100%;
+    opacity: .6;
+    justify-content: space-between;
+}
+.offPart span{
+    border-radius: 20%;
+    background: var(--primaryRed);
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    padding: 0px 5px;
 }
 
 .profit{
@@ -51,11 +78,60 @@
     text-decoration: underline;
 }
 
+.shortDesc{
+    border-bottom: double ;
+    border-color: rgba(253, 253, 253, 0.371);
+    margin: 0px;
+    flex: 1;
+    display: flex;
+    align-items: center;
+
+}
+.buttonContainer{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex: 1;
+}
+
+
+.buttonContainer button{
+    transition: .2s ease;
+    cursor: pointer;
+}
+
 .counter{
     display: flex;
     align-items: center;
     gap: 10px;
 }
+
+.checkoutButton button{
+    border-radius: 5px;
+    border: none;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    color: white;
+    cursor: pointer;
+    transition: .2s ease;
+    white-space: nowrap;
+    width: 130px;
+    filter: brightness(100%);
+    box-shadow: inset 0px 0px 10px rgb(218, 234, 240);
+}
+
+.checkoutButton button::after{
+    background: var(--primaryBlue);
+}
+.checkoutButton button::before{
+    background-color: lightblue;
+}
+
+.checkoutButton svg{
+    scale: 1.5;
+}
+
 
 .counterButtons{
     display: flex;
@@ -71,11 +147,10 @@
 .counterButtons button{
     border-radius: 5px;
     border: none;
-    padding: 5px;
     flex: 1;
     cursor: pointer;
     transition: .2s ease;
-    font-size: 15px;
+    font-size: 25px;
     font-weight: bold;
 }
 .counter button:active{
@@ -86,13 +161,7 @@
     flex:1;
     text-align: center;
 }
-.counterButtons button:first-child{
-    background: chartreuse;
 
-}
-.counterButtons button:last-child{
-    background-color: pink;
-}
 
 .imageSection{
     display: flex;
@@ -134,24 +203,19 @@
     border-radius: 5px;
     flex: 1;
 }
-.discountPart{
-    display: flex;
-    gap: 5px;
-    align-items: center;
-    border-radius: 5px;
-}
-.discountPart p{
-    font-size: 20px;
-    padding: 0px ;
-}
 
 
+.discountedPrice{
+    opacity: .8;
+    font-size: small;
+    text-decoration: line-through;
+    color: pink;
+}
 
 .discountCode{
     display: flex;
     align-items: center;
     gap: 10px;
-
 }
 
 .discountCode input{
@@ -164,6 +228,10 @@
     outline: none;
     font-weight: bold;
 }
+.discountCode label{
+    width: 110px;
+    height: 25px;
+}
 
 .discountCode button{
     padding: 5px;
@@ -172,23 +240,25 @@
     background:rgba(169, 169, 235, 0.855);
     font-weight: bold;
     cursor: pointer;
-    width: 100px;
+    width: 110px;
 }
 
-
-.buttonContainer{
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-
-.buttonContainer button{
-    transition: .2s ease;
-    cursor: pointer;
-}
 .optionSelection {
     display: flex;
     align-items: center;
     gap: 20px;
+}
+
+.optionSelection button{
+    background: transparent;
+    border: none;
+}
+.optionSelection button svg{
+    scale: 2;
+}
+.optionSelection button:first-child{
+    color: rgb(244, 113, 135);
+}
+.optionSelection button:last-child{
+   color: lightblue;
 }

@@ -8,8 +8,9 @@ interface buttonPropType {
   styleClass?:string , 
   handler:MouseEventHandler,
   disabled?:boolean
+  svg?:any
 }
-const Button = ({text, styleClass, handler , disabled}:buttonPropType) => {
+const Button = ({text, styleClass, handler , disabled , svg}:buttonPropType) => {
 
   const [enter, setEnter] = useState(false);
   const [leave, setLeave] = useState(false);
@@ -35,6 +36,7 @@ const Button = ({text, styleClass, handler , disabled}:buttonPropType) => {
       disabled ={disabled}
     >
       {text}
+      {svg ? svg: undefined}
     </button>
   );
 };
@@ -69,5 +71,6 @@ export const NeutralButton = ({ text, handler , disabled}:buttonPropType) => {
       styleClass={styles.neutralButton}
       handler={handler}
     />
+    
   );
 };
