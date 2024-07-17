@@ -1,0 +1,15 @@
+.starContainer{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: fit-content;
+}
+
+.starContainer svg{
+    color: var(--primaryColor);
+    scale: 1.5;
+    cursor: pointer;
+}
+.starContainer svg:hover{
+    color: yellow;
+}

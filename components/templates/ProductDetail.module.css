@@ -1,5 +1,109 @@
 .container{
     display: flex;
     flex-direction: column;
-    width: 80%;
+    width: 95%;
+    gap: 50px;
+    font-size: larger;
+    margin: auto;
+}
+
+.detailSection{
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.featuresContainer{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 20px;
+}
+
+.detailSection h1{
+    font-weight: 600;
+    border-bottom: double;
+    width: fit-content;
+    border-color: goldenrod;
+}
+.description h1{
+    font-weight: 600;
+    border-bottom: double;
+    width: fit-content;
+    border-color: goldenrod;
+}
+
+.featuresContainer label{
+    flex: .1;
+    border: none;
+    border-bottom: double rgba(128, 128, 128, 0.555);
+}
+.featuresContainer p{
+    flex: 1;
+    border-bottom: double rgba(128, 128, 128, 0.555);
+}
+
+.commentSection{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.commentSection h1{
+    font-weight: 600;
+    border-bottom: double;
+    width: fit-content;
+    border-color: goldenrod;
+}
+.commentInfo{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.commentInfo div{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.commentInfo input{
+    border-radius: 5px;
+    padding: 5px;
+    background: var(--inputBG);
+    border: none;
+    outline: none;
+
+}
+
+.commentSection textarea{
+    background: var(--inputBG);
+    border-radius: 5px;
+    outline: none;
+    height: 150px;
+    border: none;
+    outline: none;
+    resize: none;
+    color: var(--primaryTextColor);
+    font-size: 20px;
+    padding: 15px;
+}
+
+.submitComment{
+    width: fit-content;
+    align-self: flex-end;
+    margin-left: 7px;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    font-weight: bold;
+    width: 110px;
+    height: 40px;
+    background: var(--primary);
+    color: var(--primaryColor);
+    border: solid var(--primaryColor);
+    cursor: pointer;
+    transition: .2s ease;
+    font-size: 20px;
+}
+.submitComment:hover{
+    box-shadow: 0px 0px 50px inset var(--transParentPrimaryColor);
 }

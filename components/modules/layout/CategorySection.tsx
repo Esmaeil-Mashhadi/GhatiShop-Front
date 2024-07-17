@@ -37,12 +37,11 @@ async function CategorySection() {
     const res = await fetch(`http://localhost:5000/category/list` , {credentials:'include' , method:"GET" })
     const {data} = await res.json()
     const categories:CategoriesObject[][] = Object.values(data.categories)
-
+    
   return (
-        <div className={styles.container}> 
-
           <div className={styles.categoryContainer}>
-
+              
+            <img className={styles.logo}  src='/header/GhatiLogo.png'/> 
               {categories[0]?.map((main:CategoriesObject ,index:number)=>(
                       <div key={index} className={styles.listContainer}>
                         <Link className={styles.mainLink} href={{}}>
@@ -54,7 +53,6 @@ async function CategorySection() {
                       </div>
                 ))}
           </div>
-        </div> 
   );
 }
 

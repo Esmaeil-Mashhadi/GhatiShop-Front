@@ -25,6 +25,10 @@
     border: dashed;
     border: none;
     transition: .2s ease;
+    border: solid;
+    border-color: var(--primaryColor);
+    background:var(--primary);
+    color: var(--primaryColor);
 }
 
 .chatButton:active{
@@ -44,7 +48,6 @@
     right: 110%;
     gap: 20px;
     transition: .2s ease;
-
 }
 
 .optionContainer button{
@@ -60,10 +63,15 @@
     width: 130px;
     cursor: pointer;
     transition: .2s ease;
+    background: var(--primary);
+    border: solid var(--primaryColor);
+    color: var(--primaryColor);
+    box-sizing: border-box;
+    white-space: nowrap;
+    border-width: 1px;
 }
 
 .optionContainer button:first-child{
-    background: linear-gradient(45deg , rgb(219, 64, 219) ,goldenrod);
     transform: translate(35px , 35px);
     transform-origin: 150px;
     opacity: 0;
@@ -72,7 +80,6 @@
 
 }
 .optionContainer button:nth-child(2){
-    background: linear-gradient(45deg , chartreuse ,goldenrod);
     transition-delay: .1s;
     transform: translate(35px);
     transform-origin: 150px;
@@ -82,7 +89,6 @@
 
 }
 .optionContainer button:nth-child(3){
-    background: linear-gradient(45deg , white ,goldenrod);
     transition-delay: .2s ;
     transform: translate(35px , -35px);
     transform-origin: 150px;

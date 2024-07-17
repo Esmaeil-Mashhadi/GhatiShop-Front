@@ -4,7 +4,7 @@
     flex-direction: column;
     background:rgb(28, 33, 43);
     border-radius: 5px;
-    height: 600px;
+    height: 800px;
     margin-right: 150px;
     justify-content: center;
 }
@@ -46,7 +46,7 @@
 .discountPart p{
     padding: 0px;
     margin: 0px;
-    font-size: 20px;
+    font-size: 25px;
 }
 
 .offPart{
@@ -76,6 +76,44 @@
     font-size: 20px;
     color: rgb(166, 223, 108);
     text-decoration: underline;
+}
+.discountedPrice{
+    opacity: .8;
+    font-size: small;
+    text-decoration: line-through;
+    color: pink;
+}
+
+.discountCode{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.discountCode input{
+    padding: 5px;
+    border-radius: 5px;
+    width: 100px;
+    border: none;
+    box-shadow: 0px 0px 5px black;
+    outline: none;
+    font-weight: bold;
+}
+.discountCode label{
+    width: 125px;
+    height: 25px;
+}
+
+.discountCode button{
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    background:var(--primary);
+    color: var(--primaryTextColor);
+    border: solid var(--primaryColor);
+    font-weight: bold;
+    cursor: pointer;
+    width: 125px;
 }
 
 .shortDesc{
@@ -118,14 +156,17 @@
     white-space: nowrap;
     width: 130px;
     filter: brightness(100%);
-    box-shadow: inset 0px 0px 10px rgb(218, 234, 240);
+    box-shadow: inset 0px 0px 10px var(--primaryColor);
+    color: black;
+    color: var(--primaryColor);
 }
 
 .checkoutButton button::after{
-    background: var(--primaryBlue);
+    background: var(--primary);
 }
 .checkoutButton button::before{
-    background-color: lightblue;
+    background-color: var(--primaryColor);
+
 }
 
 .checkoutButton svg{
@@ -163,85 +204,8 @@
 }
 
 
-.imageSection{
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    height: 90%;
-    box-shadow: 0px 0px 50px black;
-    border-radius: 5px;
-    margin: auto;
-    background: var(--lgPrimary);
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    right: -10%;
-    gap: 5px;
-    border: solid;
-    box-sizing: border-box;
-    border-color: rgba(244, 244, 244, 0.444);
-    border-style:double;
-    padding: 10px;
-
-}
-.mainImage{
-    width: 100%;
-    height: 80%;
-    border-radius: 5px;
-}
-
-.otherImages{
-    display: flex;
-    justify-content: center;
-    gap: 5px;
-    margin-bottom: 5px;
-    height: 20%;
-    filter: brightness(50%);
-}
-.otherImages img{
-    width: 70px;
-    border-radius: 5px;
-    flex: 1;
-}
 
 
-.discountedPrice{
-    opacity: .8;
-    font-size: small;
-    text-decoration: line-through;
-    color: pink;
-}
-
-.discountCode{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.discountCode input{
-    padding: 5px;
-    border-radius: 5px;
-    width: 100px;
-    background:rgba(169, 169, 235, 0.855);
-    border: none;
-    box-shadow: 0px 0px 5px black;
-    outline: none;
-    font-weight: bold;
-}
-.discountCode label{
-    width: 110px;
-    height: 25px;
-}
-
-.discountCode button{
-    padding: 5px;
-    border-radius: 5px;
-    border: none;
-    background:rgba(169, 169, 235, 0.855);
-    font-weight: bold;
-    cursor: pointer;
-    width: 110px;
-}
 
 .optionSelection {
     display: flex;

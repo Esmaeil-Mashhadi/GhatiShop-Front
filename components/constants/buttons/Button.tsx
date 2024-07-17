@@ -71,6 +71,5 @@ export const NeutralButton = ({ text, handler , disabled}:buttonPropType) => {
       styleClass={styles.neutralButton}
       handler={handler}
     />
-    
   );
 };

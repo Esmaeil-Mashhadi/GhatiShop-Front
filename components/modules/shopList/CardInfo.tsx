@@ -4,7 +4,8 @@ import styles from './CardInfo.module.css'
 import { MdFavorite } from "react-icons/md";
 import { BsFillShareFill } from "react-icons/bs";
 import { FaCartPlus } from "react-icons/fa6";
-import { SubmitButton } from '@/components/constants/buttons/Button';
+import { NeutralButton, SubmitButton } from '@/components/constants/buttons/Button';
+import CardInfoImageSection from '../submodules/product/CardInfoImageSection';
 
 
 
@@ -28,14 +29,8 @@ function CardInfo({product}:any) {
 
   return (
     <div className={styles.container}>
-    <div className={styles.imageSection}>
-            <img className={styles.mainImage} src={product.mainImage || '/products/noImage.png'} />
-            <div className={styles.otherImages}>
-                {product.otherImages?.map((img:string , index:number) => (
-                    <img key={index} src={img || '/products/noImage.png'}/>
-                ))}
-            </div>
-    </div>
+
+        <CardInfoImageSection product={product} />
 
     <div className={styles.infoSection}>
                 <h1>{product.title}</h1>
@@ -63,7 +58,6 @@ function CardInfo({product}:any) {
                         <input value={discountCode} onChange={handleDiscountChange} type='text'  />
                     </div>
                     
-
                 </div>
       
                 <p className={styles.shortDesc}>{product.shortDesc}</p>
@@ -72,7 +66,7 @@ function CardInfo({product}:any) {
 
                     <div className={styles.counter}>
                         <div className={styles.checkoutButton}>
-                            <SubmitButton text='افزودن به سبد خرید' handler={()=>{}}/>
+                            <NeutralButton text='افزودن به سبد خرید' handler={()=>{}}/>
                         </div>
                         <label>تعداد : </label>
                         <div className={styles.counterButtons}>

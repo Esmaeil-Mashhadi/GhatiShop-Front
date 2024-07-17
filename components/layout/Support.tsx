@@ -16,12 +16,11 @@ function Support() {
     const commonStyle:Record<string , string |undefined|number> = {
         transform: isReset ? 'translate(0, 0)' : undefined,
         opacity: isReset ? 1 : undefined,
-        pointerEvents: isReset ? 'all':'none'
       };
   return (
     <div  className={styles.container}>
         <button onClick={enterHandler} className={styles.chatButton}><MdChat/></button>
-        <div className={styles.optionContainer}>
+        <div style={{pointerEvents:isReset? "all" :"none"}} className={styles.optionContainer}>
             <button  style={commonStyle}>
                 <GiTechnoHeart />
                  پشتیبان فنی سایت

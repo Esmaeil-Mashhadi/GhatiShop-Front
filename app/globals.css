@@ -1,20 +1,28 @@
 :root{
     --primary :rgb(11, 14, 21);
+    --lgPrimary:rgb(28, 33, 43);
+    --primaryColor: rgb(192, 195, 251);
+    --primaryText: rgb(170, 169, 169);
+    --transParentPrimaryColor: rgba(192, 195, 251, 0.13);
     --inputBG: rgba(43, 51, 56);
     --primaryRed: rgb(107, 26, 41);
     --primaryBlue:rgb(5, 77, 121);
     --primaryGreen:rgb(21, 75, 2);
-    --lgPrimary:rgb(35, 41, 54);
-
 }
 
 body{
     padding: 0px;
     margin:0px;
     box-sizing: border-box;
-    color: white;
+    color: var(--primaryText);
     background:var(--primary);
     overflow-x: hidden;
+}
+
+body input{
+    color: var(--primaryText);
+    font-size: 20px;
+    background: var(--inputBG);
 }
 body a{
     text-decoration: none;
