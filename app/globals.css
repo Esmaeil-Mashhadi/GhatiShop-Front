@@ -16,7 +16,6 @@ body{
     box-sizing: border-box;
     color: var(--primaryText);
     background:var(--primary);
-    overflow-x: hidden;
 }
 
 body input{

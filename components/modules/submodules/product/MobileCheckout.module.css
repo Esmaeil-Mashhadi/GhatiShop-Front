@@ -1,0 +1,155 @@
+@media screen and (min-width:800px) {
+    .container{
+        display: none;
+    }
+}
+
+@media screen and (max-width:800px) {
+    .container{
+        position: fixed;
+        display: flex;
+        align-items: center;
+        bottom: 0px;
+        margin: auto;
+        width: calc(100% - 50px);
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--lgPrimary);
+        padding: 10px 0px;
+        border-radius: 5px;
+        justify-content: space-between;
+        height: 80px;
+        gap: 10px;
+    }
+    
+    .priceContainer{
+        display: flex;
+        flex: 1;
+        align-items: center;
+        justify-content: space-around;
+    }
+    
+    .discountPart{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    
+    .discountPart p{
+        padding: 0px;
+        margin: 0px;
+        font-size: 25px;
+    }
+    
+    .offPart{
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        width: 100%;
+        opacity: .6;
+        justify-content: space-between;
+    }
+    .offPart span{
+        border-radius: 20%;
+        background: var(--primaryRed);
+        width: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 30px;
+        padding: 0px 5px;
+    }
+    
+    
+    .discountedPrice{
+        opacity: .8;
+        font-size: small;
+        text-decoration: line-through;
+        color: pink;
+    }
+    .discountCode{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .discountCode input{
+        padding: 5px;
+        border-radius: 5px;
+        width: 100px;
+        border: none;
+        box-shadow: 0px 0px 5px black;
+        outline: none;
+        font-weight: bold;
+    }
+    .discountCode label{
+        width: 125px;
+        height: 25px;
+    }
+    
+    .discountCode button{
+        width: 125px;
+        font-size: 15px;
+        border-width: 1px;
+    }
+    
+    .addProductButton{
+        padding-right: 10px;
+        height: 50px;
+    }
+
+    .addProductButton button{
+        height: 100%;
+        font-size: 20px;
+    }
+    
+}
+@media screen and (max-width : 670px) {
+    .discountCode{
+        font-size: 15px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0px;
+    }
+    .discountCode label{
+        text-align: center;
+    }
+    .discountCode p{
+        border: solid;
+    }
+    .offPart{
+        width: fit-content;
+    }
+    .offPart span{
+        font-size: 15px;
+    }
+
+    .offPart p{
+        font-size: 15px;
+    }    
+
+}
+
+@media screen and (max-width:550px) {
+
+    .container{
+        padding: 0px;
+    }
+    .discountCode{
+        display: none;
+    }
+
+    .discountPart{
+        flex: 1;
+        align-items: flex-end;
+        justify-content: center;
+        padding-left: 10px;
+    }
+}
+@media screen and (max-width:400px) {
+  .addProductButton button{
+    font-size: 15px;
+    padding: 5px;
+  }
+}

@@ -1,11 +1,13 @@
 'use client'
-import { ButtonHTMLAttributes, ChangeEvent, ChangeEventHandler, EventHandler, MouseEventHandler, useState } from 'react'
+import {  ChangeEvent, useState } from 'react'
 import styles from './CardInfo.module.css'
 import { MdFavorite } from "react-icons/md";
 import { BsFillShareFill } from "react-icons/bs";
-import { FaCartPlus } from "react-icons/fa6";
-import { NeutralButton, SubmitButton } from '@/components/constants/buttons/Button';
+import { NeutralButton } from '@/components/constants/buttons/Button';
 import CardInfoImageSection from '../submodules/product/CardInfoImageSection';
+import FeatureBox from '../submodules/product/FeatureBox';
+import MobileCheckout from '../submodules/product/MobileCheckout';
+import SolidButton from '@/components/constants/buttons/SolidButton';
 
 
 
@@ -26,6 +28,7 @@ function CardInfo({product}:any) {
            return name == 'inc' ? prev+1 : name =='dec' && counter>1 ? prev - 1 : 1
         })
     }
+     
 
   return (
     <div className={styles.container}>
@@ -34,6 +37,11 @@ function CardInfo({product}:any) {
 
     <div className={styles.infoSection}>
                 <h1>{product.title}</h1>
+                
+                {!!product.features.length ? 
+                        <FeatureBox  features = {product.features}/>: 
+                <p className={styles.shortDesc}>{product.shortDesc}</p>
+                } 
 
                 <div className={styles.priceContainer}>
                      {product.specialPrice ? 
@@ -46,34 +54,24 @@ function CardInfo({product}:any) {
                      </div>: 
                      <p>{product.price} تومان : </p>
                     }  
-                     {product.specialPrice  &&
-                    <p className={styles.profit}> 
-                    سود شما ازین خرید : <span> {`${product.price - product.specialPrice}`}</span> تومان  </p>}
-                    
-                     <div className={styles.discountCode}>
-                        {discountCode.trim().length > 0 ?
-                            <button>  اعمال کد تخفیف</button>:
-                            <label>کد تخفیف دارید ؟ </label>
-                        }
-                        <input value={discountCode} onChange={handleDiscountChange} type='text'  />
-                    </div>
-                    
+
+                        <div className={styles.discountCode}>
+                            {discountCode.trim().length > 0 ?
+                               <SolidButton text='اعمال کد تخفیف'/>:
+                                <label>کد تخفیف دارید ؟ </label>
+                            }
+                            <input value={discountCode} onChange={handleDiscountChange} type='text'  />
+                        </div>
                 </div>
       
-                <p className={styles.shortDesc}>{product.shortDesc}</p>
 
                 <div className={styles.buttonContainer}>
 
-                    <div className={styles.counter}>
+                    <div className={styles.checkoutSection}>
                         <div className={styles.checkoutButton}>
                             <NeutralButton text='افزودن به سبد خرید' handler={()=>{}}/>
                         </div>
-                        <label>تعداد : </label>
-                        <div className={styles.counterButtons}>
-                            <button name='inc' onClick={counterHandler}> + </button>
-                            <span>{counter}</span>
-                            <button name='dec' onClick={counterHandler}> - </button>
-                        </div>
+
 
                     </div>
                     <div className={styles.optionSelection}>
@@ -82,6 +80,12 @@ function CardInfo({product}:any) {
                     </div>
                 </div>
     </div>
+     <MobileCheckout
+      product ={product} 
+      discountCode ={discountCode}
+      handleDiscountChange ={handleDiscountChange}
+      off ={off}
+      />
 </div>
   )
 }

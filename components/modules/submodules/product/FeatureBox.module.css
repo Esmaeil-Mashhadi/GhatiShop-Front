@@ -1,0 +1,65 @@
+.featuresContainer{
+    border-bottom: double gray;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding-bottom: 10px;
+}
+
+.featureBoxContainer{
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.featureBox{
+    width: 100px;
+    height: 60px;
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 5px;
+    background: var(--transParentPrimaryColor);
+    padding: 0px 10px;
+}
+
+.featureBox label{
+    width: 100%;
+    display: inline;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.featureBox p{
+    display: inline;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow:ellipsis;
+    margin: 0px;
+    padding: 0px;
+    align-self: flex-end;
+    color: white;
+    text-overflow:ellipsis;
+}
+
+@media screen and (max-width:1000px) {
+    .featureBox{
+        font-size: 12px;
+        height:50px;
+    }
+    .featuresContainer h3{
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width:800px) {
+    .featuresContainer{
+        border-bottom: none;
+        width: 90%;
+        margin: auto;
+    }
+}

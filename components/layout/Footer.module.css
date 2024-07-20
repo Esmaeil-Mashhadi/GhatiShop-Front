@@ -4,7 +4,7 @@
    display: flex;
    align-items: center;
    background: linear-gradient(90deg , black , var(--primary), black); 
-   width: 100%;
+   width: calc(100% - 50px) ;
    margin: auto;
    border-radius: 5px;
 }

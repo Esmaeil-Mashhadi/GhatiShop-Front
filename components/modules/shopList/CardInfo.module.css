@@ -7,6 +7,8 @@
     height: 800px;
     margin-right: 150px;
     justify-content: center;
+    height: 70vh;
+
 }
 
 .infoSection{
@@ -16,7 +18,7 @@
     flex-direction: column;
     gap: 10px;
     height: 85%;
-    padding: 0px 30px;
+    padding: 0px 20px;
 }
 
 .infoSection h1{
@@ -25,15 +27,17 @@
     border-color: rgba(253, 253, 253, 0.371);
     display: flex;
     align-items: center;
+    margin: 0px;
+    padding: 0px;
 }
 
 .priceContainer{
     display: flex;
     flex: 1;
     border-bottom: double ;
-    gap: 10px;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: 130px;
     border-color: rgba(253, 253, 253, 0.371);
 }
 
@@ -68,15 +72,7 @@
     padding: 0px 5px;
 }
 
-.profit{
-    font-size: 14px;
-    color: rgba(166, 223, 108, 0.779);
-}
-.profit span{
-    font-size: 20px;
-    color: rgb(166, 223, 108);
-    text-decoration: underline;
-}
+
 .discountedPrice{
     opacity: .8;
     font-size: small;
@@ -123,13 +119,15 @@
     flex: 1;
     display: flex;
     align-items: center;
-
 }
+
 .buttonContainer{
     display: flex;
     align-items: center;
     gap: 20px;
     flex: 1;
+    justify-content: space-between;
+    padding-left: 20px;
 }
 
 
@@ -138,7 +136,7 @@
     cursor: pointer;
 }
 
-.counter{
+.checkoutSection{
     display: flex;
     align-items: center;
     gap: 10px;
@@ -174,38 +172,14 @@
 }
 
 
-.counterButtons{
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    border: solid;
-    border-radius: 5px;
-    width: 100px;
-    border-width: 1px;
-    border-color: gray;
-    padding: 5px;
-}
-.counterButtons button{
-    border-radius: 5px;
-    border: none;
-    flex: 1;
-    cursor: pointer;
-    transition: .2s ease;
-    font-size: 25px;
-    font-weight: bold;
-}
-.counter button:active{
+.checkoutSection button:active{
     scale: .7;
 }
 
-.counter span{
+.checkoutSection span{
     flex:1;
     text-align: center;
 }
-
-
-
-
 
 .optionSelection {
     display: flex;
@@ -225,4 +199,141 @@
 }
 .optionSelection button:last-child{
    color: lightblue;
+}
+
+
+
+
+@media screen and (max-width: 1300px) {
+    .container{
+        height: 600px;
+    }
+    .priceContainer{
+        flex-wrap: wrap;
+        gap: 20px;
+        font-size: 15px;
+    }
+
+    .discountPart p{
+        font-size: 20px;
+    }
+    .discountCode label{
+        width: 100px;
+    }
+    .discountCode button{
+        width: 100px;
+    }
+    .infoSection{
+        min-width: 58%;
+    }
+}
+
+
+@media screen and (max-width:1000px) {
+    .container{
+        height:500px;
+    }
+    .container h1{
+        font-size: 25px;
+    }
+
+    .checkoutButton button {
+        font-size: 13px;
+        width: 100px;
+    }
+
+    .optionSelection{
+        position: absolute;
+        left: 40px;
+        top: 50px;
+    }
+
+    .checkoutSection{
+        width: 100%;
+        gap: 50px;
+    }
+
+    .infoSection{
+     width: 63%;
+    }
+
+    .priceContainer {
+        padding-bottom: 10px;
+    }
+
+    
+}
+
+@media screen and (max-width:900px) {
+    .infoSection{
+        width: 66%;
+    }
+}
+
+@media screen and (max-width:800px) {
+    .container{
+        margin: auto;
+        height: fit-content;
+        width: 95%;
+    }
+     .infoSection h1{
+        padding: 10px;
+        width: 90%;
+        margin: auto;
+     }
+     .infoSection .shortDesc{
+        padding: 10px;
+        width: 90%;
+        margin: auto;
+
+     }
+    .infoSection{
+        width: 100%;
+        padding: 0px;
+        margin-top: -60px;
+    }
+    .optionSelection{
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        left: 20px;
+        top: 40px;
+        scale: 1.2;
+    }
+
+   .checkoutButton{
+    display: none;
+   }
+   .priceContainer{
+    display: none;
+   }
+
+   .shortDesc{
+    border-bottom: none;
+   }
+   
+}
+
+@media screen and (max-width:800px) {
+    .optionSelection{
+        scale: 1;
+        left: 10px;
+        top: 10px;
+    }
+}
+
+
+@media screen and (max-width:500px) {
+    .optionSelection{
+        scale: .9;
+        left: 5px;
+        top: 10px;
+    }
+
+}
+
+@media screen and (max-height:930px) {
+    .container{
+        height: 70vh
+    }
 }

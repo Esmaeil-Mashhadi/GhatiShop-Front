@@ -1,7 +1,7 @@
+import SolidButton from '../constants/buttons/SolidButton';
 import CardInfo from '../modules/shopList/CardInfo'
 import StarProduct from '../modules/shopList/StarProduct';
 import styles from './ProductDetail.module.css'
-import { HiStar } from "react-icons/hi";
 
 
 
@@ -52,7 +52,8 @@ async function ProductDetail({productID}:{productID:string}) {
               </div>
               <StarProduct />
               <textarea placeholder=' دیدگاه خودتون رو اینجا بنویسید ...' />
-              <button className={styles.submitComment}>ثبت </button>
+              <SolidButton  text='ثبت'/>
+
         </div>
         
     </div>
