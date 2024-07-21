@@ -133,7 +133,7 @@
 .subContainer::after{
     content: "";
     position: absolute;
-    background: var(--primary);
+    background: var(--primaryBG);
     inset: 3px;
     border-radius: 5px;
     z-index: 8;
@@ -141,7 +141,7 @@
 .animated::after{
     content: "";
     position: absolute;
-    background: var(--primary);
+    background: var(--primaryBG);
     inset: 3px;
     border-radius: 5px;
     z-index: 8;

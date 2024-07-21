@@ -1,14 +1,16 @@
 :root{
-    --primary :rgb(11, 14, 21);
-    --lgPrimary:rgb(28, 33, 43);
+    --primaryBG :rgb(11, 14, 21);
+    --transparentPrimary : rgba(28, 33, 43, 0.571);
+    --lgPrimaryBG:rgb(28, 33, 43);
     --primaryColor: rgb(192, 195, 251);
-     --transparentPrimary : rgba(28, 33, 43, 0.571);
-    --primaryText: rgb(170, 169, 169);
     --transParentPrimaryColor: rgba(192, 195, 251, 0.13);
+    --primaryText: rgb(170, 169, 169);
     --inputBG: rgba(43, 51, 56);
     --primaryRed: rgb(107, 26, 41);
     --primaryBlue:rgb(5, 77, 121);
     --primaryGreen:rgb(21, 75, 2);
+    --primaryGold: rgb(176, 127, 5);
+    --primaryDarkGold: rgb(99, 71, 0);
 }
 
 body{
@@ -16,7 +18,7 @@ body{
     margin:0px;
     box-sizing: border-box;
     color: var(--primaryText);
-    background:var(--primary);
+    background:var(--primaryBG);
 }
 
 body input{

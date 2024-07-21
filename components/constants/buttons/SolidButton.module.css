@@ -6,7 +6,7 @@
     border: none;
     font-weight: bold;
     height: 40px;
-    background: var(--primary);
+    background: var(--primaryBG);
     color: var(--primaryColor);
     border: solid var(--primaryColor);
     cursor: pointer;

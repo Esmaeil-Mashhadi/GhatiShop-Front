@@ -1,16 +1,25 @@
-.wholeHamContainer{
+.modalBG{
+    position: fixed;
     display: flex;
     align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background: #00000085;
+    z-index: 998;
+    left: 50%;
+    top: 0%;
+    transform: translateX(-50%);
 }
 
 .container{
     display: flex;
     flex-direction: column;
-    background: var(--primary);
+    background: var(--primaryBG);
     position: absolute;
-    top: 68px;
-    height: 100vh;
+    z-index: 999;
+    top: 90px;
     width: 300px;
+    height: calc(100vh - 95px);
     border-radius: 5px;
     align-items: center;
     transform: var(--transform);
@@ -19,7 +28,6 @@
     pointer-events: var(--pointerEvent);
     opacity: var(--opacity);
 }
-
 
 .dropDownContainer{
     position: relative;
@@ -37,7 +45,7 @@
     left: var(--left);
     transition: .2s;
     bottom: 0px;
-    background: rgb(99, 71, 0);
+    background:var(--primaryDarkGold) ;
     height: 100%;
     border-bottom: solid;
     border-color: yellow;
@@ -51,7 +59,7 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 100%;
+    min-height: 50px;
     border: none;
     color: white;
     font-weight: bold;
@@ -65,13 +73,24 @@
     flex-direction: column;
     gap: 5px;
     width: 100%;
-    height: fit-content;
+    overflow-y: auto;
+    height: 100%;
+}
+
+.menu::-webkit-scrollbar{
+    width: 7px;
+}
+.menu::-webkit-scrollbar{
+    background: var(--primaryBG);
+}
+.menu::-webkit-scrollbar-thumb{
+    background: var(--primaryDarkGold);
 }
 
 .menu a{
     background: rgba(252, 251, 250, 0.116);
     border-radius: 2px;
-    height: 60px;
+    min-height: 60px;
     padding: 0px 10px 0px 0px ;
     display: flex;
     align-items: center;
@@ -86,12 +105,14 @@
     gap: 5px;
     padding-right: 20px;
     cursor: pointer;
-
+    position: absolute;
+    top: 35px;
+    z-index: 999;
 }
 
 
 .hameLines span{
- background: goldenrod;
+ background:var(--primaryGold) ;
  height: 4px;
  border-radius: 5px;
  width: 40px;

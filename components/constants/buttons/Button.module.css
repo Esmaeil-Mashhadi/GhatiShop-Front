@@ -86,7 +86,7 @@
         content: '';
         position: absolute;
         color:rgb(61, 246, 135) ; 
-        background: var(--primary);
+        background: var(--primaryBG);
         border-radius: 5px;
         inset: 3px;
         z-index: -1;
@@ -98,7 +98,7 @@
         content: "";
         position: absolute;
         color: rgb(251, 129, 149) ; 
-        background: var(--primary);
+        background: var(--primaryBG);
         border-radius: 5px;
         inset: 3px;
         z-index: -1;
@@ -110,7 +110,7 @@
         content: "";
         position: absolute;
         color: rgb(246, 231, 234) ; 
-        background: var(--primary);
+        background: var(--primaryBG);
         border-radius: 5px;
         inset: 3px;
         z-index: -1;

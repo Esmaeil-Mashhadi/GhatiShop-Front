@@ -39,19 +39,13 @@ function HameMenu({user}:hameMenuPropType) {
         '--left': userChoice.category ? '0' : '50%',
     };
 
-    useEffect(() => {
 
-        window.addEventListener('click', (e) => {
-          const target = e.target as HTMLElement;
-          if (!target.closest(`.${styles.wholeHamContainer}`)) {
-              setShowMenu(false);
-          }
-      });
-
-    }, []);
 
     return (
-        <div className={styles.wholeHamContainer}>
+        <>
+        {showMenu && 
+          <div onClick={()=>setShowMenu(false)} className={styles.modalBG}>
+         </div>}
             <div onClick={() => setShowMenu(!showMenu)} style={hameStyle} className={styles.hameLines}>
                 <span></span>
                 <span></span>
@@ -89,6 +83,7 @@ function HameMenu({user}:hameMenuPropType) {
                         <Link href="">
                             درباره ی ما
                         </Link>
+                   
                     </div> :
                             <MobileCategorySection />
                         }
@@ -96,7 +91,7 @@ function HameMenu({user}:hameMenuPropType) {
                 <div className={styles.categories}>
                 </div>
             </div>
-        </div>
+       </>
     );
 }
 

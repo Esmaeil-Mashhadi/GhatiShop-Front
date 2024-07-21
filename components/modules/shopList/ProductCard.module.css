@@ -87,7 +87,7 @@
     align-content: center;
     gap: 5px;
     pointer-events: none;
-    background: var(--primary);
+    background: var(--primaryBG);
 
 }
 

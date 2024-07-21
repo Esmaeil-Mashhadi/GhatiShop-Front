@@ -3,7 +3,7 @@
    height: 200px;
    display: flex;
    align-items: center;
-   background: linear-gradient(90deg , black , var(--primary), black); 
+   background: linear-gradient(90deg , black , var(--primaryBG), black); 
    width: calc(100% - 50px) ;
    margin: auto;
    border-radius: 5px;

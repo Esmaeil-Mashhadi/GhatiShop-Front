@@ -1,7 +1,22 @@
 .container{
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+    overflow-y: auto;
+    height: 100%;
 }
 
+.container::-webkit-scrollbar{
+    width: 7px;
+}
+.container::-webkit-scrollbar{
+    background: var(--primaryBG);
+}
+.container::-webkit-scrollbar-thumb{
+    background: var(--primaryDarkGold);
+}
 .subContainer{
     display: flex;
     flex-direction: column;
@@ -65,7 +80,7 @@
 
 
 .unOpen{
-    background: rgb(31, 67, 67);
+    background:rgba(128, 128, 128, 0.232);
 }
 
 .opened{

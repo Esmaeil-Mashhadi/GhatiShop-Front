@@ -4,9 +4,6 @@ import { CategoriesObject } from '../CategorySection'
 import Link from 'next/link'
 import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
 
-
-
-
 function ShowChildren({clicked  , catList , ShowChildrenHandler}:any) {
 
   return (
@@ -49,6 +46,7 @@ function MobileCategorySection() {
         }
         getListOfCategories()
     },[])
+    
     const ShowChildrenHandler = (catSlug:string)=>{
         setClicked({
             ...clicked , [catSlug] : !clicked[catSlug]

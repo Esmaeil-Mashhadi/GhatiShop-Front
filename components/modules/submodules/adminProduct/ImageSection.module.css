@@ -76,7 +76,7 @@
 .mainImage, 
 .otherImages{
 border: dashed;
-border-color: var(--primary);
+border-color: var(--primaryBG);
 }
 
  .mainImage:hover ,

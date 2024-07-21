@@ -14,7 +14,7 @@
         width: calc(100% - 50px);
         left: 50%;
         transform: translateX(-50%);
-        background: var(--lgPrimary);
+        background: var(--lgPrimaryBG);
         padding: 10px 0px;
         justify-content: space-between;
         height: 80px;

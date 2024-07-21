@@ -22,7 +22,7 @@
     display: flex;
     align-items: center;
     width: 90px;
-    background: var(--primary);
+    background: var(--primaryBG);
     z-index: 9;
 }
 .listContainer{
