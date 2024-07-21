@@ -24,8 +24,6 @@
     height: 100%;
 }
 
-
-
 .icons{
     display: flex;
     scale: 2;
@@ -116,7 +114,8 @@
         flex-direction: column;
         height: fit-content;
         padding: 30px 0px;
-        margin-bottom: 20px;
+         width: 100%;
+
     }
     .rightSide{
         width: 80%;

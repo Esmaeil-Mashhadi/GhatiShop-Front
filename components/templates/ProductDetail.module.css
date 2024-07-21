@@ -42,7 +42,7 @@
 .featuresContainer label{
     border: none;
     display: flex;
-    flex: .1;
+    width: 50px;
     padding: 5px;
     border-bottom: double rgba(128, 128, 128, 0.555);
 }
@@ -122,7 +122,34 @@
 }
 
 @media screen and (max-width : 550px) {
-   .description{
-        font-size: 1.2rem
+    .container{
+        width: 100%;
+    }
+
+    .container h1{
+        font-size: 25px;
+    }
+
+    .description h2{
+        font-size: 20px;
+    }
+   .description p{
+        font-size:16px
+   }
+   .featuresContainer label{
+    font-size: 16px;
+   }
+   .featuresContainer p{
+    font-size: 16px;
+   }
+   .commentInfo label{
+    font-size: 16px;
+   }
+   .commentSection button{
+    transform: translate(0px ,-10px);
+    border-width: 1px;
+   }
+   .commentSection textarea{
+    font-size: 16px;
    }
 }

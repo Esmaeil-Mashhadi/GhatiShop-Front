@@ -3,10 +3,10 @@
 import Link from 'next/link';
 import styles from './Header.module.css';
 import { IoSearchSharp } from "react-icons/io5";
-import HameMenu from '../modules/layout/mobile/HameMenu';
+import HameMenu from '../../modules/layout/mobile/HameMenu';
 import { cookies } from 'next/headers';
 import { checkUserAccessiblity } from '@/utils/authentication/checkUserAccessiblity';
-import CategorySection from '../modules/layout/CategorySection';
+import CategorySection from '../../modules/layout/CategorySection';
 
 async function Header() {
      const user = await checkUserAccessiblity(cookies().get('accessToken'))

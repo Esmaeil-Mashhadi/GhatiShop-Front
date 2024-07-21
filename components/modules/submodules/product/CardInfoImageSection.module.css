@@ -85,3 +85,16 @@
     }
 }
 
+@media screen and (max-width: 450px) {
+    .container{
+        padding: 2px;
+        height: 350px;
+    }
+    .otherImages{
+        display: none;
+    }
+    .mainImage{
+        height: 100%;
+    }
+}
+

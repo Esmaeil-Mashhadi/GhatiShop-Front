@@ -46,7 +46,7 @@ async function ProductDetail({productID}:{productID:string}) {
                   <input />
                 </div>
                 <div>
-                  <label>ایمیل : </label>
+                  <label>تلفن : </label>
                   <input />
                 </div>
               </div>

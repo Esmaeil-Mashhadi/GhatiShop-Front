@@ -8,7 +8,6 @@
     margin-right: 150px;
     justify-content: center;
     height: 70vh;
-
 }
 
 .infoSection{
@@ -324,6 +323,9 @@
 
 
 @media screen and (max-width:500px) {
+    .container{
+        width: 100%;
+    }
     .optionSelection{
         scale: .9;
         left: 5px;
@@ -332,8 +334,4 @@
 
 }
 
-@media screen and (max-height:930px) {
-    .container{
-        height: 70vh
-    }
-}
+

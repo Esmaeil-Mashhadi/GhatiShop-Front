@@ -2,6 +2,7 @@
     --primary :rgb(11, 14, 21);
     --lgPrimary:rgb(28, 33, 43);
     --primaryColor: rgb(192, 195, 251);
+     --transparentPrimary : rgba(28, 33, 43, 0.571);
     --primaryText: rgb(170, 169, 169);
     --transParentPrimaryColor: rgba(192, 195, 251, 0.13);
     --inputBG: rgba(43, 51, 56);

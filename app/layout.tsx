@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { yekan } from "@/utils/fonts";
 import ReactQueryProvider from "@/utils/providers/ReactQueryProvider";
-import Layout from "@/components/layout/Layout";
+import Layout from "@/components/layout/userLayout/Layout";
 import { headers } from "next/headers";
 
 
