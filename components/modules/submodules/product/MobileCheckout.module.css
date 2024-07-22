@@ -6,7 +6,7 @@
 
 @media screen and (max-width:800px) {
     .container{
-        position: fixed;
+        position: var(--position);
         display: flex;
         align-items: center;
         bottom: 0px;
@@ -38,7 +38,7 @@
     .discountPart p{
         padding: 0px;
         margin: 0px;
-        font-size: 25px;
+        font-size: 20px;
     }
     
     .offPart{
@@ -136,7 +136,6 @@
     .container{
         padding: 0px;
         width: 100%;
-        box-shadow: 0px -1px 5px black;
     }
     .discountCode{
         display: none;

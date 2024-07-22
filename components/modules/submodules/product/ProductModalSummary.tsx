@@ -1,18 +1,16 @@
 'use client'
 import {  ChangeEvent, useState } from 'react'
-import styles from './CardInfo.module.css'
 import { MdFavorite } from "react-icons/md";
 import { BsFillShareFill } from "react-icons/bs";
 import { NeutralButton } from '@/components/constants/buttons/Button';
-import CardInfoImageSection from '../submodules/product/CardInfoImageSection';
-import FeatureBox from '../submodules/product/FeatureBox';
-import MobileCheckout from '../submodules/product/MobileCheckout';
 import SolidButton from '@/components/constants/buttons/SolidButton';
-import ProductModalSummary from '../submodules/product/ProductModalSummary';
+import FeatureBox from './FeatureBox';
+import CardInfoImageSection from './CardInfoImageSection';
+import styles from './ProductModalSummary.module.css'
 
 
 
-function CardInfo({product , modal}:any) {
+function ProductModalSummary({product}:any) {
     
     const [discountCode , setDiscountCode] = useState('')
     const [counter , setCounter]= useState(1)
@@ -29,17 +27,18 @@ function CardInfo({product , modal}:any) {
            return name == 'inc' ? prev+1 : name =='dec' && counter>1 ? prev - 1 : 1
         })
     }
-
      
 
   return (
     <div className={styles.container}>
+
         <CardInfoImageSection product={product} />
+
     <div className={styles.infoSection}>
                 <h1>{product.title}</h1>
                 
                 {!!product.features.length ? 
-                        <FeatureBox  features = {product.features}/>: 
+                        <FeatureBox features = {product.features}/>: 
                 <p className={styles.shortDesc}>{product.shortDesc}</p>
                 } 
 
@@ -80,15 +79,9 @@ function CardInfo({product , modal}:any) {
                     </div>
                 </div>
     </div>
-     <MobileCheckout
-      modal ={modal}
-      product ={product} 
-      discountCode ={discountCode}
-      handleDiscountChange ={handleDiscountChange}
-      off ={off}
-    />    
+
 </div>
   )
 }
 
-export default CardInfo
+export default ProductModalSummary

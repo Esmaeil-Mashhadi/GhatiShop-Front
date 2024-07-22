@@ -1,6 +1,31 @@
 .listContainer{
     width: 100%;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(5 ,1fr);
     gap: 20px;
 }
+
+@media screen and (max-width: 1570px) {
+  .listContainer{
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media screen and (max-width: 1300px) {
+  .listContainer{
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (max-width:750px) {
+    .listContainer{
+     grid-template-columns: repeat(2,1fr);
+    }
+}
+@media screen and (max-width:450px) {
+    .listContainer{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+

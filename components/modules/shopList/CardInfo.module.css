@@ -4,7 +4,6 @@
     flex-direction: column;
     background:rgb(28, 33, 43);
     border-radius: 5px;
-    height: 800px;
     margin-right: 150px;
     justify-content: center;
     height: 70vh;
@@ -263,6 +262,10 @@
     
 }
 
+.modalButton{
+    border: solid;
+    height: 100px;
+}
 @media screen and (max-width:900px) {
     .infoSection{
         width: 66%;
@@ -314,6 +317,9 @@
 }
 
 @media screen and (max-width:800px) {
+    .container{
+        width: 100%;
+    }
     .optionSelection{
         scale: 1;
         left: 10px;
@@ -323,15 +329,12 @@
 
 
 @media screen and (max-width:500px) {
-    .container{
-        width: 100%;
-    }
     .optionSelection{
         scale: .9;
         left: 5px;
         top: 10px;
     }
-
 }
+
 
 

@@ -1,6 +1,10 @@
 .modal{
-    width: 50%;
+    width: 78%;
     position: relative;
+    max-width: 1700px;
+    background: var(--lgPrimaryBG);
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px black;
 }
 .modalContaienr{
     position: fixed;
@@ -35,3 +39,37 @@
     background: pink;
     color: black;
 }
+
+@media screen and (max-width:1000px) {
+    .closeButton{
+        right: 10px;
+        width: 50px;
+    }
+}
+
+@media screen and (max-width:800px) {
+  .modal{
+    width: 100%;
+    margin: 25px;
+  }
+}
+
+@media screen and (max-width:700px) {
+    .closeButton{
+        width: 30px;
+        height: 30px;
+    }
+}
+
+
+@media screen  and (max-width:450px){
+    .modal{
+        width: 100%;
+        margin: 0px;
+    }
+    .closeButton{
+        scale: .8;
+        right: 0px;
+    }
+}
+

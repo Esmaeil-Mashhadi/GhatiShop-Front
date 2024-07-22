@@ -5,7 +5,7 @@ import ProductCard from "../modules/shopList/ProductCard"
 import styles from './ShopProductList.module.css'
 
 function ShopProuctList() {
-    const [productList, setProductList]= useState([])
+    const [productList, setProductList]= useState<any>([])
 
     useEffect(()=>{
         const getProducts = async()=>{
@@ -13,18 +13,18 @@ function ShopProuctList() {
                 method:"GET"
             })
             const result = await res.json()
-            setProductList(result.data.products)
+            setProductList(result.data.products)     
         }
         getProducts()
    },[])
 
-
-
+  
   return (
     <div className={styles.listContainer}>
         {productList.map((product:any)=>(
             <ProductCard  product ={product}/>
         ))}
+
     </div>
   )
 }

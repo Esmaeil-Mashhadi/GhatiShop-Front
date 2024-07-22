@@ -1,12 +1,14 @@
 import SolidButton from '@/components/constants/buttons/SolidButton'
 import styles from './MobileCheckout.module.css'
 
-function MobileCheckout({product , discountCode , handleDiscountChange, off}:any) {
+function MobileCheckout({product , discountCode , handleDiscountChange, off , modal}:any) {
 
-   
+   const style:Record<string , string> ={
+    '--position': modal ? 'relative' : 'fixed'
+   }
 
   return (
-    <div id='cart' className={styles.container}>
+    <div style={style} id='cart' className={styles.container}>
         <div className={styles.addProductButton}>
             <SolidButton text='افزودن به سبد خرید' />
         </div>

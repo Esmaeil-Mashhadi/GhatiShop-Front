@@ -46,8 +46,7 @@ function ProductCard({product}:any) {
                              }
                              <div className={styles.starScore}>
                               <HiStar /> 5
-                             </div>
-                             
+                             </div>     
                 </div>
                     
             </Link>
@@ -66,7 +65,7 @@ function ProductCard({product}:any) {
             </div>
             {
                 showProduct && 
-                <ProductModal product ={product} setShowProduct = {setShowProduct} showProduct ={showProduct} />
+                <ProductModal modal={true} product ={product} setShowProduct = {setShowProduct} showProduct ={showProduct} />
             }
     </div>
   )
