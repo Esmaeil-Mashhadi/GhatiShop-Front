@@ -13,18 +13,7 @@
     
 }
 
-.logo{
-    position: absolute;
-    border-radius:50%;
-    top: -75px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    align-items: center;
-    width: 90px;
-    background: var(--primaryBG);
-    z-index: 9;
-}
+
 .listContainer{
     position: relative;
     display: flex;
@@ -109,8 +98,3 @@
   }
 }
 
-@media screen and (max-width:800px) {
-    .logo{
-        width: 50px;
-    }
-}

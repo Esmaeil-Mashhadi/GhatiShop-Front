@@ -134,6 +134,23 @@
     left: 50%;
     transform: translateX(-50%);
 }
+.logo{
+    position: absolute;
+    width: 150px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9;
+}
+
+
+.logo img{
+    width: 100px;
+    background: #000;
+    border-radius: 50%;
+}
 
 
 .leftSide{
@@ -254,5 +271,8 @@
 @media screen and (max-width:800px) {
     .container{
         width: 100%;
+    }
+    .center img{
+        width: 75px;
     }
 }

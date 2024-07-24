@@ -1,6 +1,8 @@
 .container{
     margin-top: 167px;
     padding: 0px 25px;
+    min-height: calc(100dvh - 370px);
+    flex: 1;
 }
 
 @media screen and (max-width:550px) {

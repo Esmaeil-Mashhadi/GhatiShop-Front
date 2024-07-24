@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import styles from './CardInfoImageSection.module.css'
 
 function CardInfoImageSection({product}:any) {
@@ -16,7 +16,6 @@ function CardInfoImageSection({product}:any) {
                     <img onClick={()=>setMainImage(product.otherImages[index])} key={index} src={img || '/products/noImage.png'}/>
                 ))}
             </div>
-
     </div>  
     {showAllImages  && 
     <div onClick={()=>setShowAllImages(false)} className={styles.imagesModal}>

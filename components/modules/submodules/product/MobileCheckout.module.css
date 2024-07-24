@@ -137,6 +137,10 @@
         padding: 0px;
         width: 100%;
     }
+
+    .priceContainer p:nth-child(2){
+        font-size: 25px;
+    }
     .discountCode{
         display: none;
     }
@@ -154,3 +158,5 @@
     padding: 5px;
   }
 }
+
+

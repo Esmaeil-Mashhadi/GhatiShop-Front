@@ -338,3 +338,8 @@
 
 
 
+@media screen and (max-height:750px) {
+    .container{
+       height: 50vh;
+    }
+}

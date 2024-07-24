@@ -41,7 +41,6 @@ async function CategorySection() {
   return (
           <div className={styles.categoryContainer}>
               
-            <img className={styles.logo}  src='/header/GhatiLogo.png'/> 
               {categories[0]?.map((main:CategoriesObject ,index:number)=>(
                       <div key={index} className={styles.listContainer}>
                         <Link className={styles.mainLink} href={{}}>

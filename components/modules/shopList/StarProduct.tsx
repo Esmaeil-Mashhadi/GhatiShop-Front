@@ -7,6 +7,7 @@ import { useState } from 'react'
 function StarProduct() {
 
   const [currentStar , setCurrentStar] = useState(0)
+  
   const handleStars =(index:number)=>{
     setCurrentStar(index)
   }
