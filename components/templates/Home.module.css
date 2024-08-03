@@ -1,8 +1,19 @@
 .container{
     display: flex;
     flex-direction: column;
+    gap: 30px;
     border-radius: 5px;
     margin-top: -150px;
+    animation: showup 1s forwards linear;
+}
+
+@keyframes showup {
+    from{
+        opacity: 0;
+    }
+    to{
+    opacity: 1;
+    }
 }
 
 .container h4{

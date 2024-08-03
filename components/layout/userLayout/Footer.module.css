@@ -83,11 +83,7 @@
 }
 
 
-@media screen and (max-width:800px) {
-    .container{
-        width: 100%;
-    }
-}
+
 
 @media screen and (max-width:600px) {
 .container{
@@ -115,7 +111,7 @@
 }
 }
 
-@media screen and (max-width:500px) {
+@media screen and (max-width:550px) {
     .container{
         display: flex;
         flex-direction: column;
@@ -127,5 +123,7 @@
     .rightSide{
         width: 80%;
     }
+
+    
     
 }

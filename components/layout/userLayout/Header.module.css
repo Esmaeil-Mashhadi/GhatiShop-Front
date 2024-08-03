@@ -48,16 +48,16 @@
 }
 
 .linkContaienr a:first-child:before{
-    background: rgb(246, 246, 246);
+    background: lightcyan
 }
 .linkContaienr a:nth-child(2):before{
-    background: goldenrod;
+    background: greenyellow;
 }
 .linkContaienr a:nth-child(3):before{
-    background: rgb(33, 158, 24);
+    background:  yellow
 }
 .linkContaienr a:nth-child(4):before{
-    background: pink;
+    background: pink
 }
 
 .categories{
@@ -136,7 +136,7 @@
 }
 .logo{
     position: absolute;
-    width: 150px;
+    width: 55px;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -147,8 +147,8 @@
 
 
 .logo img{
-    width: 100px;
-    background: #000;
+    width: 55px;
+    background: #0d0d0d;
     border-radius: 50%;
 }
 
@@ -177,8 +177,9 @@
     transition: .2s ease;
     z-index: -1;
     border-radius: 5px;
-    background: rgb(238, 255, 0);
+    background:lightskyblue;
 }
+
 .leftSide a:hover::before{
     transform: translate(5% , -2px);
    height: 110%;
@@ -268,11 +269,9 @@
     
 }
 
-@media screen and (max-width:800px) {
+
+@media screen and (max-width:550px) {
     .container{
         width: 100%;
-    }
-    .center img{
-        width: 75px;
     }
 }

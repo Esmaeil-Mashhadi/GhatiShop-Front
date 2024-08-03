@@ -45,11 +45,14 @@
     flex-direction: column;
 }
 
-.discountPart p{
+.mainPrice{
     padding: 0px;
     margin: 0px;
     font-size: 25px;
+    font-weight: bold;
 }
+
+
 
 .offPart{
     display: flex;
@@ -340,6 +343,7 @@
 
 @media screen and (max-height:750px) {
     .container{
-       height: 50vh;
+       height: 60vh;
     }
+    
 }

@@ -4,13 +4,11 @@
     height: 60px;
     display: flex;
     justify-content: space-between;
-    padding: 0px 20px;
     top: 78px;
     background: #1818188d;
     z-index: 8;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
-    
 }
 
 
@@ -23,7 +21,7 @@
 
 .childrenContainer{
     position: absolute;
-    top: 50px;
+    top: 60px;
     width: 100%;
     transform: translateY(-35px);
     opacity: 0;
@@ -44,6 +42,7 @@
     gap: 10px;
     transition: .2s ease;
 }
+
 .mainLink{
     z-index: 9;
     display: flex;

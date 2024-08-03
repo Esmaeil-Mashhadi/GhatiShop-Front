@@ -1,33 +1,61 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import styles from './CardInfoImageSection.module.css'
+import MobileSlider from './MobileSlider';
+import ImagesModal from './ImagesModal';
+
+
 
 function CardInfoImageSection({product}:any) {
 
     const [showAllImages , setShowAllImages]= useState(false)
-    const [mainImage , setMainImage] = useState(product.mainImage)
+    const [allImages , setAllImages] = useState<(string[])>([])
+    const [currentIndex , setCurrentIndex] = useState(0)
+      
+      useEffect(()=>{
+        setAllImages([product.mainImage , ...product.otherImages.slice(0 ,2)])
+      },[])
 
- 
+      const transformStyle:Record<string , string|number> = {
+        '--transfer' : `-${currentIndex * 100}%`,
+      }
+
+      const imageThumbHandler = (index:number)=>{
+        setCurrentIndex(index)
+      }
+
+      console.log(product.otherImages);
+
   return (
-    <>
-    <div onMouseLeave={()=>setMainImage(product.mainImage)}  className={styles.container}>
-            <img onClick={()=>setShowAllImages(true)} className={styles.mainImage} src={mainImage || '/products/noImage.png'} />
-            <div className={styles.otherImages}>
-                {product.otherImages?.map((img:string , index:number) => (
-                    <img onClick={()=>setMainImage(product.otherImages[index])} key={index} src={img || '/products/noImage.png'}/>
-                ))}
-            </div>
-    </div>  
-    {showAllImages  && 
-    <div onClick={()=>setShowAllImages(false)} className={styles.imagesModal}>
-            <div onClick={(e)=>e.stopPropagation()} className={styles.modalContainer}>
-                    images
-            </div>
-    </div>
-    }
+        <>
+    <div  className={styles.container}>
+        <div  
+         dir='ltr' style={transformStyle} className={styles.sliderContainer}
 
-  </>
+         >
+         {allImages.map((img:string , index:number)=>(
+                <img onClick={()=>setShowAllImages(true)} src={img} key={index}  />
+         ))}
+        </div>
+
+         {product.otherImages.length>0 && 
+        <div dir='ltr' className={styles.otherImages}>
+                {allImages.map((img:string , index:number)=>(
+                          <img src={img} key={index} onClick={()=>imageThumbHandler(index)}/>
+                ))}
+        </div>}
+        <MobileSlider images = {allImages} />
+    </div>
+
+       
+    {showAllImages && <ImagesModal allImages = {allImages} setShowAllImages={setShowAllImages} />}
+    </>
+
 
   )
 }
 
 export default CardInfoImageSection
+
+
+
+

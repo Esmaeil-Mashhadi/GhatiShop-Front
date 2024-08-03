@@ -21,6 +21,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/modules/submodules/adminProduct/Desc.tsx", "components/modules/layout/CategorySection.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/modules/submodules/adminProduct/Desc.tsx", "components/modules/layout/CategorySection.tsx", "components/modules/submodules/product/ImagesModal.js"],
   "exclude": ["node_modules"]
 }

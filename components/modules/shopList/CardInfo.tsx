@@ -50,9 +50,9 @@ function CardInfo({product , modal}:any) {
                                 <p className={styles.discountedPrice}>{product.price}</p>    
                                 <span>{`${off}%`}</span>
                          </div>
-                         <p>{product.specialPrice}  تومان</p>
+                         <p className={styles.mainPrice}>{product.specialPrice}  تومان</p>
                      </div>: 
-                     <p>{product.price} تومان : </p>
+                     <p className={styles.mainPrice}>{product.price} تومان  </p>
                     }  
 
                         <div className={styles.discountCode}>

@@ -16,7 +16,9 @@
     position: relative;
     animation: showUp .5s linear forwards;
     animation-delay: .2s;
-    transform: translateY(400%)
+    transform: translateY(400%);
+    box-sizing: border-box;
+
 }
 
 @keyframes showUp {
@@ -105,11 +107,26 @@
 }
 }
 
+
+@media screen and (max-height:700px) {
+   .card{
+    width: 140px;
+    height: 120px;
+    font-size: 12px;
+   }
+
+
+}
+
 @media screen and (max-width:500px ) {
     .card{
         width: 150px;
         height: 150px;
         font-size: 14px;
+        border-width: 1px;
+    }
+    .border{
+        border-width: 1px;
     }
 
     .card img{
@@ -117,8 +134,5 @@
         height: 60%;
     }
 }
-
-
-
 
 

@@ -1,18 +1,16 @@
 .container{
     position: relative;
     display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    height: calc(100vh - 213px);
+    height: calc(100vh);
     box-sizing: border-box;
     overflow: hidden;
 }
 
 
 .formContainer{
-    position: absolute;
-    top: 55%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     border-radius: 5px;
     width: 800px;
     height: 600px;

@@ -30,6 +30,7 @@ function Banner({title , bannerText1 , bannerText2 , imgsrc , buttonText , logos
         <img src={imgsrc} />
      </div>
 </div>
+
   )
 }
 

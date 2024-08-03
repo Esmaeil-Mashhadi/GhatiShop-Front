@@ -10,8 +10,7 @@ async function Layout( {children}:LayoutPropType) {
 
   return (
     <div className={styles.container}>
-                {children}
-                
+                {children}  
     </div>
   )
 }

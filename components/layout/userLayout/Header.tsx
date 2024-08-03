@@ -35,7 +35,6 @@ async function Header() {
 
       <div className={styles.center}>
         <div className={styles.logo}>
-          <img  src='/header/GhatiLogo.png'/> 
         </div>
         <CategorySection />
       </div>

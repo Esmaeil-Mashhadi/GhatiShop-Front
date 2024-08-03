@@ -1,11 +1,25 @@
 'use client'
 import { MouseEvent, useRef, useState } from 'react'
 import styles from './DiscountSection.module.css'
-import { NeutralButton } from '@/components/constants/buttons/Button'
 import { FaCircleArrowLeft, FaCircleArrowRight } from "react-icons/fa6";
-
+import { VariantsProp } from '@/components/templates/Home';
+import {motion, Variants} from 'framer-motion'
 
 function DiscountSection() {
+
+    const cardVariants:Variants = {
+        offscreen:{
+          x:200 ,
+          opacity:0
+        },
+        onscreen:{
+          opacity:1,
+          x:0,
+          transition:{
+            duration:0.4
+          }
+        }
+      }
 
     const itemref = useRef<HTMLDivElement | null>(null)
     const [mouseDown , setMouseDown] = useState(false)
@@ -35,7 +49,11 @@ function DiscountSection() {
     }
 
   return (
-    <div style={{ perspective:'2000px'}}>
+    <motion.div 
+     initial='offscreen'
+     whileInView='onscreen' 
+     variants={cardVariants}
+    style={{ perspective:'2000px'}}>
         <div 
         ref={itemref}
         onMouseDown={startHandler}
@@ -62,7 +80,7 @@ function DiscountSection() {
             </div>
         </div>
 
-    </div>
+    </motion.div>
 
   )
 }

@@ -12,7 +12,6 @@ import LoadingPage from '@/components/constants/Notif&Loader/LoadingPage';
 import Banner, { BannerPropType } from './banners/Banner';
 
 
- 
 function BannerContainer() {
 
   const [isLoading , setIsLoading] = useState(true)
@@ -53,7 +52,8 @@ const bannerData:BannerPropType[] = [
 
   return (
     
-  <div className={styles.container}>
+<div
+  className={styles.container}>
     {isLoading ? <LoadingPage/> : 
     <Swiper
      slidesPerView={1}
@@ -71,16 +71,15 @@ const bannerData:BannerPropType[] = [
      modules={[Autoplay, Pagination, Navigation]}
     >
       {bannerData.map((banner , index)=>(
-        <SwiperSlide>
+        <SwiperSlide key={index}>
             <Banner 
             title={banner.title} buttonText={banner.buttonText} 
             bannerText1={banner.bannerText1} bannerText2={banner.bannerText2}
             imgsrc={banner.imgsrc} logosrc1={banner.logosrc1} logosrc2={banner.logosrc2}
             />
-            <p>.</p>
         </SwiperSlide>
       ))}
-    </Swiper>
+    </Swiper> 
     }
 
   </div>

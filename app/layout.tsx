@@ -4,7 +4,6 @@ import "./globals.css";
 import { yekan } from "@/utils/fonts";
 import ReactQueryProvider from "@/utils/providers/ReactQueryProvider";
 import Layout from "@/components/layout/userLayout/Layout";
-import { headers } from "next/headers";
 
 
 export const metadata: Metadata = {

@@ -16,7 +16,7 @@
     border-bottom: none;
     border-top: none;
     position: relative;
-    margin-bottom: 50px;
+    box-sizing: border-box;
 }
 
 .container::-webkit-scrollbar{
