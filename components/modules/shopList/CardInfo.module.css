@@ -1,18 +1,18 @@
 .container{
     position: relative;
     display: flex;
-    flex-direction: column;
     background:rgb(28, 33, 43);
     border-radius: 5px;
     margin-right: 150px;
     justify-content: center;
+    align-items: center;
     height: 750px;
-    border: solid;
+    gap: 5px;
 }
+
 
 .infoSection{
     width: 55%;
-    align-self: flex-end;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -36,9 +36,11 @@
     border-bottom: double ;
     align-items: center;
     justify-content: flex-start;
-    gap: 130px;
+    justify-content: space-between;
     border-color: rgba(253, 253, 253, 0.371);
+    flex-wrap: wrap;
 }
+
 
 .discountPart{
     display: flex;
@@ -53,13 +55,10 @@
     font-weight: bold;
 }
 
-
-
 .offPart{
     display: flex;
     align-items: center;
     gap: 5px;
-    width: 100%;
     opacity: .6;
     justify-content: space-between;
 }
@@ -77,7 +76,6 @@
 
 .discountedPrice{
     opacity: .8;
-    font-size: small;
     text-decoration: line-through;
     color: pink;
 }
@@ -205,146 +203,3 @@
 
 
 
-
-@media screen and (max-width: 1300px) {
-    .container{
-        height: 600px;
-    }
-    .priceContainer{
-        flex-wrap: wrap;
-        gap: 20px;
-        font-size: 15px;
-    }
-
-    .discountPart p{
-        font-size: 20px;
-    }
-    .discountCode label{
-        width: 100px;
-    }
-    .discountCode button{
-        width: 100px;
-    }
-    .infoSection{
-        min-width: 58%;
-    }
-}
-
-
-@media screen and (max-width:1000px) {
-    .container{
-        height:500px;
-    }
-    .container h1{
-        font-size: 25px;
-    }
-
-    .checkoutButton button {
-        font-size: 13px;
-        width: 100px;
-    }
-
-    .optionSelection{
-        position: absolute;
-        left: 40px;
-        top: 50px;
-    }
-
-    .checkoutSection{
-        width: 100%;
-        gap: 50px;
-    }
-
-    .infoSection{
-     width: 63%;
-    }
-
-    .priceContainer {
-        padding-bottom: 10px;
-    }
-
-    
-}
-
-.modalButton{
-    border: solid;
-    height: 100px;
-}
-@media screen and (max-width:900px) {
-    .infoSection{
-        width: 66%;
-    }
-}
-
-@media screen and (max-width:800px) {
-    .container{
-        margin: auto;
-        height: fit-content;
-        width: 95%;
-    }
-     .infoSection h1{
-        padding: 10px;
-        width: 90%;
-        margin: auto;
-     }
-     .infoSection .shortDesc{
-        padding: 10px;
-        width: 90%;
-        margin: auto;
-
-     }
-    .infoSection{
-        width: 100%;
-        padding: 0px;
-        margin-top: -60px;
-    }
-    .optionSelection{
-        position: absolute;
-        display: flex;
-        flex-direction: column;
-        left: 20px;
-        top: 40px;
-        scale: 1.2;
-    }
-
-   .checkoutButton{
-    display: none;
-   }
-   .priceContainer{
-    display: none;
-   }
-
-   .shortDesc{
-    border-bottom: none;
-   }
-   
-}
-
-@media screen and (max-width:800px) {
-    .container{
-        width: 100%;
-    }
-    .optionSelection{
-        scale: 1;
-        left: 10px;
-        top: 10px;
-    }
-}
-
-
-@media screen and (max-width:500px) {
-    .optionSelection{
-        scale: .9;
-        left: 5px;
-        top: 10px;
-    }
-}
-
-
-
-@media screen and (max-height:750px) {
-    .container{
-       height: 60vh;
-    }
-    
-}

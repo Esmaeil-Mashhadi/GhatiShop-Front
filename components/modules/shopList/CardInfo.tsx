@@ -8,6 +8,7 @@ import CardInfoImageSection from '../submodules/product/CardInfoImageSection';
 import FeatureBox from '../submodules/product/FeatureBox';
 import MobileCheckout from '../submodules/product/MobileCheckout';
 import SolidButton from '@/components/constants/buttons/SolidButton';
+import { commaSeperator } from '@/utils/converters/commaSeperator';
 
 
 
@@ -46,12 +47,12 @@ function CardInfo({product , modal}:any) {
                      {product.specialPrice ? 
                      <div className={styles.discountPart}>
                          <div className={styles.offPart}>
-                                <p className={styles.discountedPrice}>{product.price}</p>    
+                                <p className={styles.discountedPrice}>{commaSeperator(product.price)}</p>    
                                 <span>{`${off}%`}</span>
                          </div>
-                         <p className={styles.mainPrice}>{product.specialPrice}  تومان</p>
+                         <p className={styles.mainPrice}>{commaSeperator(product.specialPrice)}  تومان</p>
                      </div>: 
-                     <p className={styles.mainPrice}>{product.price} تومان  </p>
+                     <p className={styles.mainPrice}>{commaSeperator(product.price)} تومان  </p>
                     }  
 
                         <div className={styles.discountCode}>
