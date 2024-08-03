@@ -139,7 +139,8 @@
 
 .pricePart{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    padding: 0px 10px;
     align-items: center;
     gap: 5px;
     border-radius: 5px;
@@ -161,6 +162,7 @@
     margin: 0px;
     padding: 0px;
     width: fit-content;
+    white-space: nowrap;
 }
 
 .starScore{
@@ -175,14 +177,14 @@
     color:goldenrod;
 }
 
-@media screen and (max-width:1000px) {
+
+@media screen and (max-width:1100px) {
   .container{
     flex-direction: column;
     gap: 0px;
     height: 500px;
     box-shadow:inset 0px 0px 50px var(--transParentPrimaryColor);
     align-items: center;
-
   }
 
   .buttons{
@@ -221,9 +223,3 @@
     height: 60px;
   }
 }
-
-@media screen and (max-height:750px) {
-  .container{
-    height: 500px;
-  }
-} 

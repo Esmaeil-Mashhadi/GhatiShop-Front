@@ -8,6 +8,7 @@ import { HiStar } from 'react-icons/hi'
 import Link from 'next/link';
 import { useState } from 'react';
 import ProductModal from '../submodules/product/ProductModal';
+import { commaSeperator } from '@/utils/converters/commaSeperator';
 
 
 
@@ -39,14 +40,14 @@ function ProductCard({product}:any) {
                 <div className={styles.pricePart}>
                              {product.specialPrice ? 
                              <div className={styles.discountPart}>
-                                <p style={{ textDecoration: 'line-through' , color:'lightpink' , opacity:'.5' }}>{product.price}</p> 
-                                <p>{product.specialPrice} تومان</p> 
+                                <p style={{ textDecoration: 'line-through' , color:'lightpink' , opacity:'.5' }}>{commaSeperator(product.price)}</p> 
+                                <p>{commaSeperator(product.specialPrice)} تومان</p> 
                              </div>: 
-                             <p>{product.price} تومان</p>
+                             <p>{commaSeperator(product.price)} تومان</p>
                              }
                              <div className={styles.starScore}>
                               <HiStar /> 5
-                             </div>     
+                             </div>   
                 </div>
                     
             </Link>
@@ -65,7 +66,7 @@ function ProductCard({product}:any) {
             </div>
             {
                 showProduct && 
-                <ProductModal modal={true} product ={product} setShowProduct = {setShowProduct} showProduct ={showProduct} />
+                    <ProductModal modal={true} product ={product} setShowProduct = {setShowProduct} showProduct ={showProduct} />
             }
     </div>
   )

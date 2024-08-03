@@ -8,7 +8,6 @@ import CardInfoImageSection from '../submodules/product/CardInfoImageSection';
 import FeatureBox from '../submodules/product/FeatureBox';
 import MobileCheckout from '../submodules/product/MobileCheckout';
 import SolidButton from '@/components/constants/buttons/SolidButton';
-import ProductModalSummary from '../submodules/product/ProductModalSummary';
 
 
 
