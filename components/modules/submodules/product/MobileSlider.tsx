@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { Dispatch, SetStateAction, useRef, useState } from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 import styles from './MobileSlider.module.css'
@@ -12,12 +12,12 @@ import 'swiper/css/pagination';
 import { EffectCube, Pagination } from 'swiper/modules';
 
 type SliderProp = {
-    images: string[]
+    images: string[],
+    setShowAllImages:Dispatch<SetStateAction<boolean>>
 }
 
-export default function App({images}:SliderProp) {
+export default function App({images , setShowAllImages}:SliderProp) {
   return (
-    <div dir='ltr' className={styles.container}>
       <Swiper
         effect={'cube'}
         cubeEffect={{
@@ -28,14 +28,16 @@ export default function App({images}:SliderProp) {
         }}
         pagination={true}
         modules={[EffectCube, Pagination]}
-        className="mySwiper"
+        dir='ltr' 
+        className={styles.mobileSliderContainer} 
       >
         {images.map((img:string , index:number)=>(
-            <SwiperSlide>
-                <img  src={img} key={index} />
+            <SwiperSlide >
+                <img onClick={()=>setShowAllImages(true)} className='w-full h-full rounded-sm' src={img} key={index} />
             </SwiperSlide>
         ))}
+
+
       </Swiper>
-    </div>
   );
 }

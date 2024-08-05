@@ -1,14 +1,13 @@
 import SolidButton from '@/components/constants/buttons/SolidButton'
 import styles from './MobileCheckout.module.css'
+import { GiPriceTag } from 'react-icons/gi'
+import { commaSeperator } from '@/utils/converters/commaSeperator'
 
-function MobileCheckout({product , discountCode , handleDiscountChange, off , modal}:any) {
+function MobileCheckout({product , discountCode , handleDiscountChange, off }:any) {
 
-   const style:Record<string , string> ={
-    '--position': modal ? 'relative' : 'fixed'
-   }
 
   return (
-    <div style={style} id='cart' className={styles.container}>
+    <div  id='cart' className={styles.container}>
         <div className={styles.addProductButton}>
             <SolidButton text='افزودن به سبد خرید' />
         </div>
@@ -16,13 +15,13 @@ function MobileCheckout({product , discountCode , handleDiscountChange, off , mo
                      {product.specialPrice ? 
                      <div className={styles.discountPart}>
                          <div className={styles.offPart}>
-                                <p className={styles.discountedPrice}>{product.price}</p>    
+                                <p className={styles.discountedPrice}>{commaSeperator(product.price)}</p>    
                                 <span>{`${off}%`}</span>
                          </div>
-                         <p className={styles.mainPrice}>{product.specialPrice}  تومان</p>
+                         <p className={styles.mainPrice}>{commaSeperator(product.specialPrice)}  تومان</p>
                      </div>: 
-                     <p className={styles.mainPrice}>{product.price} تومان : </p>
-                    }  
+                        <p className={styles.mainPrice}>{commaSeperator(product.price)} تومان  </p>                   
+                         }  
 
                         <div className={styles.discountCode}>
                             {discountCode.trim().length > 0 ?

@@ -46,6 +46,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    white-space: nowrap;
 }
 
 .mainPrice{
@@ -53,6 +54,25 @@
     margin: 0px;
     font-size: 25px;
     font-weight: bold;
+    border-radius: 5px;
+    background: var(--transParentPrimaryColor);
+    height: 40px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.76);
+    position: relative;
+    width: 150px;
+}
+.priceTag{
+    position: absolute;
+    top: 0px;
+    transform: scaleX(-1);
+    right: -15px;
+}
+.priceTag svg{
+    scale: 1.5;
 }
 
 .offPart{
@@ -84,6 +104,7 @@
     display: flex;
     align-items: center;
     gap: 10px;
+    width: fit-content;
 }
 
 .discountCode input{
@@ -201,5 +222,103 @@
    color: lightblue;
 }
 
+.watchProduct{
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 5px 0px;
+    font-weight: bold;
+    font-size: 20px;
+    background: var(--inputBG);
+    border: none;
+    color: var(--primaryTextColor);
+    cursor: pointer;
+    text-align: center;
+}
 
 
+@media screen and (max-width:1200px) {
+    .container{
+        height: 550px;
+    }
+    .infoSection h1{
+        font-size: 25px;
+    }
+    .priceContainer{
+        font-size: 15px;
+    }
+    .mainPrice{
+        font-size: 20px;
+        width: 100px;
+
+    }
+
+    .discountCode label{
+        width: fit-content;
+    }
+    .discountCode button{
+        width: 95px;
+        border-width: 2px;
+    }
+    .mainPrice{
+        height: 30px;
+        padding:5px 20px;
+    }
+}
+
+@media screen and (max-width:1000px) {
+ .container {
+    flex-direction: column;
+    width: 100%;
+    margin: auto;
+    height: 950px;
+ }
+
+
+ .infoSection{
+    width: 80%;
+    gap: 20px;
+ }
+
+.watchProduct{
+    z-index: 999;
+    bottom: -38px;
+}
+}
+
+@media screen and (max-width: 800px) {
+    .container{
+        height: 600px;
+        gap: 30px;
+
+    }
+    .priceContainer , 
+    .checkoutSection{
+        display: none;
+    }
+
+    .shortDesc{
+        border-bottom: none;
+    }
+    .optionSelection{
+        position: absolute;
+        flex-direction: column;
+        left: 10px;
+        top: 20px;
+    }
+
+    .watchProduct{
+        bottom: -40px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+
+    .optionSelection{
+        scale: .8;
+        left: 5px;
+        top: 10px;
+    }
+}

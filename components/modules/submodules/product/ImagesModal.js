@@ -16,7 +16,7 @@ import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
 
 
 
-function ImagesModal({setShowAllImages , allImages}) {
+function ImagesModal({setShowAllImages , allImages }) {
 
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
@@ -35,7 +35,8 @@ function ImagesModal({setShowAllImages , allImages}) {
       navigation={true}
       thumbs={{ swiper: thumbsSwiper }}
       modules={[FreeMode, Navigation, Thumbs]}
-      className="w-full h-4/5 "
+      className="w-full h-4/5 rounded-lg "
+      dir='ltr'
       >
         {allImages.map((image , index)=>(
             <SwiperSlide>
@@ -43,27 +44,29 @@ function ImagesModal({setShowAllImages , allImages}) {
             </SwiperSlide>
         ))}
     </Swiper>
-        <Swiper
-          onSwiper={setThumbsSwiper}
-          loop={true}
-          slidesPerView={4}
-          freeMode={true}
-          spaceBetween={3}
-          watchSlidesProgress={true}
-          modules={[FreeMode, Navigation, Thumbs]}
-          className="h-36 flex w-full mt-2 gap-1 cursor-pointer "
-          >
 
-        {allImages.map((image , index)=>(
-            <SwiperSlide
-              className="flex-1 h-full "
-            >
-            <img className="h-full w-full rounded-lg"  src={image} />
-            </SwiperSlide>
-            ))}
-        </Swiper>
+    {allImages.length>1 && 
+      <Swiper
+        onSwiper={setThumbsSwiper}
+        slidesPerView={3}
+        freeMode={true}
+        spaceBetween={3}
+        modules={[FreeMode, Navigation, Thumbs]}
+        className="h-36 flex w-full mt-2 cursor-pointer"
+        dir='ltr'
+        >
 
+      { allImages.map((image , index)=>(
+          <SwiperSlide key={index}>
+            <img  className="h-full w-full rounded-lg"  src={image} />
+          </SwiperSlide>
+          ))}
+      </Swiper>
+    }
+
+    <span className={styles.close}>X</span>
         </div>
+
 </div>
     
   )

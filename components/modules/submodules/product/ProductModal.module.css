@@ -11,16 +11,14 @@
     transform: translate(-50% , -50%);
     z-index: 999;
     cursor: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-
 .modal{
-    width: 78%;
-    position: relative;
-    max-width: 1700px;
-    background: var(--lgPrimaryBG);
-    border-radius: 5px;
-    box-shadow: 0px 0px 5px black;
+    width: 80%;
+    max-width: 1000px;
 }
 
 
@@ -42,7 +40,13 @@
     color: black;
 }
 
+
+
 @media screen and (max-width:1000px) {
+    .modal{
+         transform: translateX(0);
+         scale: .75;
+    }
     .closeButton{
         right: 10px;
         width: 50px;

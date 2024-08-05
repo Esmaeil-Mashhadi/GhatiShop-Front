@@ -158,6 +158,9 @@
     padding: 0px 10px;
 }
 
+.discountPart p{
+    white-space: nowrap;
+}
 .pricePart p{
     margin: 0px;
     padding: 0px;

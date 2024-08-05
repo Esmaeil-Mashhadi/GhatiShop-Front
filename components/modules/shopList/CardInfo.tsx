@@ -9,6 +9,9 @@ import FeatureBox from '../submodules/product/FeatureBox';
 import MobileCheckout from '../submodules/product/MobileCheckout';
 import SolidButton from '@/components/constants/buttons/SolidButton';
 import { commaSeperator } from '@/utils/converters/commaSeperator';
+import { GiPriceTag } from "react-icons/gi";
+import Link from 'next/link';
+
 
 
 
@@ -33,8 +36,8 @@ function CardInfo({product , modal}:any) {
      
 
   return (
-    <div className={styles.container}>
-        <CardInfoImageSection product={product} />
+    <div className={ styles.container}>
+        <CardInfoImageSection modal={modal} product={product} />
     <div className={styles.infoSection}>
                 <h1>{product.title}</h1>
                 
@@ -44,24 +47,35 @@ function CardInfo({product , modal}:any) {
                 } 
 
                 <div className={styles.priceContainer}>
-                     {product.specialPrice ? 
-                     <div className={styles.discountPart}>
-                         <div className={styles.offPart}>
-                                <p className={styles.discountedPrice}>{commaSeperator(product.price)}</p>    
-                                <span>{`${off}%`}</span>
-                         </div>
-                         <p className={styles.mainPrice}>{commaSeperator(product.specialPrice)}  تومان</p>
-                     </div>: 
-                     <p className={styles.mainPrice}>{commaSeperator(product.price)} تومان  </p>
-                    }  
-
-                        <div className={styles.discountCode}>
+                    
+                     <div className={styles.discountCode}>
                             {discountCode.trim().length > 0 ?
                                <SolidButton text='اعمال کد تخفیف'/>:
                                 <label>کد تخفیف دارید ؟ </label>
                             }
                             <input value={discountCode} onChange={handleDiscountChange} type='text'  />
-                        </div>
+                    </div>
+
+                     {product.specialPrice ? 
+                     <div className={styles.discountPart}>
+                   
+                         <div className={styles.offPart}>
+                                <p className={styles.discountedPrice}>{commaSeperator(product.price)}</p>    
+                                <span>{`${off}%`}</span>
+                         </div>
+                         <p className={styles.mainPrice}>{commaSeperator(product.specialPrice)}  تومان
+                             <span className={styles.priceTag}>
+                                         <GiPriceTag />
+                             </span>
+                         </p>
+                     </div>: 
+                     <p className={styles.mainPrice}>{commaSeperator(product.price)} تومان 
+                            <span className={styles.priceTag}>
+                             <GiPriceTag />
+                            </span>
+                      </p>
+                    }  
+
                 </div>
       
 
@@ -72,7 +86,6 @@ function CardInfo({product , modal}:any) {
                             <NeutralButton text='افزودن به سبد خرید' handler={()=>{}}/>
                         </div>
 
-
                     </div>
                     <div className={styles.optionSelection}>
                         <button title='افزودن به علاقه مندی'><MdFavorite/></button>
@@ -80,8 +93,10 @@ function CardInfo({product , modal}:any) {
                     </div>
                 </div>
     </div>
+    {modal&& <Link href={`/shopList/${product._id}`} className={styles.watchProduct}>
+        مشاهده ی کامل محصول
+    </Link>}
      <MobileCheckout
-      modal ={modal}
       product ={product} 
       discountCode ={discountCode}
       handleDiscountChange ={handleDiscountChange}

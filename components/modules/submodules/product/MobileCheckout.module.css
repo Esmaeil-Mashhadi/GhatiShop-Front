@@ -6,7 +6,7 @@
 
 @media screen and (max-width:800px) {
     .container{
-        position: var(--position);
+        position: fixed;
         display: flex;
         align-items: center;
         bottom: 0px;
@@ -19,7 +19,10 @@
         justify-content: space-between;
         height: 80px;
         gap: 10px;
-        z-index: 9;
+        z-index: 6;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        
     }
     
     .priceContainer{
@@ -33,6 +36,7 @@
         display: flex;
         align-items: center;
         flex-direction: column;
+        gap: 5px;
     }
     
     .discountPart p{
@@ -102,6 +106,24 @@
         height: 100%;
         font-size: 20px;
     }
+    .mainPrice{
+        padding: 0px;
+        margin: 0px;
+        font-size: 20px;
+        font-weight: bold;
+        border-radius: 5px;
+        background: var(--transParentPrimaryColor);
+        height: 35px;
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        justify-content: center;
+        color: rgba(255, 255, 255, 0.76);
+        position: relative;
+        width: 120px;
+    }
+
+    
     
 }
 @media screen and (max-width : 670px) {
@@ -151,7 +173,18 @@
         justify-content: center;
         padding-left: 10px;
     }
+    .priceContainer{
+        flex:none;
+        width: fit-content;
+        padding-left: 10px;
+      }
+      .mainPrice{
+        width: 150px;
+        font-size: 25px;
+      }
 }
+
+
 @media screen and (max-width:400px) {
   .addProductButton button{
     font-size: 15px;

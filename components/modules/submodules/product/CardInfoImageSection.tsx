@@ -5,14 +5,14 @@ import ImagesModal from './ImagesModal';
 
 
 
-function CardInfoImageSection({product}:any) {
+function CardInfoImageSection({product , modal}:any) {
 
     const [showAllImages , setShowAllImages]= useState(false)
-    const [allImages , setAllImages] = useState<(string[])>([])
+    const [cardImages , setCardImages] = useState<(string[])>([])
     const [currentIndex , setCurrentIndex] = useState(0)
       
       useEffect(()=>{
-        setAllImages([product.mainImage , ...product.otherImages.slice(0 ,2)])
+        setCardImages([product.mainImage , ...product.otherImages.slice(0 ,2)])
       },[])
 
       const transformStyle:Record<string , string|number> = {
@@ -23,7 +23,7 @@ function CardInfoImageSection({product}:any) {
         setCurrentIndex(index)
       }
 
-      console.log(product.otherImages);
+      console.log(cardImages);
 
   return (
         <>
@@ -32,22 +32,22 @@ function CardInfoImageSection({product}:any) {
          dir='ltr' style={transformStyle} className={styles.sliderContainer}
 
          >
-         {allImages.map((img:string , index:number)=>(
+         {cardImages.map((img:string , index:number)=>(
                 <img onClick={()=>setShowAllImages(true)} src={img} key={index}  />
          ))}
         </div>
 
          {product.otherImages.length>0 && 
         <div dir='ltr' className={styles.otherImages}>
-                {allImages.map((img:string , index:number)=>(
+                {cardImages.map((img:string , index:number)=>(
                           <img src={img} key={index} onClick={()=>imageThumbHandler(index)}/>
                 ))}
         </div>}
-        <MobileSlider images = {allImages} />
+        <MobileSlider setShowAllImages = {setShowAllImages} images = {cardImages} />
     </div>
 
        
-    {showAllImages && <ImagesModal allImages = {allImages} setShowAllImages={setShowAllImages} />}
+    {showAllImages && !modal && <ImagesModal  allImages = {[product.mainImage , ...product.otherImages]} setShowAllImages={setShowAllImages} />}
     </>
 
 

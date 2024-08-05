@@ -10,12 +10,9 @@ import { useState } from 'react';
 import ProductModal from '../submodules/product/ProductModal';
 import { commaSeperator } from '@/utils/converters/commaSeperator';
 
-
-
-
 function ProductCard({product}:any) {
 
-        const off = Math.round((1-(product.specialPrice/product.price))*100)
+        const off =!product.specialPrice? false : Math.round((1-(product.specialPrice/product.price))*100)
         const [showProduct , setShowProduct] = useState(false)
 
         const handleShowingProduct = ()=>{
@@ -24,15 +21,16 @@ function ProductCard({product}:any) {
 
   return (
     <div className={styles.container}>
-
             <Link href={`shopList/${product._id}`} className={styles.info}>
                     <p className={styles.title}>{product.title}</p>
 
                 <div className={styles.imageCard}>
                     <div className={styles.mainImage}>
-                        <div className={styles.off}>
-                                <span>{`${off}%` || null}</span>
-                        </div>
+                        {off && 
+                            <div className={styles.off}>
+                                    <span>{`${off}%` || null}</span>
+                            </div>
+                        }
                         <img  src={product.mainImage || '/products/noImage.png'}/>
                    </div>
 
@@ -66,7 +64,7 @@ function ProductCard({product}:any) {
             </div>
             {
                 showProduct && 
-                    <ProductModal modal={true} product ={product} setShowProduct = {setShowProduct} showProduct ={showProduct} />
+                    <ProductModal  product ={product} setShowProduct = {setShowProduct} showProduct ={showProduct} />
             }
     </div>
   )
