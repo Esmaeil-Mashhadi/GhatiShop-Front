@@ -9,10 +9,14 @@ import Link from 'next/link';
 import { useState } from 'react';
 import ProductModal from '../submodules/product/ProductModal';
 import { commaSeperator } from '@/utils/converters/commaSeperator';
+import { ProductType } from '../submodules/adminProduct/CreateProduct';
 
-function ProductCard({product}:any) {
+type ProductCardType ={
+    product:ProductType
+}
+function ProductCard({product}:ProductCardType) {
 
-        const off =!product.specialPrice? false : Math.round((1-(product.specialPrice/product.price))*100)
+        const off =!product.specialPrice? false : Math.round((1-(Number(product.specialPrice)/Number(product.price)))*100)
         const [showProduct , setShowProduct] = useState(false)
 
         const handleShowingProduct = ()=>{
@@ -31,7 +35,7 @@ function ProductCard({product}:any) {
                                     <span>{`${off}%` || null}</span>
                             </div>
                         }
-                        <img  src={product.mainImage || '/products/noImage.png'}/>
+                        <img  src={typeof(product.mainImage) =='string'? product.mainImage : '/products/noImage.png'}/>
                    </div>
 
                 </div>
@@ -64,7 +68,7 @@ function ProductCard({product}:any) {
             </div>
             {
                 showProduct && 
-                    <ProductModal  product ={product} setShowProduct = {setShowProduct} showProduct ={showProduct} />
+                    <ProductModal  product ={product} setShowProduct = {setShowProduct}  />
             }
     </div>
   )

@@ -60,7 +60,7 @@ function Latest() {
         modules={[Grid, Pagination]}
         className={styles.swiper}
       >
-      {[...Array(10)].map((item:any , index:number)=>(
+      {[...Array(10)].map((item:undefined , index:number)=>(
         <SwiperSlide key={index} className={styles.swiperSlide}>
             {`slider${index + 1}`}
         </SwiperSlide>

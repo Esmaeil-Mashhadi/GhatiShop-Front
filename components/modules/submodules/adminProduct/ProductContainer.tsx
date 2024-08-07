@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, useState } from 'react';
+import { ChangeEvent, Dispatch, SetStateAction, useState } from 'react';
 import { IncomingProductType } from './AdminProductList'
 import styles from './ProductContainer.module.css'
 import { CiEdit } from "react-icons/ci";
@@ -21,7 +21,7 @@ function ProductContainer({products , selectedProducts , setSelectedProducts ,up
   const router = useRouter()
   const [showModal , setShowModal] = useState<Record<string ,boolean>>({})
 
-  const handleCheckChange = (e:any , productID:string , index:number)=>{
+  const handleCheckChange = (e:ChangeEvent<HTMLInputElement> , productID:string , index:number)=>{
     if(e.target.checked){
       setSelectedProducts([...selectedProducts, productID])
     }else{

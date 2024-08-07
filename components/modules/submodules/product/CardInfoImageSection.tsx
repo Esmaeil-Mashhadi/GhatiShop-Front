@@ -2,17 +2,27 @@ import { useEffect, useState } from 'react'
 import styles from './CardInfoImageSection.module.css'
 import MobileSlider from './MobileSlider';
 import ImagesModal from './ImagesModal';
+import { ProductType } from '../adminProduct/CreateProduct';
+import { ProgressBar } from 'react-loader-spinner';
+
+type CardInfoImageSectionPropType ={
+  product:ProductType , 
+}
 
 
-
-function CardInfoImageSection({product , modal}:any) {
+function CardInfoImageSection({product }:CardInfoImageSectionPropType) {
 
     const [showAllImages , setShowAllImages]= useState(false)
     const [cardImages , setCardImages] = useState<(string[])>([])
     const [currentIndex , setCurrentIndex] = useState(0)
+    const [loading  , setLoading] = useState(true)
       
       useEffect(()=>{
-        setCardImages([product.mainImage , ...product.otherImages.slice(0 ,2)])
+        if(typeof(product.mainImage) == 'string' && product.otherImages.every(item => typeof(item) =='string')){
+           setCardImages([product.mainImage , ...product.otherImages.slice(0 ,2)])
+         }
+
+         setLoading(false)
       },[])
 
       const transformStyle:Record<string , string|number> = {
@@ -27,6 +37,8 @@ function CardInfoImageSection({product , modal}:any) {
   return (
         <>
     <div  className={styles.container}>
+         {loading && <div className='h-full w-full flex justify-center items-center'><ProgressBar /></div> }
+
         <div  
          dir='ltr' style={transformStyle} className={styles.sliderContainer}
 
@@ -46,7 +58,7 @@ function CardInfoImageSection({product , modal}:any) {
     </div>
 
        
-    {showAllImages && !modal && <ImagesModal  allImages = {[product.mainImage , ...product.otherImages]} setShowAllImages={setShowAllImages} />}
+    {showAllImages && <ImagesModal  allImages = {[product.mainImage , ...product.otherImages]} setShowAllImages={setShowAllImages} />}
     </>
 
 

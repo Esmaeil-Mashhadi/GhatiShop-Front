@@ -7,21 +7,22 @@ import SolidButton from '@/components/constants/buttons/SolidButton';
 import FeatureBox from './FeatureBox';
 import CardInfoImageSection from './CardInfoImageSection';
 import styles from './ProductModalSummary.module.css'
+import { ProductType } from '../adminProduct/CreateProduct';
 
 
 
-function ProductModalSummary({product}:any) {
+function ProductModalSummary({product}:{product:ProductType}) {
     
     const [discountCode , setDiscountCode] = useState('')
     const [counter , setCounter]= useState(1)
-    const off = Math.round((1-(product.specialPrice/product.price))*100)
+    const off = Math.round((1-(Number(product.specialPrice)/Number(product.price)))*100)
 
     const handleDiscountChange = (e:ChangeEvent<HTMLInputElement>)=>{
         setDiscountCode(e.target.value)
     }
 
 
-    const counterHandler= (e:any)=>{
+    const counterHandler= (e:ChangeEvent<HTMLInputElement>)=>{
         const { name} = e.target
         setCounter((prev:number)=>{
            return name == 'inc' ? prev+1 : name =='dec' && counter>1 ? prev - 1 : 1
@@ -32,7 +33,7 @@ function ProductModalSummary({product}:any) {
   return (
     <div className={styles.container}>
 
-        <CardInfoImageSection product={product} />
+        <CardInfoImageSection product={product}  />
 
     <div className={styles.infoSection}>
                 <h1>{product.title}</h1>

@@ -71,8 +71,8 @@ function AdminProductList() {
     }
   }
 
-  const handlebulkSelect =(e:any)=>{
-    const allIds:any = []
+  const handlebulkSelect =(e:ChangeEvent<HTMLInputElement>)=>{
+    const allIds:string[] = []
     if(e.target.checked){
       products.forEach((product)=>{
         allIds.push( product._id)

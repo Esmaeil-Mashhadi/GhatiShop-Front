@@ -4,6 +4,10 @@ import StarProduct from '../modules/shopList/StarProduct';
 import styles from './ProductDetail.module.css'
 
 
+interface FeatuerType{
+  name:string , 
+  description:string 
+}
 
 async function ProductDetail({productID}:{productID:string}) {
 
@@ -14,12 +18,12 @@ async function ProductDetail({productID}:{productID:string}) {
 
   return (
     <div className={styles.container}>
-         <CardInfo product = {product}  />
+         <CardInfo modal={false} product = {product}  />
 
       {!!product.features.length && 
         <div className={styles.detailSection}>
           <h1>مشخصات کلی</h1>
-        {product.features.map((item:any , index:number)=>(
+        {product.features.map((item:FeatuerType , index:number)=>(
           <div key={index} className={styles.featuresContainer}>
             <label>
               {item.name}

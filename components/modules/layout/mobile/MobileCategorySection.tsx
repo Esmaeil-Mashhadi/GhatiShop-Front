@@ -1,14 +1,28 @@
-import { useEffect, useState } from 'react'
+import { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import styles from './MobileCategorySection.module.css'
 import { CategoriesObject } from '../CategorySection'
 import Link from 'next/link'
 import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
 
-function ShowChildren({clicked  , catList , ShowChildrenHandler}:any) {
+
+
+
+interface ShowChildrenType {
+  catList:CategoriesObject[]
+  clicked: Record<string , boolean> 
+  ShowChildrenHandler:(catSlug: string) => void
+}
+
+
+interface incomingCatType {
+  [key:string] :  CategoriesObject[]
+}
+
+function ShowChildren({clicked  , catList , ShowChildrenHandler}:ShowChildrenType) {
 
   return (
     <div  className={styles.children}>
-            {catList?.map((child:any)=>(
+            {catList?.map((child:CategoriesObject)=>(
                 <div className={styles.chlidLinkContainer}>
                         <Link href={{}} >
                                 {child.name} 
@@ -19,7 +33,7 @@ function ShowChildren({clicked  , catList , ShowChildrenHandler}:any) {
                                 }
                         </Link>
                         <div  className={clicked[child.slug] ? styles.showCats : styles.hideCats}>
-                                     <ShowChildren  clicked ={clicked} catList ={child.children} /> 
+                                     <ShowChildren ShowChildrenHandler={ShowChildrenHandler}  clicked ={clicked} catList ={child.children} /> 
                                 
                         </div>
                 </div>
@@ -33,7 +47,7 @@ function ShowChildren({clicked  , catList , ShowChildrenHandler}:any) {
 
 
 function MobileCategorySection() {
-    const [categoriesList , setCategoriesList] = useState<any>()
+    const [categoriesList , setCategoriesList] = useState<incomingCatType>()
     const [clicked , setClicked] = useState<Record<string , boolean>>({})
 
     useEffect(()=>{
@@ -42,6 +56,7 @@ function MobileCategorySection() {
                 method:"GET" , 
             })
             const result = await res.json()
+            console.log(result.data.categories);
             setCategoriesList(result.data.categories)
         }
         getListOfCategories()
@@ -55,8 +70,8 @@ function MobileCategorySection() {
 
   return (
     <div className={styles.container}>
-        {categoriesList && 
-          <div className={styles.subContainer}>
+        {categoriesList &&
+          <div className={styles.subContainer}> 
                 {categoriesList['layer0'].map((cats:CategoriesObject)=>(
                 <div className={styles.linkContainer}>
                         <Link href={{}} >

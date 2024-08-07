@@ -5,9 +5,10 @@ import ProductCard from "../modules/shopList/ProductCard"
 import styles from './ShopProductList.module.css'
 import LoadingPage from "../constants/Notif&Loader/LoadingPage"
 import {  useSearchParams } from "next/navigation"
+import { ProductType } from "../modules/submodules/adminProduct/CreateProduct"
 
 function ShopProuctList() {
-    const [productList, setProductList]= useState<any>([])
+    const [productList, setProductList]= useState<ProductType[]>([])
     const[loading , setLoading] = useState(true)
 
     const params = useSearchParams()
@@ -39,7 +40,7 @@ function ShopProuctList() {
         </div>
     )}
     <div className={styles.listContainer}>
-        {productList.map((product:any)=>(
+        {productList.map((product:ProductType)=>(
             <ProductCard  product ={product}/>
         ))}
 

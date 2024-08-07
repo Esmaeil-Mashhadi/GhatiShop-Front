@@ -1,10 +1,10 @@
-import {  Dispatch, SetStateAction } from 'react'
+import {  ChangeEvent, Dispatch, SetStateAction } from 'react'
 import styles from './BulkOperation.module.css'
 import { MdOutlineEditNote } from "react-icons/md";
 
 
 type BulkOperationtype ={
-  handlebulkSelect : Dispatch<SetStateAction<any>>
+  handlebulkSelect : (e: ChangeEvent<HTMLInputElement>) => void
   bulkEdit :boolean , 
   setBulkEdit: Dispatch<SetStateAction<boolean>>, 
   selectedProducts: string[]

@@ -4,6 +4,7 @@ import styles from './Search.module.css'
 import { IoSearchSharp } from 'react-icons/io5'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
+import { ProductType } from '@/components/modules/submodules/adminProduct/CreateProduct'
 
 function Search() {
     const [searchInput , setSearchInput] = useState('')
@@ -64,7 +65,7 @@ function Search() {
                     <span>{searchInput}</span>
                     </Link>
                 
-            {productResult.map((item:any)=>(
+            {productResult.map((item:ProductType)=>(
                     <Link href={`/shopList?search=${item.title}`}>{item?.title}</Link>
             ))}
             </ul>}

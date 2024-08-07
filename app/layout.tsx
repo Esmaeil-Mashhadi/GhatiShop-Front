@@ -4,6 +4,7 @@ import "./globals.css";
 import { yekan } from "@/utils/fonts";
 import ReactQueryProvider from "@/utils/providers/ReactQueryProvider";
 import Layout from "@/components/layout/userLayout/Layout";
+import TopLoader from "@/utils/providers/TopLoader";
 
 
 export const metadata: Metadata = {
@@ -22,10 +23,11 @@ export default function RootLayout({
   return (
     <html dir="rtl" lang="fa">
       <body className={yekan.className}>
+        <TopLoader />
         <ReactQueryProvider>
-          <Layout> 
-            {children}
-          </Layout>
+              <Layout> 
+                {children}
+              </Layout>
         </ReactQueryProvider>
         </body>
     </html>

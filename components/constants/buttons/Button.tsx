@@ -1,4 +1,4 @@
-import { MouseEventHandler, useState  } from 'react';
+import { MouseEventHandler, ReactNode, useState  } from 'react';
 import styles from './Button.module.css'
 import { dynamicStyles } from '@/utils/dynamicStyles/HoverButtonStyle';
 import buttonFunction from '../functions/ButtonFunction';
@@ -8,9 +8,8 @@ interface buttonPropType {
   styleClass?:string , 
   handler:MouseEventHandler,
   disabled?:boolean
-  svg?:any
 }
-const Button = ({text, styleClass, handler , disabled , svg}:buttonPropType) => {
+const Button = ({text, styleClass, handler , disabled }:buttonPropType) => {
 
   const [enter, setEnter] = useState(false);
   const [leave, setLeave] = useState(false);
@@ -36,7 +35,6 @@ const Button = ({text, styleClass, handler , disabled , svg}:buttonPropType) => 
       disabled ={disabled}
     >
       {text}
-      {svg ? svg: undefined}
     </button>
   );
 };

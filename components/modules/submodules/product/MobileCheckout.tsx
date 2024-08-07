@@ -1,9 +1,18 @@
 import SolidButton from '@/components/constants/buttons/SolidButton'
 import styles from './MobileCheckout.module.css'
-import { GiPriceTag } from 'react-icons/gi'
 import { commaSeperator } from '@/utils/converters/commaSeperator'
+import { ProductType } from '../adminProduct/CreateProduct'
+import { ChangeEvent } from 'react'
 
-function MobileCheckout({product , discountCode , handleDiscountChange, off }:any) {
+interface MobileCheckoutPropType {
+  product:ProductType 
+  discountCode: string 
+  handleDiscountChange:(event:ChangeEvent<HTMLInputElement>)=>void
+  off:number|string
+
+}
+
+function MobileCheckout({product , discountCode , handleDiscountChange, off }:MobileCheckoutPropType) {
 
 
   return (

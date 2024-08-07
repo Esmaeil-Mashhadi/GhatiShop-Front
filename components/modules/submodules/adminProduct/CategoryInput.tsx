@@ -1,7 +1,7 @@
 import styles from './CategoryInput.module.css'
 
 import { CategoriesObject } from '../../layout/CategorySection'
-import { ChangeEventHandler, Dispatch, SetStateAction } from 'react'
+import { ChangeEvent, ChangeEventHandler, Dispatch, SetStateAction } from 'react'
 import { ProductType } from './CreateProduct'
 
 interface ShowCatPropHandler {
@@ -28,7 +28,7 @@ function ShowCat({children , handler , productData }:ShowCatPropHandler){
 
 interface CategoryInputPropType {
     catList : CategoriesObject[]
-    changeInputHandler: Dispatch<SetStateAction<any>>
+    changeInputHandler: (e:ChangeEvent<HTMLInputElement>)=>void
     productData?: ProductType
     newCategories?:string[]
 }
@@ -42,7 +42,7 @@ function CategoryInput({catList, productData , newCategories , changeInputHandle
       <div>
           {catList.map((cat:CategoriesObject , index:number)=>(
             <ul key={index}>
-              <li> <input checked={existingCategories.find((item:any) => item == cat.slug) == cat.slug} type='checkbox' onChange={changeInputHandler} value={ cat.slug} />{cat.name}  </li>
+              <li> <input checked={existingCategories.find((item:string) => item == cat.slug) == cat.slug} type='checkbox' onChange={changeInputHandler} value={ cat.slug} />{cat.name}  </li>
               {cat.children.length > 0 ?
               <ShowCat productData={existingCategories} handler = {changeInputHandler} children = {cat.children} /> :null
               }

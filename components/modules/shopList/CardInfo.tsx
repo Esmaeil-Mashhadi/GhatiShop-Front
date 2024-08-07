@@ -11,22 +11,26 @@ import SolidButton from '@/components/constants/buttons/SolidButton';
 import { commaSeperator } from '@/utils/converters/commaSeperator';
 import { GiPriceTag } from "react-icons/gi";
 import Link from 'next/link';
+import { ProductType } from '../submodules/adminProduct/CreateProduct';
 
 
+interface CardInfoPropType {
+  product:ProductType 
+  modal: boolean
+}
 
-
-function CardInfo({product , modal}:any) {
+function CardInfo({product , modal}:CardInfoPropType) {
     
     const [discountCode , setDiscountCode] = useState('')
     const [counter , setCounter]= useState(1)
-    const off = Math.round((1-(product.specialPrice/product.price))*100)
-
+    const off = Math.round((1 - (Number(product.specialPrice) / Number(product.price))) * 100);
+    
     const handleDiscountChange = (e:ChangeEvent<HTMLInputElement>)=>{
         setDiscountCode(e.target.value)
     }
 
 
-    const counterHandler= (e:any)=>{
+    const counterHandler= (e:ChangeEvent<HTMLInputElement>)=>{
         const { name} = e.target
         setCounter((prev:number)=>{
            return name == 'inc' ? prev+1 : name =='dec' && counter>1 ? prev - 1 : 1
@@ -37,7 +41,7 @@ function CardInfo({product , modal}:any) {
 
   return (
     <div className={ styles.container}>
-        <CardInfoImageSection modal={modal} product={product} />
+        <CardInfoImageSection  product={product} />
     <div className={styles.infoSection}>
                 <h1>{product.title}</h1>
                 

@@ -7,20 +7,20 @@ import ImageSection from './ImageSection';
 import ListInfo from './ListInfo';
 import Desc from '../../submodules/adminProduct/Desc'
 import PriceSection from './PriceSection';
-import { useRouter } from 'next/navigation';
 
 
 
 export interface ProductType {
       title: string;
       shortDesc: string;
-      price: string;
-      specialPrice: string;
+      price: string | number;
+      specialPrice: string | number;
       otherImages: (string | File)[] ;
       mainImage:(string |File ), 
       description: string;
       features: {name:"", description:""}[];
       categories:(string)[]
+      _id?:string 
   }
 
 interface ProductContextType  {
