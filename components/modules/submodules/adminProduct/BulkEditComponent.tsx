@@ -79,7 +79,6 @@ function BulkEditComponent({selectedProducts , updated , setSelectedProducts, se
             }
     }
 
-    console.log(newPrice);
 
     const showWarning = ()=>{
         setShowModal(true)

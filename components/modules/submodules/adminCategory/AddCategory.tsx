@@ -19,7 +19,6 @@ type AddCategoryPropType ={
 
 
 function AddCategory({handler , layerNumber  , addCatHandler , addCategoryForm , setAddCategoryForm}:AddCategoryPropType) {
-  console.log(addCategoryForm);
       const layerKey= `layer${layerNumber}`
 
        const deleteHandler = (index:number)=>{

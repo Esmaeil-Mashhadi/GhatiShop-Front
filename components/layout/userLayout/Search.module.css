@@ -1,0 +1,118 @@
+.container{
+    position: relative;
+}
+
+.searchContainer{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 40px;
+    width: 250px;
+    justify-content: space-between;
+}
+
+.searchContainer input{
+    border-radius: 5px;
+    height: 100%;
+    width: 100%;
+    font-size: 20px;
+    border: none;
+    background: rgb(44, 43, 43);
+    outline: none;
+    text-align: center;
+    font-weight: bold;
+    color:white;
+}
+
+.searchContainer a{
+    border-radius: 5px;
+    border: none;
+    width: 30px;
+    height: 40px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: white;
+    background: rgb(44, 43, 43);
+
+}
+
+.searchContainer button svg{
+    scale: 1.4;
+}
+
+.searchResult{
+    position: absolute;
+    background: var(--lgPrimaryBG);
+    width: 100%;
+    max-height: 300px;
+    overflow-y: scroll;
+    top: 50px;
+    border-radius: 5px;
+}
+.searchResult::-webkit-scrollbar{
+    width: 10px;
+    border-radius: 5px;
+}
+
+
+.searchResult::-webkit-scrollbar-track{
+    border-radius: 5px;
+}
+.searchResult::-webkit-scrollbar-thumb{
+    background: var(--inputBG);
+    border-radius: 5px;
+
+}
+.userTyped{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.userTyped p{
+    background: var(--inputBG);
+    border-radius: 5px;
+    padding: 5px;
+}
+.searchListContainer{
+ display: flex;
+ align-items: center;
+ flex-direction: column;
+ height: 100px;
+ gap: 5px;
+}
+.searchListContainer img{
+    width: 50%;
+    max-height: 100%;
+    border-radius: 5px;
+}
+
+.searchResult ul{
+    padding: 0px 10px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.searchResult a{
+    width: 100%;
+    transition: .2s ease;
+    border-radius: 5px;
+    padding: 5px;
+}
+.searchResult a:not(:first-child):hover{
+    background: var(--primaryColor);
+    cursor: pointer;
+    color: black;
+}
+.searchResult a:first-child:hover{
+    background: rgba(255, 255, 255, 0.147);
+}
+
+@media screen and (max-width:800px) {
+    .searchContainer{
+        display: none;
+    }
+}

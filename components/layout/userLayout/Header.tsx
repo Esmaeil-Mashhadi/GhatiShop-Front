@@ -7,6 +7,7 @@ import HameMenu from '../../modules/layout/mobile/HameMenu';
 import { cookies } from 'next/headers';
 import { checkUserAccessiblity } from '@/utils/authentication/checkUserAccessiblity';
 import CategorySection from '../../modules/layout/CategorySection';
+import Search from './Search';
 
 async function Header() {
      const user = await checkUserAccessiblity(cookies().get('accessToken'))
@@ -40,11 +41,9 @@ async function Header() {
       </div>
 
       <div className={styles.leftSide}>
-        <div className={styles.searchContainer}>
-          <button><IoSearchSharp/></button>
-          <input type='text' placeholder='  دنبال چیزی می گردی ؟'/>
-        </div>
+      <Search />
 
+      <div className={styles.account}>
         {user ? (
           <Link href="/">
             حساب کاربری
@@ -54,6 +53,8 @@ async function Header() {
             ورود به حساب کاربری
           </Link>
         )}
+
+      </div>
 
       </div>
     </div>

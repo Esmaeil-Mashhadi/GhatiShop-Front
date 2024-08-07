@@ -106,7 +106,6 @@ function CreateProduct({edit , productDataForEdit , productID}:createProductType
         }
       }
  
-      console.log(productData);
   return (
     <div  className={styles.container} >
       {edit && 

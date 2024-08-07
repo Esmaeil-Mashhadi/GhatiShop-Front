@@ -159,16 +159,16 @@
     gap: 20px;
     padding-left: 20px;
 }
-.leftSide a{
+.account a{
     position: relative;
     white-space: nowrap;
 }
 
 
-.leftSide a:hover{
+.account a:hover{
     color: black;
 }
-.leftSide a::before{
+.account a::before{
     content: "";
     position: absolute;
     width: 110%;
@@ -180,7 +180,7 @@
     background:lightskyblue;
 }
 
-.leftSide a:hover::before{
+.account a:hover::before{
     transform: translate(5% , -2px);
    height: 110%;
 }
@@ -192,48 +192,7 @@
     scale: 1.9;
 }
 
-.searchContainer{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    height: 40px;
-    width: 250px;
-    justify-content: space-between;
-}
 
-.searchContainer input{
-    border-radius: 5px;
-    height: 100%;
-    max-width: 200px;
-    flex: 1;
-    font-size: 20px;
-    border: none;
-    background: rgb(44, 43, 43);
-    outline: none;
-    text-align: center;
-    font-weight: bold;
-    color:white;
-}
-
-.searchContainer button{
-    border-radius: 5px;
-    border: none;
-    width: 30px;
-    height: 40px;
-    padding: 10px 0px;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    color: white;
-    background: rgb(44, 43, 43);
-
-}
-
-.searchContainer button svg{
-    scale: 1.4;
-}
 
 .hameMenu{
     display: none;
@@ -244,7 +203,7 @@
     display: none;
  }
  
- .leftSide a{
+ .account a{
     display: none;
  }
 
@@ -255,7 +214,7 @@
 }
 
 @media screen and (max-width:650px) {
-    .leftSide a{
+    .account a{
         display: none;
     }
 }

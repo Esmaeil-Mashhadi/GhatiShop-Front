@@ -1,9 +1,10 @@
 .container{
     margin-top: 167px;
     padding: 0px 25px;
-    min-height: calc(100dvh - 370px);
+    min-height: calc(100dvh - 395px);
     flex: 1;
     margin-bottom: 10px;
+    position: relative;
 }
 
 @media screen and (max-width:550px) {

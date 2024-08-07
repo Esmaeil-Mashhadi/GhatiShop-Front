@@ -23,7 +23,6 @@ function CardInfoImageSection({product , modal}:any) {
         setCurrentIndex(index)
       }
 
-      console.log(cardImages);
 
   return (
         <>
