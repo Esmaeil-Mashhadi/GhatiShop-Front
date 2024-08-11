@@ -2,15 +2,17 @@
 
 import Link from 'next/link';
 import styles from './Header.module.css';
-import { IoSearchSharp } from "react-icons/io5";
 import HameMenu from '../../modules/layout/mobile/HameMenu';
 import { cookies } from 'next/headers';
 import { checkUserAccessiblity } from '@/utils/authentication/checkUserAccessiblity';
 import CategorySection from '../../modules/layout/CategorySection';
 import Search from './Search';
+import HeaderCart from '@/components/modules/submodules/Cart/HeaderCart';
+
 
 async function Header() {
      const user = await checkUserAccessiblity(cookies().get('accessToken'))
+
   return (
     <div className={styles.container}>
       <div className={styles.rightSide}>
@@ -27,6 +29,7 @@ async function Header() {
             <Link href="">
               درباره ی ما
             </Link>
+
         </div>
 
       </div>
@@ -41,9 +44,13 @@ async function Header() {
       </div>
 
       <div className={styles.leftSide}>
+        
       <Search />
 
+      <HeaderCart />
+
       <div className={styles.account}>
+
         {user ? (
           <Link href="/">
             حساب کاربری
@@ -55,6 +62,7 @@ async function Header() {
         )}
 
       </div>
+
 
       </div>
     </div>

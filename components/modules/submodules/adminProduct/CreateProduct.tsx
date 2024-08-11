@@ -20,7 +20,7 @@ export interface ProductType {
       description: string;
       features: {name:"", description:""}[];
       categories:(string)[]
-      _id?:string 
+      _id:string 
   }
 
 interface ProductContextType  {
@@ -35,10 +35,12 @@ export const AdminProductContext = createContext<ProductContextType>({
             mainImage:"",
             description:"" , 
             features : [] , 
-            categories:[]
+            categories:[],
+            _id:''
       } , 
       setProductData:()=>{}
 })
+
 type createProductType ={
       edit?: boolean
       productDataForEdit?: ProductType
@@ -56,7 +58,8 @@ function CreateProduct({edit , productDataForEdit , productID}:createProductType
                         mainImage:'',
                         description:"" , 
                         features : [] , 
-                        categories:[]
+                        categories:[], 
+                        _id:''
                   }
             }
       })

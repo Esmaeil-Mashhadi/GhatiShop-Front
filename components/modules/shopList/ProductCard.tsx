@@ -10,6 +10,12 @@ import { useState } from 'react';
 import ProductModal from '../submodules/product/ProductModal';
 import { commaSeperator } from '@/utils/converters/commaSeperator';
 import { ProductType } from '../submodules/adminProduct/CreateProduct';
+import { numberToPersian } from '@/utils/converters/converToPersianNum';
+import { useDispatch, useSelector } from 'react-redux';
+import { add, CartProductType, dec } from '@/utils/hooks/CartReducer';
+import { NotifObjectType } from '../auth/types/auth';
+import Notification from '@/components/constants/Notif&Loader/Notification';
+import { SelectorStateType } from './CardInfo';
 
 type ProductCardType ={
     product:ProductType
@@ -17,16 +23,36 @@ type ProductCardType ={
 function ProductCard({product}:ProductCardType) {
 
         const off =!product.specialPrice? false : Math.round((1-(Number(product.specialPrice)/Number(product.price)))*100)
+        const productCart = {title:product.title , specialPrice:product.specialPrice , price:product.price, mainImage:product.mainImage as string ,_id:product._id}
+
         const [showProduct , setShowProduct] = useState(false)
+        const [notifObject , setNotifObject] = useState<NotifObjectType>({
+            type:'error',
+            message:'',
+            triggered:false
+        })
 
         const handleShowingProduct = ()=>{
             setShowProduct(true)
         }
+        const data = useSelector((state:SelectorStateType) => state.cartReducer)
+        const {quantity} = data.ordered.find((item:CartProductType)=>item._id == product._id) || {quantity:0}
+        const dispatch = useDispatch()
 
+        const addToCartHandler = ()=>{
+            setNotifObject({
+                type:'success', 
+                message:'محصول با موفقیت به سبد خرید اضافه شد',
+                triggered:!notifObject.triggered
+            })
+            dispatch(add(productCart))
+        }
   return (
     <div className={styles.container}>
             <Link href={`shopList/${product._id}`} className={styles.info}>
-                    <p className={styles.title}>{product.title}</p>
+                    <div title={product.title} className={styles.title}>
+                       <p> {product.title}</p>
+                    </div>
 
                 <div className={styles.imageCard}>
                     <div className={styles.mainImage}>
@@ -48,21 +74,31 @@ function ProductCard({product}:ProductCardType) {
                              <p>{commaSeperator(product.price)} تومان</p>
                              }
                              <div className={styles.starScore}>
-                              <HiStar /> 5
+                              <HiStar /> {`${numberToPersian('5')}`}
                              </div>   
                 </div>
                     
             </Link>
 
 
-            <div className={styles.buttons}>
-                    <button title='افزودن به سبد خرید'>
-                        <MdShoppingCartCheckout />
-                    </button>
-                    <button onClick={handleShowingProduct} title='مشاهده ی سریع'>
+            <div className={styles.sideButtons}>
+                    <div className={styles.cartButtons}>
+                     {
+                            quantity >= 1 ? 
+                            <div className={styles.amountContainer}>
+                                <button title='افزودن تعداد' onClick={()=>dispatch(add(productCart))}>+</button>
+                                <button title='کاهش تعداد' onClick={()=>dispatch(dec(productCart))}>-</button>
+                            </div> : 
+        
+                            <button className={styles.addToCart} onClick={addToCartHandler} title='افزودن به سبد خرید'>
+                                <MdShoppingCartCheckout />
+                            </button>
+                      }
+                    </div>
+                    <button className={styles.watchProduct} onClick={handleShowingProduct} title='مشاهده ی سریع'>
                         <SlEyeglass />
                     </button>
-                    <button title='افزودن به علاقه مندی ها'>
+                    <button className={styles.favButton} title='افزودن به علاقه مندی ها'>
                         <MdFavoriteBorder />
                    </button>
             </div>
@@ -70,6 +106,8 @@ function ProductCard({product}:ProductCardType) {
                 showProduct && 
                     <ProductModal  product ={product} setShowProduct = {setShowProduct}  />
             }
+
+            <Notification type={notifObject.type} message={notifObject.message} triggered={notifObject.triggered} />
     </div>
   )
 }

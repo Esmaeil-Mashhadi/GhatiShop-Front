@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import { yekan } from "@/utils/fonts";
 import ReactQueryProvider from "@/utils/providers/ReactQueryProvider";
 import Layout from "@/components/layout/userLayout/Layout";
 import TopLoader from "@/utils/providers/TopLoader";
+import OrderReduxProvider from "@/utils/providers/ReduxProvider";
 
 
 export const metadata: Metadata = {
@@ -24,11 +24,14 @@ export default function RootLayout({
     <html dir="rtl" lang="fa">
       <body className={yekan.className}>
         <TopLoader />
-        <ReactQueryProvider>
+        <OrderReduxProvider>
+          <ReactQueryProvider>
               <Layout> 
                 {children}
               </Layout>
-        </ReactQueryProvider>
+          </ReactQueryProvider>
+        </OrderReduxProvider>
+
         </body>
     </html>
   );

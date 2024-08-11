@@ -156,12 +156,20 @@
 .leftSide{
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 30px;
     padding-left: 20px;
+}
+.account{
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 .account a{
     position: relative;
     white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 
@@ -173,7 +181,7 @@
     position: absolute;
     width: 110%;
     height: 2px;
-    transform: translate(5% , 25px);
+    transform: translate(5% , 15px);
     transition: .2s ease;
     z-index: -1;
     border-radius: 5px;
@@ -181,9 +189,11 @@
 }
 
 .account a:hover::before{
-    transform: translate(5% , -2px);
+    transform: translate(5% , 0px);
    height: 110%;
 }
+
+
 
 
 .leftSide img{

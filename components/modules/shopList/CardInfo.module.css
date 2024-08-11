@@ -157,13 +157,48 @@
     cursor: pointer;
 }
 
+.counterButtons{
+    display: flex;
+    align-items: center;
+    background: var(--transParentPrimaryColor);
+    border-radius: 5px;
+    padding: 5px;
+    gap: 5px;
+    width: 130px;
+    justify-content: space-between;
+}
+.counterButtons button{
+    height: 40px;
+    width: 40px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    background: var(--transParentPrimaryColor);
+}
+
+.counterButtons span{
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    background: var(--primaryColor);
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 10px black;
+}
+.counterButtons svg{
+    pointer-events: none;
+}
+
 .checkoutSection{
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
-.checkoutButton button{
+.addToCartButton button{
     border-radius: 5px;
     border: none;
     display: flex;
@@ -180,24 +215,20 @@
     color: var(--primaryColor);
 }
 
-.checkoutButton button::after{
+.addToCartButton button::after{
     background: var(--primaryBG);
 }
-.checkoutButton button::before{
+.addToCartButton button::before{
     background-color: var(--primaryColor);
 
 }
 
-.checkoutButton svg{
-    scale: 1.5;
-}
 
-
-.checkoutSection button:active{
+.addToCartButton button:active{
     scale: .7;
 }
 
-.checkoutSection span{
+.addToCartButton span{
     flex:1;
     text-align: center;
 }

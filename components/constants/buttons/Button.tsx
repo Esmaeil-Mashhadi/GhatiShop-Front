@@ -1,4 +1,4 @@
-import { MouseEventHandler, ReactNode, useState  } from 'react';
+import { ChangeEvent, MouseEventHandler, ReactNode, useState  } from 'react';
 import styles from './Button.module.css'
 import { dynamicStyles } from '@/utils/dynamicStyles/HoverButtonStyle';
 import buttonFunction from '../functions/ButtonFunction';
@@ -6,7 +6,7 @@ import buttonFunction from '../functions/ButtonFunction';
 interface buttonPropType {
   text:string 
   styleClass?:string , 
-  handler:MouseEventHandler,
+  handler:MouseEventHandler ,
   disabled?:boolean
 }
 const Button = ({text, styleClass, handler , disabled }:buttonPropType) => {

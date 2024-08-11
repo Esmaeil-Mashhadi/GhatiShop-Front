@@ -1,5 +1,5 @@
 'use client'
-import {  ChangeEvent, useState } from 'react'
+import {  ChangeEvent, MouseEvent, useState } from 'react'
 import styles from './CardInfo.module.css'
 import { MdFavorite } from "react-icons/md";
 import { BsFillShareFill } from "react-icons/bs";
@@ -12,6 +12,12 @@ import { commaSeperator } from '@/utils/converters/commaSeperator';
 import { GiPriceTag } from "react-icons/gi";
 import Link from 'next/link';
 import { ProductType } from '../submodules/adminProduct/CreateProduct';
+import { FaTrashAlt } from "react-icons/fa";
+import { numberToPersian } from '@/utils/converters/converToPersianNum';
+import Notification from '@/components/constants/Notif&Loader/Notification';
+import { NotifObjectType } from '../auth/types/auth';
+import { useDispatch, useSelector } from 'react-redux';
+import { add, CartProductType, dec } from '@/utils/hooks/CartReducer';
 
 
 interface CardInfoPropType {
@@ -19,10 +25,23 @@ interface CardInfoPropType {
   modal: boolean
 }
 
+export interface SelectorStateType{
+   [key:string] :{
+    ordered:CartProductType[] 
+    totalOrder:number 
+    totalPrice:number | string
+   }
+}
+
 function CardInfo({product , modal}:CardInfoPropType) {
     
     const [discountCode , setDiscountCode] = useState('')
-    const [counter , setCounter]= useState(1)
+    const [notifObject , setNotifObject] = useState<NotifObjectType>({
+        message:"" ,
+        triggered: false , 
+        type:'error'
+    })
+
     const off = Math.round((1 - (Number(product.specialPrice) / Number(product.price))) * 100);
     
     const handleDiscountChange = (e:ChangeEvent<HTMLInputElement>)=>{
@@ -30,16 +49,35 @@ function CardInfo({product , modal}:CardInfoPropType) {
     }
 
 
-    const counterHandler= (e:ChangeEvent<HTMLInputElement>)=>{
-        const { name} = e.target
-        setCounter((prev:number)=>{
-           return name == 'inc' ? prev+1 : name =='dec' && counter>1 ? prev - 1 : 1
-        })
-    }
 
-     
+    const {ordered , totalOrder , totalPrice} = useSelector((state:SelectorStateType) => {
+        return state.cartReducer;
+      }); 
+
+    const dispatch  = useDispatch()
+
+    const {quantity}= ordered.find((item:CartProductType) => item._id == product._id) || {quantity:0}
+
+    const counterHandler= (e:MouseEvent<HTMLButtonElement>)=>{
+        const mainImageString = typeof(product.mainImage)=='string' ? product.mainImage :''
+        const productForCart = {title:product.title, mainImage:mainImageString , price:product.price , specialPrice:product.specialPrice, _id:product._id}
+
+       
+        if(quantity == 0){
+            setNotifObject({
+                type:'success', 
+                message:"محصول به سبد خرید اضافه شد" , 
+                triggered:!notifObject.triggered
+            })
+            dispatch(add(productForCart)) 
+        }else{
+            const {name} = e.currentTarget
+            name == 'inc' ?     dispatch(add(productForCart)) : name =='dec' ? dispatch(dec(productForCart)) : null
+        }
+        }
 
   return (
+    
     <div className={ styles.container}>
         <CardInfoImageSection  product={product} />
     <div className={styles.infoSection}>
@@ -87,7 +125,20 @@ function CardInfo({product , modal}:CardInfoPropType) {
 
                     <div className={styles.checkoutSection}>
                         <div className={styles.checkoutButton}>
-                            <NeutralButton text='افزودن به سبد خرید' handler={()=>{}}/>
+                            {quantity >= 1 ?
+                             <div className={styles.counterButtons}>
+                                    <button name='inc' onClick={counterHandler}>+</button>
+                                    <span>{` ${numberToPersian(quantity)}`}</span>
+                                    {
+                                        quantity == 1 ? 
+                                        <button name='dec' onClick={counterHandler}><FaTrashAlt /></button>:
+                                        <button name='dec' onClick={counterHandler}>-</button>
+                                    }
+                             </div>:
+                             <div className={styles.addToCartButton}>
+                                 <NeutralButton text='افزودن به سبد خرید' handler={counterHandler}/>
+                             </div>
+                            }
                         </div>
 
                     </div>
@@ -106,6 +157,8 @@ function CardInfo({product , modal}:CardInfoPropType) {
       handleDiscountChange ={handleDiscountChange}
       off ={off}
     />    
+
+    <Notification type={notifObject.type}  message={notifObject.message} triggered={notifObject.triggered}/>
 </div>
   )
 }
