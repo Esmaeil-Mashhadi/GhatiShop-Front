@@ -1,3 +1,4 @@
+import { redirect } from 'next/navigation';
 import SolidButton from '../constants/buttons/SolidButton';
 import CardInfo from '../modules/shopList/CardInfo'
 import StarProduct from '../modules/shopList/StarProduct';
@@ -15,7 +16,9 @@ async function ProductDetail({productID}:{productID:string}) {
         method:"GET" , cache:"no-store"
     })
     const {data:{product}} = await productResponse.json()
-
+    if(!product){
+      redirect('/notFound')
+    }
   return (
     <div className={styles.container}>
          <CardInfo modal={false} product = {product}  />

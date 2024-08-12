@@ -21,6 +21,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/modules/submodules/adminProduct/Desc.tsx", "components/modules/layout/CategorySection.tsx", "components/modules/submodules/product/ImagesModal.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/modules/submodules/adminProduct/Desc.tsx", "components/modules/layout/CategorySection.tsx", "components/modules/submodules/product/ImagesModal.js", "app/(noLayout)/signup/404.tsx"],
   "exclude": ["node_modules"]
 }

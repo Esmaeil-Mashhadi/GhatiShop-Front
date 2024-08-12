@@ -28,7 +28,6 @@ function ShopProuctList() {
         getProducts()
    },[params])
 
-   console.log(!!productList.length);
   
   return (
     <>

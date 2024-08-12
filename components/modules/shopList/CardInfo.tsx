@@ -51,18 +51,23 @@ function CardInfo({product , modal}:CardInfoPropType) {
 
 
     const {ordered , totalOrder , totalPrice} = useSelector((state:SelectorStateType) => {
-        return state.cartReducer;
-      }); 
-
+        if(state.cartReducer.ordered.length){
+            return state.cartReducer
+        }else{
+           return JSON.parse(localStorage.getItem("orders")||"")
+        }
+    
+    }) 
+   
     const dispatch  = useDispatch()
 
     const {quantity}= ordered.find((item:CartProductType) => item._id == product._id) || {quantity:0}
 
-    const counterHandler= (e:MouseEvent<HTMLButtonElement>)=>{
+    const AddToCartHandler= (e:MouseEvent<HTMLButtonElement>)=>{
         const mainImageString = typeof(product.mainImage)=='string' ? product.mainImage :''
         const productForCart = {title:product.title, mainImage:mainImageString , price:product.price , specialPrice:product.specialPrice, _id:product._id}
 
-       
+        
         if(quantity == 0){
             setNotifObject({
                 type:'success', 
@@ -127,16 +132,16 @@ function CardInfo({product , modal}:CardInfoPropType) {
                         <div className={styles.checkoutButton}>
                             {quantity >= 1 ?
                              <div className={styles.counterButtons}>
-                                    <button name='inc' onClick={counterHandler}>+</button>
+                                    <button name='inc' onClick={AddToCartHandler}>+</button>
                                     <span>{` ${numberToPersian(quantity)}`}</span>
                                     {
                                         quantity == 1 ? 
-                                        <button name='dec' onClick={counterHandler}><FaTrashAlt /></button>:
-                                        <button name='dec' onClick={counterHandler}>-</button>
+                                        <button name='dec' onClick={AddToCartHandler}><FaTrashAlt /></button>:
+                                        <button name='dec' onClick={AddToCartHandler}>-</button>
                                     }
                              </div>:
                              <div className={styles.addToCartButton}>
-                                 <NeutralButton text='افزودن به سبد خرید' handler={counterHandler}/>
+                                 <NeutralButton text='افزودن به سبد خرید' handler={AddToCartHandler}/>
                              </div>
                             }
                         </div>

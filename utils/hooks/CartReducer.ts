@@ -54,6 +54,7 @@ const orderSlice = createSlice({
         const { totalOrder, totalPrice } = sum(state.ordered);
         state.totalOrder = totalOrder;
         state.totalPrice = totalPrice;
+        localStorage.setItem("orders" , JSON.stringify(state))
       },
       dec: (state:OrderType , action:PayloadAction<Omit<CartProductType , 'quantity'>>)=>{
          const index = state.ordered.findIndex(item => item._id == action.payload._id)
@@ -66,7 +67,9 @@ const orderSlice = createSlice({
             const {totalOrder , totalPrice} = sum(state.ordered)
             state.totalOrder = totalOrder 
             state.totalPrice = totalPrice
+            localStorage.setItem("orders" , JSON.stringify(state))
          }
+
 
       }
     }

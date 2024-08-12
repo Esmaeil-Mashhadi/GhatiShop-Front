@@ -1,0 +1,58 @@
+.container{
+    position: absolute;
+    width: 70%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -35%);
+    opacity: 0.5;
+    border-radius: 50px;
+    overflow: hidden;
+}
+.notfound{
+    width: 100%;
+    height: 100%;
+    border-radius: 50px;
+}
+.wrongText{
+    position: absolute;
+    left: 50%;
+    bottom: 0px;
+    transform: translate(-50% , -50%);
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+    background: rgba(255, 255, 255, 0.433);
+    border-radius: 5px;
+    padding: 5px;
+    white-space: nowrap;
+}
+.buttons{
+    position: absolute;
+    bottom: 0px;
+    display: flex;
+    width: 100%;
+    border-radius: 50px;
+    justify-content: center;
+    overflow: hidden;
+    border: none;
+    gap: 1px;
+}
+.buttons button{
+    width: 100%;
+    border: none;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+    background: var(--primaryColor);
+}
+
+
+@media screen and (max-width:450px) {
+    .wrongText{
+        font-size: 15px;
+    }
+    .container{
+        height: 80%;
+    }
+}
