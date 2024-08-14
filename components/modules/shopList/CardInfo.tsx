@@ -54,14 +54,14 @@ function CardInfo({product , modal}:CardInfoPropType) {
         if(state.cartReducer.ordered.length){
             return state.cartReducer
         }else{
-           return JSON.parse(localStorage.getItem("orders")||"")
+           return JSON.parse(localStorage.getItem("orders")||"{}")
         }
     
     }) 
    
     const dispatch  = useDispatch()
 
-    const {quantity}= ordered.find((item:CartProductType) => item._id == product._id) || {quantity:0}
+    const {quantity}= ordered?.find((item:CartProductType) => item._id == product._id) || {quantity:0}
 
     const AddToCartHandler= (e:MouseEvent<HTMLButtonElement>)=>{
         const mainImageString = typeof(product.mainImage)=='string' ? product.mainImage :''

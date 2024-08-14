@@ -9,7 +9,7 @@ export const dynamicStyles = ()=>{
     
              '--transition' :!enter && !leave ?"none": ".3s",
     
-             '--brightness':enter ? "brightness(120%)" :"brightness(85%)",
+             '--brightness':enter ? "brightness(100%)" :"brightness(85%)",
         }
         return style
     }

@@ -13,13 +13,17 @@ export interface OrderType {
  ordered:CartProductType[]
  totalOrder:number 
  totalPrice:number
+ totalProfit:number 
+ totalRawPrice:number
 }
 
 
 const initialState:OrderType = {
     ordered:[],
     totalOrder:0 ,
-    totalPrice:0
+    totalPrice:0 , 
+    totalProfit:0, 
+    totalRawPrice:0
 }
 
 
@@ -30,11 +34,23 @@ const sum = (orders:CartProductType[])=>{
 
     const totalPrice =  orders.reduce((acc:number , curr:CartProductType)=>{
         const finalPrice = (curr.specialPrice ? Number(curr.specialPrice) : Number(curr.price) )*curr.quantity
-
         return acc+= finalPrice
     },0)
 
-    return {totalOrder , totalPrice}
+    const totalProfit = orders.reduce((acc:number , curr:CartProductType)=>{
+         if(curr.specialPrice){
+           const profit = acc+=(Number(curr.price) - Number(curr.specialPrice))
+           return profit*curr.quantity
+         }else{
+           return acc
+         }
+    }, 0)
+
+    const totalRawPrice = orders.reduce((acc , curr)=>{
+      return acc+= Number(curr.price)*Number(curr.quantity)
+    },0)
+
+    return {totalOrder , totalPrice , totalProfit , totalRawPrice}
 }
 
 
@@ -51,9 +67,12 @@ const orderSlice = createSlice({
           state.ordered[sameIndex].quantity += 1;
         }
   
-        const { totalOrder, totalPrice } = sum(state.ordered);
+        const { totalOrder, totalPrice , totalProfit , totalRawPrice} = sum(state.ordered);
         state.totalOrder = totalOrder;
         state.totalPrice = totalPrice;
+        state.totalProfit = totalProfit
+        state.totalRawPrice = totalRawPrice
+
         localStorage.setItem("orders" , JSON.stringify(state))
       },
       dec: (state:OrderType , action:PayloadAction<Omit<CartProductType , 'quantity'>>)=>{
@@ -64,9 +83,11 @@ const orderSlice = createSlice({
             }else{
                 state.ordered[index].quantity -=1
             }
-            const {totalOrder , totalPrice} = sum(state.ordered)
+            const {totalOrder , totalPrice , totalProfit, totalRawPrice} = sum(state.ordered)
             state.totalOrder = totalOrder 
             state.totalPrice = totalPrice
+            state.totalProfit = totalProfit
+            state.totalRawPrice = totalRawPrice
             localStorage.setItem("orders" , JSON.stringify(state))
          }
 

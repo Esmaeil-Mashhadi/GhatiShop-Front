@@ -31,8 +31,8 @@
     .submitButton{
         filter: var(--brightness);
         background: transparent;
-        box-shadow:inset 0px 0px 10px rgba(61, 246, 135, 0.642);
-        color:  rgb(61, 246, 135);
+        box-shadow:inset 0px 0px 10px var(--primaryColor);
+        color:  var(--primaryColor);
     }
     
     .neutralButton{
@@ -57,7 +57,7 @@
     .submitButton::before{
         content: "";
         position: absolute;
-        background: rgb(61, 246, 135);
+        background: var(--primaryColor);
         width: 100%;
         height: 100%;
         border-radius: 5px;

@@ -4,16 +4,18 @@ import styles from './Register.module.css'
 import Mobile from '../modules/auth/Mobile'
 import Code from '../modules/auth/Code'
 import Notification from '../constants/Notif&Loader/Notification'
+import { NotifObjectType } from '../modules/auth/types/auth'
 
 function Register() {
     const [send , setSend] =useState(false)
-    const [notifObject , setNotifObject] = useState({
-      type:'', 
+    const [notifObject , setNotifObject] = useState<NotifObjectType>({
+      type:'error', 
       message:"", 
       triggered: false
     })
     const [mobile , setMobile] = useState("")
 
+    
 
   return (
     <div className={styles.container}>

@@ -1,6 +1,6 @@
 import { ChangeEvent, Dispatch, SetStateAction, useState } from 'react'
 import styles from './Code.module.css'
-import { useRouter } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 import { CancelButton, SubmitButton } from '@/components/constants/buttons/Button'
 import { api } from '@/configs/axios'
 import { NotifObjectType } from './types/auth'
@@ -36,7 +36,7 @@ function Code({send , setSend , mobile , notifObject , setNotifObject }:MobilePr
         '--transfer': confirm ? 'translateX(-200%)':'translateX(0%)'
     }
 
-
+    const params = useSearchParams()
     const router = useRouter()
     const confirmCodeHandler = async()=>{
         setIsLoading(true)
@@ -59,7 +59,12 @@ function Code({send , setSend , mobile , notifObject , setNotifObject }:MobilePr
                 setIsLoading(false)
                 router.refresh()
                 setTimeout(() => {
-                    router.push('/')
+                    if(params.get('referer') == 'checkout'){
+                        router.push('/checkout')
+                    }else{
+                        router.refresh()
+                        router.push('/')
+                    }
                 }, 1000);
             }
         } catch (error:any) {
