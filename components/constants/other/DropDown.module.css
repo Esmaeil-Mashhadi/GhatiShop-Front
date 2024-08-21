@@ -16,7 +16,7 @@
     justify-content: space-between;
 }
     
-.selectContainer button{
+.select{
     flex: 1;
     border-radius: 5px;
     display: flex;
@@ -30,6 +30,7 @@
     font-size: 15px;
     padding: 10px;
     cursor: pointer;
+    outline: none;
 }
 .options{
     display: flex;
