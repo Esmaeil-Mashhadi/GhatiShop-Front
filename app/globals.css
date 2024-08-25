@@ -6,6 +6,7 @@
     --primaryBG :rgb(11, 14, 21);
     --transparentPrimary : rgba(28, 33, 43, 0.571);
     --lgPrimaryBG:rgb(28, 33, 43);
+    --primaryBlueBG :rgb(28, 59, 78);
     --primaryColor: rgb(192, 195, 251);
     --transParentPrimaryColor: rgba(192, 195, 251, 0.13);
     --primaryText: rgb(170, 169, 169);
@@ -15,6 +16,7 @@
     --primaryGreen:rgb(21, 75, 2);
     --primaryGold: rgb(176, 127, 5);
     --primaryDarkGold: rgb(99, 71, 0);
+    
 }
 
 body{

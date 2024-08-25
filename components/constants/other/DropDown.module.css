@@ -17,12 +17,11 @@
 }
     
 .select{
-    flex: 1;
     border-radius: 5px;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 5px;
     border: none;
     background: var(--inputBG);
     color: var(--primaryColor);

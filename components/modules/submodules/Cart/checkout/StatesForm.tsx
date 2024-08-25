@@ -1,11 +1,15 @@
 'use client'
 import { useQuery } from '@tanstack/react-query'
 import styles from './StatesForm.module.css'
-import { useState } from 'react'
+import { Dispatch, SetStateAction, useState } from 'react'
 import DropDown from '@/components/constants/other/DropDown';
 import { ThreeDots } from 'react-loader-spinner';
 
-function StatesForm() {
+type StateFormPropType={
+ setEditing?:Dispatch<SetStateAction<boolean>>
+}
+
+function StatesForm({setEditing}:StateFormPropType) {
 
   const [state , setState] = useState('تهران')
 
@@ -24,14 +28,15 @@ function StatesForm() {
     const {data:cityData , isLoading } = useQuery({queryKey:['city' , state] , queryFn:fetchCities})
     const {data:stateData} = useQuery({queryKey:['state'] , queryFn:fetchStates}) 
   
-  const [city , setCity] = useState('')
+  const [city , setCity] = useState('') 
+
 
   return (
     <div className={styles.container}>
-           <DropDown data={stateData} setOption={setState} option={state} title='استان' />
+           <DropDown setEditing ={setEditing} data={stateData} setOption={setState} option={state} title='استان' />
           {isLoading ? <div className={styles.loading}><ThreeDots  color='rgb(192, 195, 251)' height={25} />  </div>
           :
-            <DropDown data={cityData} setOption={setCity} option={ city || cityData[0].name} title='شهر' />
+            <DropDown setEditing ={setEditing} data={cityData} setOption={setCity} option={ city || cityData[0].name} title='شهر' />
              }
     </div>
   )

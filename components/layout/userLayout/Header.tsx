@@ -47,12 +47,12 @@ async function Header() {
         
       <Search />
 
-      <HeaderCart />
+      {/* <HeaderCart /> */}
 
       <div className={styles.account}>
 
         {user ? (
-          <Link href="/">
+          <Link href="/profile/info">
             حساب کاربری
           </Link>
         ) : (

@@ -7,6 +7,7 @@ interface DropDownPropType{
     setOption:Dispatch<SetStateAction<string>>
     option:string , 
     title:string 
+    setEditing?: Dispatch<SetStateAction<boolean>>
 }
 
 interface StatesType{
@@ -17,7 +18,7 @@ interface StatesType{
     center:string 
 
 }
-function DropDown({data , setOption , option , title}:DropDownPropType) {
+function DropDown({data , setOption , option , title , setEditing}:DropDownPropType) {
 
     const [isDroped , setIsDroped] =useState(false)
     const [citySearch , setCitySearch] = useState(undefined)
@@ -30,8 +31,12 @@ function DropDown({data , setOption , option , title}:DropDownPropType) {
     }
  
     const selectStateHandler = (name:string)=>{
+        console.log(setEditing);
         setOption(name)
         setIsDroped(false)
+        if(setEditing){
+            setEditing(true)
+        }
     }
 
     const dropHandler = ()=>{
@@ -57,7 +62,6 @@ function DropDown({data , setOption , option , title}:DropDownPropType) {
     //     // setNewData(newData)
     // }
 
-    console.log(data);
   return (
     <div className={styles.container}>
     <label>{title} : </label>

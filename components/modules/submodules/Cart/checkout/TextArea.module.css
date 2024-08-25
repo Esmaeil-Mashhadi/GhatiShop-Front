@@ -36,7 +36,7 @@
 
 .inputContainer input{
     border-radius: 5px;
-    width: 94%;
+    width: calc(100% - 20px);
     padding: 5px 10px;
     border: none;
     outline: none;

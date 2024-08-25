@@ -1,0 +1,14 @@
+.container{
+    animation: showup .2s linear forwards;
+}
+
+@keyframes showup  {
+    from{
+        scale: .8;
+        opacity: 0;
+    }
+    to{
+        scale: 1;
+        opacity: 1;
+    }
+}

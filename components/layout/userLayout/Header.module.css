@@ -60,64 +60,6 @@
     background: pink
 }
 
-.categories{
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    border-bottom: solid;
-    margin-top: 3px;
-    border-color:rgb(110, 18, 124) ;
-}
-
-.categories:hover{
-    border-color: aquamarine;
-}
-
-
-
-.cateButton {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-}
-.cateButton svg{
-    scale: 1.5;
-    transition: .2s ease;
-    color: rgb(225, 139, 238);
-}
-
-.categories:hover svg{
- rotate: -180deg;
- transform: translate(0);
- color: aquamarine;
-}
-.categories:hover::before{
-    background: aquamarine;
-}
-
-.categoriesSection{
-    position: absolute;
-    height: fit-content;
-    width: 700px;
-    background: rgba(0, 0, 0, 0.832);
-    top:28px;
-    right: 0px;
-    transform: translateY(-100%);
-    opacity: 0;
-    transition: .2s ;
-    border-radius: 5px;
-    pointer-events: none;
-}
-
-
-.categories:hover > .categoriesSection,
-.categoriesSection:hover {
-    pointer-events: all;
-    transform: translateY(0%);
-    opacity: 1;
-}
 
 .linkContaienr a:hover {
     color: black;
