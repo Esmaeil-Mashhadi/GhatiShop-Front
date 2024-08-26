@@ -1,5 +1,6 @@
 .container{
     width: 100%;
     background: var(--lgPrimaryBG);
+    background:transparent;
     height: 100%;
 }
