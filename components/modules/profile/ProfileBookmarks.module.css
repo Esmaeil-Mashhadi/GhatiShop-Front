@@ -1,6 +1,26 @@
 .container{
     animation: showup 1s linear forwards;
+    display: grid;
+    grid-template-columns: repeat(4 ,1fr);
+    max-height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    gap: 20px;
 }
+
+.container::-webkit-scrollbar{
+    width: 10px;
+}
+
+.container::-webkit-scrollbar-thumb{
+    background: darkcyan;
+    border-radius: 5px;
+}
+.container::-webkit-scrollbar-track{
+    border-radius: 5px;
+}
+
+
 
 @keyframes showup  {
     from{

@@ -1,8 +1,0 @@
-.container{
-    width: 500px;
-    height: 700px;
-    background: var(--primaryBG);
-    border: solid;
-    display: flex;
-    flex-direction: column;
-}

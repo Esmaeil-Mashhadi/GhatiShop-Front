@@ -1,70 +1,46 @@
 .container{
-    display: flex;
-    height:400px;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-bottom: 20px;
+    height: 390px;
     min-width: 100%;
+    position: relative;
+    border-radius: 5px;
+    padding: 5px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    box-shadow:inset 0px 0px 555px var(--lgPrimaryBG);
+    transition: .2s ease;
+    border: double var(--transParentPrimaryColor);
+    box-sizing: border-box;
+}
+
+.container:hover{
+    box-shadow:inset 0px 0px 20px var(--lgPrimaryBG);
 }
 
 .info{
     display: flex;
     flex-direction: column;
-    border-radius: 5px;
-    gap: 10px;
-    box-shadow:inset 0px 0px 50px var(--transParentPrimaryColor);
-    width: 80%;
-    padding: 10px 0px ;
-}
-
-.info p{
-    margin: 0px;
-    width: 100%;
-}
-
-.title{
-    text-align: center;
-    box-shadow: 0px 0px 2px white;
-    border-radius: 5px;
-    height: 30px;
-    padding: 5px;
-    width: 90%;
-    margin: auto;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow:ellipsis ;
-}
-.title p{
-    overflow:hidden; 
-    white-space: nowrap;
-    text-overflow: ellipsis;
-}
-
-
-.imageCard{
-    width: 90%;
-    margin: auto;
-    height: 100%;
-    position: relative;
-    overflow: hidden;
-    border-radius: 5px;
+    flex: 1;
+    justify-content: space-evenly;
 }
 
 .mainImage{
-    height: 100%;
-    width: 100%;
+    height: 200px;
+    box-shadow: 0px 0px 15px black;
     border-radius: 5px;
-
+    overflow: hidden;
 }
+
 .mainImage img{
     width: 100%;
     height: 100%;
+    border-radius: 5px;
     transition: 1s ease;
-    flex: 1;
 }
 
-.mainImage img:hover {
-    scale:1.5;
+.mainImage:hover > img{
+    scale: 1.2;
 }
 
 .off{
@@ -76,150 +52,95 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    left: 10px;
-    top: 10px;
+    left: 20px;
+    top: 80px;
     z-index: 9;
     pointer-events: none;
 }
-.off span{
-    margin-top: 3px;
-}
-
-
-.sideButtons{
-    width: 40px;
-    height: 100%;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    gap: 5px;
-    pointer-events: none;
-    background: var(--primaryBG);
-
-}
-
-.sideButtons button{
-    flex: 1;
+.title{
     border-radius: 5px;
-    padding: 5px 0px;
-    border: none;
+    width: 100%;
+    height: 50px;
+    text-align: center;
+     display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.title p{
+    margin: 0px;
+    padding: 5px;
+}
+
+.buttonsList{
+    display: flex;
+    gap: 5px;
+}
+
+
+.container:hover > .buttonsList button{
+    opacity: 1;
+}
+
+.buttonsList button svg{
+    scale: 1.5;
+}
+
+.watchProduct ,
+.favButton, 
+.addToCart{
+    width: 100%;
+    height: 100%;
+    border-radius: 2.5px;
+    background: transparent;
+    border: solid 1.8px var(--primaryColor);
+    color: var(--primaryColor);
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
     cursor: pointer;
     transition: .2s ease;
-    opacity: .2;
-    margin-right: 5px;
-    background: transparent;
-    color: white;
+    border-color: transparent;
+    opacity: .5;
+    padding: 10px;
 }
 
-.cartButtons{
-    flex: 1;
-    margin-right: 5px;
-    box-sizing: border-box;
+.buttonsList button:hover{
+    background: var(--primaryColor);
+    color: black;
 }
-.cartButtons button{
-    width: 100%;
-    margin: 0px;
-    height: 100%;
-}
-.addToCart{
-    box-shadow: inset 0px 0px 30px  var(--primaryGreen);
-    transition-delay: .2s;
-}
-.watchProduct{
-    box-shadow: inset 0px 0px 30px  var(--primaryBlue);
-    transition-delay: .15s;
-
-}
-.favButton{
-    box-shadow: inset 0px 0px 30px var(--primaryRed);
-    transition-delay: .1s;
-}
-.sideButtons button:hover svg{
-    scale: 2;
-}
-
-.sideButtons svg{
-    scale: 1.5;
-    transition: .2s ease;
-}
-
-.amountContainer{
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    height: 100%;
-}
-.amountContainer button{
-    background: var(--lgPrimaryBG);
-    opacity: 1;
-    font-size: 20px;
-    font-weight: bold;
-    transition: .2s ease;
-}
-.amountContainer button:active{
-    scale: .8;
-}
-
-.container:hover  > .sideButtons button{
-    opacity: 1;
-    transform:  translate(0);
-    pointer-events: all;
-}
-
 
 .pricePart{
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    align-items: center;
-    width: 90%;
-    margin: auto;
-    gap: 5px;
-    border-radius: 5px;
-    box-shadow: inset 0px 0px 2px white;
-    min-height: 30px;
-    display: flex;
-}
-
-
-.discountPart{
-    display: flex; 
-    align-items: center;
-    gap: 5px;
-    flex: 1;
-    padding: 0px 10px;
-}
-
-.discountPart p{
-    white-space: nowrap;
-}
-.pricePart p{
-    margin: 0px;
-    padding: 0px;
-    width: fit-content;
-    white-space: nowrap;
     padding: 0px 5px;
-
+    border-radius: 5px;
+    position: relative;
 }
 
 .starScore{
     display: flex;
     align-items: center;
     gap: 5px;
-    padding: 0px 10px;
+    color: goldenrod
 }
 .starScore svg{
-    transform: translateY(-1.5px);
-    scale: 1.3;
-    color:goldenrod;
+    margin-bottom: 3px;
 }
 
 
+.discountPart p:first-child{
+    position: absolute;
+    top: -10px;
+    font-size: 12px;
+}
+  
+
+
+/* 
 @media screen and (max-width:1100px) {
   .container{
     flex-direction: column;
@@ -262,13 +183,7 @@
     height: 75px;
     justify-content: space-between;
   }
-  .discountPart{
-    flex-direction: column;
-    height: 90%;
-    align-items: flex-start;
-    gap: 0px;  
-  }
-  
+
   .title{
     height:75px;
     display: flex;
@@ -281,4 +196,4 @@
     flex-direction: row;
   }
 
-}
+} */ 

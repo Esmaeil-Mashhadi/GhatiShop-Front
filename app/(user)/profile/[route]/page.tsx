@@ -18,7 +18,7 @@ const renderCompoent = ()=>{
            return <ProfileInfo />
         case "orders":
             return <ProfileOrders />
-        case 'bookmarks':
+        case 'favorites':
             return <ProfileBookmarks />
         case 'comments': 
             return <ProfileComments />

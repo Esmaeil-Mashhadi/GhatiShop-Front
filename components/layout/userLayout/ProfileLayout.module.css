@@ -9,6 +9,8 @@
     width: 80%;
     background: var(--lgPrimaryBG);
     height: 550px;
+    z-index: 999;
+
 }
 
 
@@ -18,7 +20,7 @@
     background:var(--primaryBlueBG);
     border-radius: 5px;
     margin-right:50px;
-    z-index: 998;
+    z-index: -1;
     height: 110%;
     width: 150px;
     align-items: center;
