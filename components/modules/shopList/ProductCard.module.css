@@ -62,11 +62,10 @@
     width: 100%;
     height: 50px;
     text-align: center;
-     display: -webkit-box;
-    -webkit-box-orient: vertical;
+    display: -webkit-box;
     -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
     overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 .title p{
@@ -76,8 +75,13 @@
 
 .buttonsList{
     display: flex;
+    align-items: center;
+    justify-content: space-evenly;
     gap: 5px;
+    width: 100%;
+    height: 35px;
 }
+
 
 
 .container:hover > .buttonsList button{
@@ -87,24 +91,19 @@
 .buttonsList button svg{
     scale: 1.5;
 }
-
-.watchProduct ,
-.favButton, 
-.addToCart{
-    width: 100%;
-    height: 100%;
-    border-radius: 2.5px;
-    background: transparent;
-    border: solid 1.8px var(--primaryColor);
-    color: var(--primaryColor);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: .2s ease;
-    border-color: transparent;
-    opacity: .5;
-    padding: 10px;
+.buttonsList button{
+  width: 100%;
+  height: 100%;
+  border-radius: 2.5px;
+  background: transparent;
+  color: var(--primaryColor);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: .2s ease;
+  border-color: transparent;
+  opacity: .5;
 }
 
 .buttonsList button:hover{
@@ -137,63 +136,49 @@
     top: -10px;
     font-size: 12px;
 }
-  
 
 
-/* 
-@media screen and (max-width:1100px) {
+
+.counterButton{
+  width: 100%;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+.counterButton button{
+  border: solid 1.8px var(--primaryColor);
+  background: transparent;
+  border-radius: 5px;
+  color: var(--primaryColor);
+  font-weight: bold;
+  cursor: pointer;
+  height: 25px;
+  flex: 1;
+
+}
+
+.quantity{
+  border-radius: 50%;
+  background: var(--primaryColor);
+  color: black;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+@media screen and (max-width:450px) {
   .container{
-    flex-direction: column;
-    gap: 0px;
-    height: 500px;
-    box-shadow:inset 0px 0px 50px var(--transParentPrimaryColor);
-    align-items: center;
+    height: 300px;
+    font-size: 12px;
+    padding: 2.5px 5px;
+
   }
 
-  .imageCard{
-    width: 100%;
-  }
-  .pricePart{
-    width: 100%;
+  .mainImage{
+    height: 150px;
   }
 
-
-  .sideButtons{
-    flex-direction: row;
-    width: 85%;
-    margin: 0px;
-    height: 40px;
-    background: transparent;
-  }
-
-  .sideButtons button{
-    opacity: 1;
-    margin: 0px;
-    padding: 0px;
-  }
-
-  .info{
-    padding: 20px;
-    width: 100%;
-    height: 90%;
-    box-sizing: border-box;
-    box-shadow: none;
-  }
-  .pricePart{
-    height: 75px;
-    justify-content: space-between;
-  }
-
-  .title{
-    height:75px;
-    display: flex;
-    align-items: center;
-    width: 100%;
-    padding: 0px;
-  }
-  .amountContainer{
-    gap: 2px ;
-    flex-direction: row;
-  }
-
-} */ 
+}

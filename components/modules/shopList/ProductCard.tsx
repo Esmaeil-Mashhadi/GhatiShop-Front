@@ -87,10 +87,14 @@ function ProductCard({product}:ProductCardType) {
                    </button>
                      {
                             quantity >= 1 ? 
-                            <div className={styles.amountContainer}>
-                                <button title='افزودن تعداد' onClick={()=>dispatch(add(productCart))}>+</button>
-                                <button title='کاهش تعداد' onClick={()=>dispatch(dec(productCart))}>-</button>
-                            </div> : 
+                                <div className={styles.counterButton}>
+                                    <button title='افزودن تعداد' onClick={()=>dispatch(add(productCart))}>+</button>
+                                    <button className={styles.quantity}>
+                                        {numberToPersian(quantity)}
+                                    </button>
+                                        <button title='کاهش تعداد' onClick={()=>dispatch(dec(productCart))}>-</button>
+                                </div>
+                                 : 
         
                             <button className={styles.addToCart} onClick={addToCartHandler} title='افزودن به سبد خرید'>
                                 <MdShoppingCartCheckout />
