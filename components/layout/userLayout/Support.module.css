@@ -5,7 +5,7 @@
     display: flex;
     align-items: center;
     bottom: 29%;
-    z-index: 999;
+    z-index: 1000;
     border-radius: 50%;
     width: 70px;
     height: 70px;
@@ -100,7 +100,7 @@
 }
 
 
-@media screen and (max-width:450px) {
+@media screen and (max-width:750px) {
  .container{
     scale: .8;
     right: auto;
