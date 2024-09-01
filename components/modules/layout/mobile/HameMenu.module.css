@@ -97,41 +97,7 @@
     justify-content: flex-start;
 }
 
-.hameLines {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-    padding-right: 20px;
-    cursor: pointer;
-    position: absolute;
-    top: 35px;
-    z-index: 999;
-}
 
-
-.hameLines span{
- background:var(--primaryGold) ;
- height: 4px;
- border-radius: 5px;
- width: 40px;
- transition: .2s ease;
- transform-origin: 7px;
-}
-
-.hameLines span:first-child{
-    transform: var(--transformFirst);
-}
-
-.hameLines span:nth-child(2){
-    transform: var(--transformCenter);
-    opacity: var(--centerOpacity);
-}
-
-.hameLines span:last-child{
-    transform: var(--transformLast);
-}
 
 .searchContainer{
     width: 100%;

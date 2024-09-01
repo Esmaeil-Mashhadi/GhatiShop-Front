@@ -3,11 +3,12 @@
 import Link from 'next/link'
 import styles from './HameMenu.module.css'
 import { IoSearchSharp } from "react-icons/io5";
-import { ReactNode, useEffect, useState } from 'react';
+import { useState } from 'react';
 import MobileCategorySection from './MobileCategorySection';
+import HamMenuButton from '@/components/constants/buttons/HamMenuButton';
 
 type hameMenuPropType ={
-    user:string |undefined ,
+    user?:string |undefined ,
 }
 
 function HameMenu({user}:hameMenuPropType) {
@@ -22,12 +23,7 @@ function HameMenu({user}:hameMenuPropType) {
         menu: true
     });
 
-    const hameStyle: Record<string, string | undefined> = {
-        '--transformFirst': showMenu ? 'rotate(45deg)' : undefined,
-        '--transformLast': showMenu ? 'rotate(-45deg)' : undefined,
-        '--transformCenter': showMenu ? 'translateX(50%)' : 'translateX(0)',
-        '--centerOpacity': showMenu ? '0' : '1'
-    };
+
 
     const transformMenu: Record<string, string | undefined> = {
         '--transform': showMenu ? 'translateX(0%)' : 'translateX(110%)',
@@ -46,11 +42,7 @@ function HameMenu({user}:hameMenuPropType) {
         {showMenu && 
           <div onClick={()=>setShowMenu(false)} className={styles.modalBG}>
          </div>}
-            <div onClick={() => setShowMenu(!showMenu)} style={hameStyle} className={styles.hameLines}>
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+             <HamMenuButton setShowMenu={setShowMenu} showMenu={showMenu}  />
             <div style={transformMenu} className={styles.container}>
                 <div className={styles.searchContainer}>
                     <button><IoSearchSharp /></button>

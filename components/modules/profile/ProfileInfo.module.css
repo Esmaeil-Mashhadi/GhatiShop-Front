@@ -28,15 +28,6 @@
  align-items: center;
  gap: 10px;
 }
-.scorePart svg{
-    position: absolute;
-    padding: 5px;
-    right: -25px;
-    bottom: 10px;
-    width: 20px;
-    height: 20px;
-}
-
 
 .scorePart p:nth-child(2){
     background: var(--primaryGold);
@@ -53,8 +44,7 @@
 }
 
 .info{
-    display: grid;
-    grid-template-columns: repeat(3 , 1fr);
+    display: flex;
     gap: 10px;
 }
 
@@ -63,19 +53,22 @@
     flex-direction: column;
     gap: 5px;
     justify-content: space-between;
+    width: 100%;
 }
 
 .info label{
     width: fit-content;
-    padding: 5px;
     border-radius: 5px;
 }
 .info input {
-    padding: 5px 10px;
     border: none;
+    padding: 5px ;
     outline: none;
     color: var(--primaryText);
+    width: calc(100% - 10px);
+    border-radius: 5px;
 }
+
 .info input:focus label{
 transform: translateY(-10px);
 }
@@ -95,3 +88,12 @@ transform: translateY(-10px);
     display: flex;
     justify-content: flex-end;
 } 
+@media screen and (max-width:750px) {
+    .container input{
+        font-size: 17px;
+    }
+    .container button{
+        font-size: 17px;
+    }
+}
+
