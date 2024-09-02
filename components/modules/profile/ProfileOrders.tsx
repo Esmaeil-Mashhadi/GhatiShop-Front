@@ -37,11 +37,13 @@ function ProfileOrders() {
                   </div>
                 ))}
               </div>
-
               <div className={styles.detail}>
                   <p>مبلغ کل فاکتور : <span>{commaSeperator(546000)}تومان</span></p>
                   <p> امتیاز دریافتی ازین خرید : <span>{numberToPersian(5)} <MdStars /></span></p>
                   <p>تاریخ فاکتور :<span> {`${new Date().toLocaleDateString()}`}</span></p>
+                  <Link className={styles.watchFactor} href={`/profile/orders/${2}`}>
+                      مشاهده ی فاکتور
+                  </Link>
               </div>
                 
           </Link>

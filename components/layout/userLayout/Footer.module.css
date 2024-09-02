@@ -7,7 +7,7 @@
    width: calc(100% - 50px) ;
    margin: auto;
    border-radius: 5px;
-   z-index: 998;
+   z-index: 997;
 }
 
 .rightSide{
@@ -112,7 +112,7 @@
 }
 }
 
-@media screen and (max-width:550px) {
+@media screen and (max-width:650px) {
     .container{
         display: flex;
         flex-direction: column;
