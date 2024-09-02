@@ -22,9 +22,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgb(1, 49, 38);
+    background: var(--primaryColor);
     font-weight: bold;
     padding-top: 5px;
+    color: black;
 }
 
 
@@ -34,15 +35,15 @@
 
 @keyframes firstProgress {
     0% {
-        background: rgb(1, 49, 38);
+        background: var(--primaryColor);
 
     }
     50% {
-        background: rgba(249, 249, 23, 0.503);
+        background: var(--lgPrimaryColor);
 
     }
     100% {
-        background: rgb(1, 49, 38);
+        background: var(--primaryColor);
     }
 }
 .container span:nth-child(2) {

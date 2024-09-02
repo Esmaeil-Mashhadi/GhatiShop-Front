@@ -3,7 +3,6 @@ import ProfileComments from '@/components/modules/profile/ProfileComments'
 import ProfileInfo from '@/components/modules/profile/ProfileInfo'
 import ProfileOrders from '@/components/modules/profile/ProfileOrders'
 import ProfileRoute from '@/components/templates/ProfileRoute'
-import React from 'react'
 
 type ProfileRouteParams ={
     params:{route:string }
