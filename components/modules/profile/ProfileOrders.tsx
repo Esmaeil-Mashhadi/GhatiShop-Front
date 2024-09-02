@@ -27,7 +27,7 @@ function ProfileOrders() {
       
   },[])
 
-  const factors ={order1 :orders.slice(0 ,3) , orders2:orders.slice(3 , 5)}
+  const factors ={order1 :orders.slice(0 ,3) , orders2:orders.slice(3 , 4)}
 
   return (
     <div className={styles.container}>
