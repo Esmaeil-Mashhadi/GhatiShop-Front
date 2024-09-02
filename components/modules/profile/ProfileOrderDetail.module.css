@@ -1,13 +1,12 @@
 .container{
     animation: showup .5s linear forwards;
     max-height: 100%;
-    overflow-y: scroll;
-    overflow-x: hidden;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     gap: 10px;
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(1,1fr);
 }
 
 .container::-webkit-scrollbar{
@@ -43,7 +42,7 @@ border-color: var(--primaryColor);
 
 .orderContainer img {
     gap: 10px;
-    min-width: 50%;
+    width: 25%;
     height: 100%;
     border-radius: 5px;
 }
@@ -72,12 +71,19 @@ border-color: var(--primaryColor);
 
 }
 
-.leftSide p span{
+.price{
     color: var(--primaryColor);
     font-size: 20px;
     font-weight: bold;
 }
-.leftSide p:nth-child(3) span{
+.priceLine{
+    flex:.9;
+    background-color: var(--primaryColor);
+    height: 1.5px;
+    opacity: .5;
+
+}
+.count{
     border-radius: 50%;
     background: var(--primaryColor);
     color: black;
@@ -85,15 +91,36 @@ border-color: var(--primaryColor);
     height: 20px;
     text-align: center;
     padding-bottom: 5px;
+    font-size: 20px;
+    font-weight: bold;
 }
-.leftSide p:last-child span{
+.score{
     color: var(--primaryGold);
     display: flex;
     align-items: center;
     gap: 5px;
+    font-size: 20px;
+    font-weight: bold;
 }
-.leftSide p:last-child span svg{
+.score svg{
     margin-bottom: 2px;
 }
 
 
+@media screen and (max-width:650px) {
+    .container{
+        margin-top: 50px;
+    }
+}
+
+@media screen and (max-width:450px) {
+  .container p{
+    font-size: 13.5px;
+  }
+  .container span{
+    font-size: 13.5px;
+  }
+  .container label{
+    font-size: 13.5px;
+  }
+}

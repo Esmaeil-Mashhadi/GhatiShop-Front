@@ -80,8 +80,6 @@ function HameMenu({user}:hameMenuPropType) {
                             <MobileCategorySection />
                         }
 
-                <div className={styles.categories}>
-                </div>
             </div>
        </>
     );

@@ -21,9 +21,8 @@ function ProfileLayout({children , route}:ProfileLayoutPropType) {
     const [showMenu , setShowMenu] = useState(false)
 
     const showUpStype:Record<string ,number|string |undefined>={
-        '--transfer': showMenu ? '0%' :'100%'
+        '--transfer': showMenu ? '0%' :'150%'
     }
-    console.log(showMenu);
   return (
     <div className={styles.container}>
         <div className={styles.linkContainer}>

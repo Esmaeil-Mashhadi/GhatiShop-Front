@@ -166,6 +166,9 @@
 }
 
 @media screen and (max-width:650px) {
+    .container{
+        width: 100%;
+    }
     .account a{
         display: none;
     }
@@ -178,11 +181,4 @@
         left: 30px;
     }
     
-}
-
-
-@media screen and (max-width:550px) {
-    .container{
-        width: 100%;
-    }
 }

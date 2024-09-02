@@ -29,9 +29,9 @@ function ProfileOrderDetail({params}:any) {
               <img src={product.mainImage} />
             <div className={styles.leftSide}>
                 <label>{product.title}</label>
-                <p>قیمت خریداری شده  : <span>{`${commaSeperator(122000)}`} تومان</span></p>
-                <p>تعداد خریداری شده : <span>{`${numberToPersian(2)}`}</span> </p>
-                <p>امتیازی دریافتی از این محصول :<span><MdStars/>{`${numberToPersian(2)}`}</span> </p>
+                <p>قیمت خریداری شده   :<span className={styles.price}>{`${commaSeperator(122000)}`} تومان</span></p>
+                <p>تعداد خریداری شده : <span className={styles.count}>{`${numberToPersian(2)}`}</span> </p>
+                <p>امتیازی دریافتی از این محصول :<span className={styles.score}><MdStars/>{`${numberToPersian(2)}`}</span> </p>
             </div>
         </Link>
       ))}  
