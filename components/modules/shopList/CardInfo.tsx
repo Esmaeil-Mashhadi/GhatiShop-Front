@@ -93,19 +93,28 @@ function CardInfo({product , modal}:CardInfoPropType) {
                 <p className={styles.shortDesc}>{product.shortDesc}</p>
                 } 
 
-                <div className={styles.priceContainer}>
-                    
-                     <div className={styles.discountCode}>
-                            {discountCode.trim().length > 0 ?
-                               <SolidButton text='اعمال کد تخفیف'/>:
-                                <label>کد تخفیف دارید ؟ </label>
+        <div className={styles.priceContainer}>  
+                <div className={styles.checkoutSection}>
+                            <div className={styles.checkoutButton}>
+                                {quantity >= 1 ?
+                                 <div className={styles.counterButtons}>
+                                        <button name='inc' onClick={AddToCartHandler}>+</button>
+                                        <span>{` ${numberToPersian(quantity)}`}</span>
+                                        {
+                                            quantity == 1 ? 
+                                            <button name='dec' onClick={AddToCartHandler}><FaTrashAlt /></button>:
+                                            <button name='dec' onClick={AddToCartHandler}>-</button>
+                                        }
+                                 </div>:
+                                 <div className={styles.addToCartButton}>
+                                     <NeutralButton text='افزودن به سبد خرید' handler={AddToCartHandler}/>
+                                 </div>
                             }
-                            <input value={discountCode} onChange={handleDiscountChange} type='text'  />
-                    </div>
-
+                             </div>
+                     </div>
+                    
                      {product.specialPrice ? 
                      <div className={styles.discountPart}>
-                   
                          <div className={styles.offPart}>
                                 <p className={styles.discountedPrice}>{commaSeperator(product.price)}</p>    
                                 <span>{`${off}%`}</span>
@@ -116,37 +125,18 @@ function CardInfo({product , modal}:CardInfoPropType) {
                              </span>
                          </p>
                      </div>: 
-                     <p className={styles.mainPrice}>{commaSeperator(product.price)} تومان 
-                            <span className={styles.priceTag}>
+                     <div className={styles.mainPrice}>{commaSeperator(product.price)} تومان 
+                            <p className={styles.priceTag}>
                              <GiPriceTag />
-                            </span>
-                      </p>
+                            </p>
+                      </div>
                     }  
-
-                </div>
+        </div>
       
 
                 <div className={styles.buttonContainer}>
 
-                    <div className={styles.checkoutSection}>
-                        <div className={styles.checkoutButton}>
-                            {quantity >= 1 ?
-                             <div className={styles.counterButtons}>
-                                    <button name='inc' onClick={AddToCartHandler}>+</button>
-                                    <span>{` ${numberToPersian(quantity)}`}</span>
-                                    {
-                                        quantity == 1 ? 
-                                        <button name='dec' onClick={AddToCartHandler}><FaTrashAlt /></button>:
-                                        <button name='dec' onClick={AddToCartHandler}>-</button>
-                                    }
-                             </div>:
-                             <div className={styles.addToCartButton}>
-                                 <NeutralButton text='افزودن به سبد خرید' handler={AddToCartHandler}/>
-                             </div>
-                            }
-                        </div>
-
-                    </div>
+     
                     <div className={styles.optionSelection}>
                         <button title='افزودن به علاقه مندی'><MdFavorite/></button>
                         <button title='اشتراک گذاری محصول'><BsFillShareFill /></button>

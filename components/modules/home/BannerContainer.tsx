@@ -55,7 +55,7 @@ const bannerData:BannerPropType[] = [
 <div
   className={styles.container}>
     {isLoading ? <LoadingPage/> : 
-    <Swiper
+    <Swiper 
      slidesPerView={1}
      spaceBetween={30}
      loop={true}

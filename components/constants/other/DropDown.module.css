@@ -37,7 +37,7 @@
     position: absolute;
     top: 40px;
     left: 0px;
-    max-height: 300px;
+    max-height: 500%;
     overflow-x: hidden;
     overflow-y: scroll;
     border-radius: 5px;

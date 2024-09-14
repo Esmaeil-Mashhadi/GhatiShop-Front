@@ -1,15 +1,18 @@
 .container{
     margin-top: 167px;
     padding: 0px 25px;
-    min-height: calc(100dvh - 395px);
-    flex: 1;
     margin-bottom: 10px;
     position: relative;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
 }
 
 @media screen and (max-width:650px) {
     .container{
         padding: 0px;
-        margin-top: 150px;
+        margin-top: 120px;   
     }
 }

@@ -14,6 +14,7 @@ async function Header() {
      const user = await checkUserAccessiblity(cookies().get('accessToken'))
 
   return (
+  <div className={styles.outerLayer}>
     <div className={styles.container}>
       <div className={styles.rightSide}>
         <div className={styles.linkContaienr}>
@@ -66,6 +67,8 @@ async function Header() {
 
       </div>
     </div>
+  </div>
+
   );
 }
 

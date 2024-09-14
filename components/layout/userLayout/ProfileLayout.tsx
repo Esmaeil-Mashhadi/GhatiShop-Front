@@ -2,7 +2,8 @@
 import Link from 'next/link'
 import styles from './ProfileLayout.module.css'
 import { ReactNode, useState } from 'react'
-import HamMenuButton from '@/components/constants/buttons/HamMenuButton'
+import { AiFillRightCircle } from "react-icons/ai";
+
 
 interface ProfileLayoutPropType {
     children:ReactNode , 
@@ -21,7 +22,8 @@ function ProfileLayout({children , route}:ProfileLayoutPropType) {
     const [showMenu , setShowMenu] = useState(false)
 
     const showUpStype:Record<string ,number|string |undefined>={
-        '--transfer': showMenu ? '0%' :'150%'
+        '--transfer': showMenu ? '0%' :'150%',
+        '--rotate' : showMenu ? '180deg' : '0deg'
     }
   return (
     <div className={styles.container}>
@@ -39,8 +41,14 @@ function ProfileLayout({children , route}:ProfileLayoutPropType) {
                 </Link>
             ))}
         </div>
-        <div className={styles.hamMenu}>
-          <HamMenuButton setShowMenu={setShowMenu} showMenu={showMenu} />
+        <div onClick={()=>setShowMenu(!showMenu)}  style={showUpStype} className={styles.arrow}>
+            <label htmlFor='text'>
+                <AiFillRightCircle /> 
+            </label>
+            <p id='text'>
+            {showMenu ?  "بستن منو":'باز کردن منو' }
+            </p>
+
         </div>
 
         <div className={styles.main}>
